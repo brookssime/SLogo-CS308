@@ -1,7 +1,6 @@
 package application;
-<<<<<<< HEAD
-import javafx.scene.Node;
 
+import javafx.scene.Node;
 
 public class Turtle {
     private double heading;
@@ -10,7 +9,7 @@ public class Turtle {
     private boolean penDown;
     private boolean showing;
     private Node node;
-    
+
     public Turtle() {
         x = 0;
         y = 0;
@@ -21,9 +20,9 @@ public class Turtle {
     public double getHeading() {
         return heading;
     }
-    
+
     public double getRadiansHeading() {
-        return heading/(2*Math.PI);
+        return heading / (2 * Math.PI);
     }
 
     public void setHeading(double heading) {
@@ -69,11 +68,4 @@ public class Turtle {
     public void setNode(Node node) {
         this.node = node;
     }
-    
-    
-=======
-
-public class Turtle {
-
->>>>>>> 01c1215472cb89159c56d9ebb3764b1788318997
 }

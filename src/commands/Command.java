@@ -22,8 +22,8 @@ public abstract class Command {
      */
     public double process(Model model, List<Object> parameters){
     	//throw arg number Exceptions
-    	return function(parameters);
+    	return function(model, parameters);
     }
     
-    public abstract double function(List<Object> parameters);
+    public abstract double function(Model model, List<Object> parameters);
 }
