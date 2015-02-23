@@ -5,25 +5,25 @@ import java.util.List;
 import application.Model;
 
 public abstract class Command {
-    private int numberOfParameters;
 
+	protected Model myModel;
 	protected int myArgNum;
 	
-	public Command(int argNum){
+	public Command(Model model, int argNum){
+		myModel = model;
 		myArgNum = argNum;
 	}
 	
     /**
      * @param parameters
      *            collection of parameters needed to compute the given command
-     * @param model
-     *   
      * @return double result from executing the command
      */
-    public double process(Model model, List<Object> parameters){
+    public List<Object> process(List<Object> args){
     	//throw arg number Exceptions
-    	return function(model, parameters);
+    	return function(args);
     }
     
-    public abstract double function(Model model, List<Object> parameters);
+    public abstract List<Object> function(List<Object> args);
+
 }

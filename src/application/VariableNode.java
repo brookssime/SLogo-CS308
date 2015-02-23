@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VariableNode extends EvaluatorNode {
@@ -11,8 +12,15 @@ public class VariableNode extends EvaluatorNode {
 	}
 
 	@Override
-	public Object evaluate(List<Object> args) {
-		return args.get(myIndex);
+	public List<Object> evaluate(List<Object> args) {
+		List<Object> list = new ArrayList<>();
+		list.add(args.get(myIndex));
+		return list;
+	}
+
+	@Override
+	public int countVariables() {
+		return 1;
 	}
 
 }
