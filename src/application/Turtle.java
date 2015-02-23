@@ -4,15 +4,14 @@ import javafx.scene.Node;
 
 public class Turtle {
     private double heading;
-    private double x;
-    private double y;
+    private double[] location = new double[2];
     private boolean penDown;
     private boolean showing;
     private Node node;
 
     public Turtle() {
-        x = 0;
-        y = 0;
+        location[0] = 0;
+        location[1] = 0;
         penDown = false;
         showing = true;
     }
@@ -29,20 +28,12 @@ public class Turtle {
         this.heading = heading;
     }
 
-    public double getX() {
-        return x;
+    public double[] getLocation() {
+        return location;
     }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
+    
+    public void setLocation(double[] location) {
+        this.location = location;
     }
 
     public boolean isPenDown() {
