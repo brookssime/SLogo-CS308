@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
@@ -25,15 +26,14 @@ public class EnterCommands {
 	protected HBox makeBox() {
 		text =new TextArea();
 		
-		
 		Button runBtn = new Button("Run");
 		runBtn.setOnAction(e-> handler((ActionEvent)e));
-		//runBtn.setOnKeyPressed();
 		
 		HBox hbox=new HBox();
 		hbox.getChildren().addAll(text,runBtn);
         hbox.setTranslateX(100);
         hbox.setTranslateY(500);
+        hbox.setAlignment(Pos.CENTER);
 		return hbox;
 	}
 	
@@ -48,6 +48,19 @@ public class EnterCommands {
 		}
 	}
 
+	protected Button blah() {
+        Button clearBtn=new Button("Clear");
+        clearBtn.setOnAction(e->{
+        	prev.getTextArea().clear();
+        	resetHistory(history);
+        });
+        return clearBtn;
+	}
+	
+	protected void resetHistory(List<String> s) {
+		s.clear();
+		//s=new ArrayList<String>();
+	}
 	
 	protected void printStatement() {
 		System.out.println("--");

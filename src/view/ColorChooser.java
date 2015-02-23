@@ -1,9 +1,6 @@
 package view;
 
-import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.*;
+
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
@@ -37,7 +34,7 @@ public class ColorChooser{
         	colorOfObject.setValue(penColor);
         	colorOfObject.setOnAction(e-> {
             	displayColor.setFill(colorOfObject.getValue());
-            	//disp.setBackgroundFill(colorOfObject.getValue());
+            	disp.setLineFill(colorOfObject.getValue());
             	penColor=colorOfObject.getValue();
             	}
             	);
@@ -53,13 +50,6 @@ public class ColorChooser{
             	);
         	//disp.setBackgroundFill(colorOfObject.getValue());
         }
-//        
-//    	colorOfObject.setOnAction(e-> {
-//    	displayColor.setFill(colorOfObject.getValue());
-//    	disp.setBackgroundFill(colorOfObject.getValue());
-//    	backgroundColor=colorOfObject.getValue();
-//    	}
-//    	);
         
     	displayColor.setFill(colorOfObject.getValue());
         box.getChildren().addAll(displayColor,colorOfObject);
