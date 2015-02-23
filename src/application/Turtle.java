@@ -1,4 +1,5 @@
 package application;
+<<<<<<< HEAD
 import javafx.scene.Node;
 
 
@@ -70,4 +71,9 @@ public class Turtle {
     }
     
     
+=======
+
+public class Turtle {
+
+>>>>>>> 01c1215472cb89159c56d9ebb3764b1788318997
 }

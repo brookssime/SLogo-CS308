@@ -9,11 +9,12 @@ public class Forward extends Command {
     private double width;    
     
     public Forward() {
-        numberOfParameters = 1;
+        super(1);
     }
     @Override
-    public double process(Turtle turtle, List<Object> parameters) {
-        double distance = (double) parameters.next();
+    public double function(List<Object> parameters) {
+        Turtle turtle = model.getActiveTurtle();
+        double distance = (double) parameters.get(0);
         double radiansHeading = turtle.getRadiansHeading();
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
         double y = turtle.getY() + distance*Math.sin(radiansHeading);
