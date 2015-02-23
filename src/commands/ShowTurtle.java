@@ -4,16 +4,16 @@ import java.util.List;
 
 import application.Model;
 
-public class PenUp extends Command {
+public class ShowTurtle extends Command {
 
-    public PenUp(Model myModel) {
+    public ShowTurtle(Model myModel) {
         super(myModel, 0);
     }
-
+    
     @Override
     public List<Object> function(List<Object> args) {
-        myModel.getActiveTurtle().setPenDown(false);
-        return putDoubleInList(0);
+        myModel.getActiveTurtle().setShowing(true);
+        return putDoubleInList(1);
     }
 
 }
