@@ -2,6 +2,7 @@ package view;
 
 import javafx.application.Application;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
@@ -13,7 +14,7 @@ public class View extends Application {
 	private ButtonBar btnz=new ButtonBar(new ColorChooser(display));
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
-	
+	private Group root;
 	
     public static void main(String[] args) {
         launch(args);
@@ -21,15 +22,20 @@ public class View extends Application {
     
     public void start(Stage stage) {
         stage.setTitle("SLOGO");
-        Group root=new Group();
+        root=new Group();
         Scene scene = new Scene(root, 800,800);
         VBox veebz= btnz.makeButtonBar();
         HBox h=enter.makeBox();
-        TextArea t=prev.makeBox();
+        VBox t=prev.makeBox();
+        //TextArea t=prev.makeBox();
         
         root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    protected void addToRoot(Node n) {
+    	root.getChildren().add(n);
     }
     
 }
