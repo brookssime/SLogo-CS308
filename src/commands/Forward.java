@@ -10,14 +10,14 @@ public class Forward extends Command {
     private double maxX;
     private double maxY;
 
-    public Forward() {
-        super(1);
+    public Forward(Model myModel) {
+        super(myModel, 1);
     }
     @Override
-    public double function(Model model, List<Object> parameters) {
-        maxX = model.getMaxX();
-        maxY = model.getMaxY();
-        Turtle turtle = model.getActiveTurtle();
+    public List<Object> function(List<Object> parameters) {
+        maxX = myModel.getMaxX();
+        maxY = myModel.getMaxY();
+        Turtle turtle = myModel.getActiveTurtle();
         double distance = (double) parameters.get(0);
         double radiansHeading = turtle.getRadiansHeading();
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
@@ -28,24 +28,24 @@ public class Forward extends Command {
             if (x > 0) {
                 x -= maxX;
                 list.add(maxX/Math.cos(radiansHeading));
-                process(model, list);
+                function(list);
                 turtle.setPenDown(false);
                 turtle.setX(-maxX);
                 turtle.setPenDown(temp);
                 list.clear();
                 list.add(x/Math.cos(radiansHeading));
-                process(model, list);
+                function(list);
             } else {
                 x += maxX;
                 list.clear();
                 list.add(-maxX/Math.cos(radiansHeading));
-                process(model, list);
+                function(list);
                 turtle.setPenDown(false);
                 turtle.setX(maxX);
                 turtle.setPenDown(temp);
                 list.clear();
                 list.add(x/Math.cos(radiansHeading));
-                process(model, list);
+                function(list);
             }
         } else if (outOfYBounds(y)) {
             boolean temp = turtle.isPenDown();
@@ -53,30 +53,35 @@ public class Forward extends Command {
                 y -= maxY;
                 list.clear();
                 list.add(maxY/Math.sin(radiansHeading));
-                process(model, list);
+                function(list);
                 turtle.setPenDown(false);
                 turtle.setX(-maxY);
                 turtle.setY(Math.tan(radiansHeading));
                 turtle.setPenDown(temp);
                 list.clear();
                 list.add(y/Math.sin(radiansHeading));             
-                process(model, list);          
+                function(list);          
             } else {
                 y += maxY;
                 list.clear();
                 list.add(-maxY/Math.sin(radiansHeading));
-                process(model, list);
+                function(list);
                 turtle.setPenDown(false);
-                turtle.setX(maxY);
+                turtle.setY(maxY);
                 turtle.setPenDown(temp);
                 list.clear();
                 list.add(y/Math.sin(radiansHeading));
-                process(model, list);
+                function(list);
             }
         }
-        turtle.setX(x);
-        turtle.setY(y);
-        return distance;
+        turtle.setLocation(x, y);
+        return putDoubleInList(distance);
+    }
+    
+    private List<Object> putDoubleInList(double a) {
+        List<Object> list = new ArrayList<>();
+        list.add(a);
+        return list;
     }
     
     private boolean outOfXBounds(double x) {
