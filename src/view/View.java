@@ -1,19 +1,21 @@
 package view;
 
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class View extends Application {
-	private Display display=new Display();
-	private ButtonBar btnz=new ButtonBar(new ColorChooser(display));
-	private PreviousCommands prev=new PreviousCommands();
-	private EnterCommands enter=new EnterCommands(prev);
 	
+	private ButtonBar btnz=new ButtonBar(new ColorChooser());
 	
     public static void main(String[] args) {
         launch(args);
@@ -21,13 +23,14 @@ public class View extends Application {
     
     public void start(Stage stage) {
         stage.setTitle("SLOGO");
-        Group root=new Group();
-        Scene scene = new Scene(root, 800,800);
-        VBox veebz= btnz.makeButtonBar();
-        HBox h=enter.makeBox();
-        TextArea t=prev.makeBox();
+ 
         
-        root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t);
+        VBox veebz= btnz.makeButtonBar();
+        
+        
+        Group root=new Group();
+        root.getChildren().addAll(veebz);
+        Scene scene = new Scene(root, 800,800);
         stage.setScene(scene);
         stage.show();
     }

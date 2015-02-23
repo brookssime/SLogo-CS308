@@ -29,21 +29,19 @@ public class ButtonBar {
 	}
 	
 	protected VBox makeButtonBar() {
-		VBox vbox = new VBox(30);
+		VBox vbox = new VBox(40);
 		Button setLang=makeButton("Set Lang");
 		
 		Button chooseColor=makeButton("Set Colors");
 		chooseColor.setOnAction(c-> colz.makeColorChooserPopUp(new Stage()));
 		Button setImage=makeButton("Set Image");
 		
-//		vbox.setTranslateX(vbox.getMaxWidth()-100);
-//		vbox.setTranslateY(15);
+		vbox.setTranslateX(30);
+		vbox.setTranslateY(15);
 
 		vbox.getChildren().addAll(setLang,chooseColor,setImage);
 		//hbox.setPrefWidth(view.getWindowSize());
 		vbox.setAlignment(Pos.CENTER);
-        vbox.setTranslateX(675);
-        vbox.setTranslateY(550);
 		return vbox;
 	}
 	

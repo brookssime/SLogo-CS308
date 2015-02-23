@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConstantNode extends EvaluatorNode {
@@ -11,8 +12,15 @@ public class ConstantNode extends EvaluatorNode {
 	}
 
 	@Override
-	public Object evaluate(List<Object> args) {
-		return myData;
+	public List<Object> evaluate(List<Object> args) {
+		List<Object> list = new ArrayList<>();
+		list.add(myData);
+		return list;
+	}
+
+	@Override
+	public int countVariables() {
+		return 0;
 	}
 
 }

@@ -6,9 +6,11 @@ import application.Model;
 
 public abstract class Command {
 
+	protected Model myModel;
 	protected int myArgNum;
 	
-	public Command(int argNum){
+	public Command(Model model, int argNum){
+		myModel = model;
 		myArgNum = argNum;
 	}
 	
@@ -17,11 +19,11 @@ public abstract class Command {
      *            collection of parameters needed to compute the given command
      * @return double result from executing the command
      */
-    public double process(Model model, List<Object> parameters){
+    public List<Object> process(List<Object> args){
     	//throw arg number Exceptions
-    	return function(parameters);
+    	return function(args);
     }
     
-    public abstract double function(List<Object> parameters);
+    public abstract List<Object> function(List<Object> args);
 
 }
