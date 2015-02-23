@@ -2,6 +2,7 @@ package commands;
 
 import java.util.List;
 
+import application.Model;
 import application.Turtle;
 
 public class SetTowards extends Command {
