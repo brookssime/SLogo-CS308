@@ -1,5 +1,6 @@
 package commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import application.Model;
@@ -25,5 +26,11 @@ public abstract class Command {
     }
     
     public abstract List<Object> function(List<Object> args);
+    
+    protected List<Object> putDoubleInList(double a) {
+        List<Object> list = new ArrayList<>();
+        list.add(a);
+        return list;
+    }
 
 }

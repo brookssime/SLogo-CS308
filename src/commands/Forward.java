@@ -14,11 +14,11 @@ public class Forward extends Command {
         super(myModel, 1);
     }
     @Override
-    public List<Object> function(List<Object> parameters) {
+    public List<Object> function(List<Object> args) {
         maxX = myModel.getMaxX();
         maxY = myModel.getMaxY();
         Turtle turtle = myModel.getActiveTurtle();
-        double distance = (double) parameters.get(0);
+        double distance = (double) args.get(0);
         double radiansHeading = turtle.getRadiansHeading();
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
         double y = turtle.getY() + distance*Math.sin(radiansHeading);
@@ -76,12 +76,6 @@ public class Forward extends Command {
         }
         turtle.setLocation(x, y);
         return putDoubleInList(distance);
-    }
-    
-    private List<Object> putDoubleInList(double a) {
-        List<Object> list = new ArrayList<>();
-        list.add(a);
-        return list;
     }
     
     private boolean outOfXBounds(double x) {
