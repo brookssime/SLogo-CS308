@@ -1,8 +1,12 @@
 package application;
 
 public class Model {
+    private Turtle myTurtle;
+    private double maxX;
+    private double maxY;
+    
     public Turtle getActiveTurtle() {
-        return null;
+        return myTurtle;
     }
     
     public double getMaxX() {

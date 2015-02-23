@@ -58,8 +58,11 @@ public class Turtle {
         return location[1];
     }
 
-    public void setLocation(double x, double y) {
+    public double setLocation(double x, double y) {
+        double oldX = location[0];
+        double oldY = location[1];
         this.location = new double[] { x, y };
+        return Math.sqrt(Math.pow((x - oldX), 2) + Math.pow((y - oldY), 2));
     }
 
     public boolean isPenDown() {
