@@ -1,10 +1,11 @@
 package view;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.*;
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
-import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -17,26 +18,51 @@ public class ColorChooser{
 	
 	private Color penColor;
 	private Color backgroundColor;
+	private Display disp;
 	
-	public ColorChooser() {
+	public ColorChooser(Display d) {
 		penColor=Color.BLACK;
 		backgroundColor=Color.WHITE;
+		disp=d;
 	}
     
     public HBox formatColorSelector(String object){
     	HBox box=new HBox();
     	final ColorPicker colorOfObject = new ColorPicker();
         
-    	colorOfObject.setValue(penColor);
-        
         final Text displayColor = new Text("Color of "+object);
-        displayColor.setFont(Font.font ("Verdana", 20));
-        displayColor.setFill(colorOfObject.getValue());
+        displayColor.setFont(Font.font ("Verdana", 16));
         
+        if (object.equals("Pen")){
+        	colorOfObject.setValue(penColor);
+        	colorOfObject.setOnAction(e-> {
+            	displayColor.setFill(colorOfObject.getValue());
+            	//disp.setBackgroundFill(colorOfObject.getValue());
+            	penColor=colorOfObject.getValue();
+            	}
+            	);
+        	//colorOfObject.setV
+        }
+        else {
+        	colorOfObject.setValue(backgroundColor);
+        	colorOfObject.setOnAction(e-> {
+            	displayColor.setFill(colorOfObject.getValue());
+            	disp.setBackgroundFill(colorOfObject.getValue());
+            	backgroundColor=colorOfObject.getValue();
+            	}
+            	);
+        	//disp.setBackgroundFill(colorOfObject.getValue());
+        }
+//        
+//    	colorOfObject.setOnAction(e-> {
+//    	displayColor.setFill(colorOfObject.getValue());
+//    	disp.setBackgroundFill(colorOfObject.getValue());
+//    	backgroundColor=colorOfObject.getValue();
+//    	}
+//    	);
         
-        colorOfObject.setOnAction(e->
-                displayColor.setFill(colorOfObject.getValue()));
-        box.getChildren().addAll(colorOfObject,displayColor);
+    	displayColor.setFill(colorOfObject.getValue());
+        box.getChildren().addAll(displayColor,colorOfObject);
     	
     	return box;
     }
@@ -47,7 +73,9 @@ public class ColorChooser{
         VBox box = (VBox) scene.getRoot();
         
         box.getChildren().addAll(formatColorSelector("Pen"),formatColorSelector("Background"));
+        //stage.setOnCloseRequest(e->disp.setBackgroundFill(backgroundColor));
         stage.setScene(scene);
         stage.show();
     }
+
 }
