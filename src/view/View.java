@@ -13,6 +13,7 @@ public class View extends Application {
 	private ButtonBar btnz=new ButtonBar(new ColorChooser(display));
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
+	private MyDesigns design = new MyDesigns();
 	
 	
     public static void main(String[] args) {
@@ -26,8 +27,9 @@ public class View extends Application {
         VBox veebz= btnz.makeButtonBar();
         HBox h=enter.makeBox();
         TextArea t=prev.makeBox();
+        VBox d = design.DesignBar();
         
-        root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t);
+        root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t, d);
         stage.setScene(scene);
         stage.show();
     }

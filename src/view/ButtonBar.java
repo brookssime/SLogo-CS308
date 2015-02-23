@@ -21,7 +21,7 @@ public class ButtonBar {
 		colz=c;
 	}
 	
-	private Button makeButton(String name) {
+	protected Button makeButton(String name) {
 		Button btn = new Button(name);
 		btn.setScaleX(2);
 		btn.setScaleY(2);
