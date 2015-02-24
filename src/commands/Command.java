@@ -32,5 +32,9 @@ public abstract class Command {
         list.add(a);
         return list;
     }
+    
+    public int getArgNum() {
+        return myArgNum;
+    }
 
 }

@@ -1,5 +1,6 @@
 package application;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -13,21 +14,23 @@ import commands.UserCommand;
 public class Parser {
     private List<Map.Entry<String, Pattern>> myCommandPatterns;
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
+    private Model myModel;
+    private static String commandPath = "command.";
     private TreeBuilder myTreeBuilder;
     
-    public Parser() {
+    public Parser(Model myModel) {
         myCommandPatterns = makePatterns("resources/languages/English");
         mySyntaxPatterns = makePatterns("resources/languages/Syntax");
+        this.myModel = myModel;
     }
     
     public UserCommand parse(String input) {
-        
+        List<Object> list = new ArrayList<>();
         String[] inputArray = input.split(" ");
         for (String s : inputArray) {
-            handleMatchConditions(s, checkSyntax(s, mySyntaxPatterns));
-            
+            list.add(handleMatchConditions(s, checkForMatch(s, mySyntaxPatterns)));
         }
-        
+        return new UserCommand(myModel, myTreeBuilder.build(list));
     }
     
     private boolean match (String input, Pattern regex) {
@@ -45,7 +48,7 @@ public class Parser {
      * @return the pattern name that the String matches, or null if it does not
      *         match a pattern
      */
-    private String checkSyntax (String s, List<Map.Entry<String, Pattern>> patterns) {
+    private String checkForMatch (String s, List<Map.Entry<String, Pattern>> patterns) {
         for (Map.Entry<String, Pattern> p : patterns) {
             if (match(s, p.getValue())) {
                 return p.getKey();
@@ -70,9 +73,13 @@ public class Parser {
         return patterns;
     }
     
-    private EvaluatorNode handleMatchConditions(String s, String p) {
+    private Object handleMatchConditions(String s, String p) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
         if (p.equals("Command")) {
-            
-        }
+            return Class.forName(commandPath + checkForMatch(s, myCommandPatterns)).getDeclaredConstructors()[0].newInstance(myModel);
+        } else if (p.equals("Constant")) {
+            return Double.parseDouble(s);
+        } else {
+            return s;
+        } 
     }
 }
