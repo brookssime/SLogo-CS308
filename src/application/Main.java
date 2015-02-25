@@ -28,7 +28,7 @@ public class Main extends Application {
 		launch(args);
 	    /*Model myModel = new Model(100, 100);
 	    Parser myParser = new Parser(myModel);
-	    UserCommand myUserCommand = myParser.parse("towards lt 50 st");
+	    UserCommand myUserCommand = myParser.parse("50 40 30");
 	    System.out.println(myUserCommand.process(new ArrayList<Object>()));*/
 	}
 }

@@ -15,13 +15,12 @@ public class TreeBuilder {
         Iterator<EvaluatorNode> iter = list.iterator();
         while (iter.hasNext()) {
             EvaluatorNode node = iter.next();
+            nodeList.add(node);
             if (node instanceof CommandNode) {
-                nodeList.add(node);
                 addChildren((CommandNode) node, iter);
             }
             else {
-                //throw an exception? No command node likely means the input string was wrong
-                //Possible to start with a group bracket [] ()
+                //throw an exception?
             }
         }
         return nodeList;
