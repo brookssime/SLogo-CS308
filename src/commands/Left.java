@@ -13,7 +13,7 @@ public class Left extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        double degrees = ((double) args.get(0)) % Turtle.getFullRotation();
+        double degrees = (double) args.get(0) % Turtle.getFullRotation();
         Turtle turtle = myModel.getActiveTurtle();
         turtle.setHeading(turtle.getHeading() + degrees);
         return putDoubleInList(degrees);

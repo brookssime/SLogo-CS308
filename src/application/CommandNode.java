@@ -9,10 +9,12 @@ public class CommandNode extends EvaluatorNode {
 	
 	private Command myCommand;
 	private List<EvaluatorNode> myChildren;
+	private int maxChildren;
 
 	public CommandNode(Command command){
-	    myChildren = new ArrayList<EvaluatorNode>(command.getArgNum());
+	    myChildren = new ArrayList<EvaluatorNode>();
 	    myCommand = command;
+	    maxChildren = command.getArgNum();
 	}
 
 	@Override
@@ -37,8 +39,8 @@ public class CommandNode extends EvaluatorNode {
 		return sum;
 	}
 	
-	public int countChildren() {
-	    return myChildren.size();
+	public int getMaxChildren() {
+	    return maxChildren;
 	}
 
 }

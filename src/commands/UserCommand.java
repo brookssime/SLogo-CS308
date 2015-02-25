@@ -21,8 +21,8 @@ public class UserCommand extends Command {
 			sum += node.countVariables();
 		}
 		return sum;
-	}
-
+	} 
+	
 	@Override
 	public List<Object> function(List<Object> args) {
 		List<Object> output = new ArrayList<>();
