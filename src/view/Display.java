@@ -32,8 +32,9 @@ public class Display {
 		turtleImage.setFitHeight(30);
         turtleImage.setFitWidth(30);
         turtleImage.setImage(image);
-		turtleImage.setLayoutX(xLocation);
-		turtleImage.setLayoutY(yLocation);
+        turtleImage.relocate(xLocation,yLocation);
+//		turtleImage.setLayoutX(xLocation);
+//		turtleImage.setLayoutY(yLocation);
 		return turtleImage;
 	}
 	protected ImageView updateTurtleImage() {
@@ -42,8 +43,9 @@ public class Display {
 	
 	protected void updateTurtleLocation(double newX, double newY) {
 		root.getChildren().add(drawLines(turtleImage.getLayoutX(),turtleImage.getLayoutY(),newX,newY));
-		turtleImage.setLayoutX(newX);
-		turtleImage.setLayoutY(newY);
+//		turtleImage.setLayoutX(newX);
+//		turtleImage.setLayoutY(newY);
+		turtleImage.relocate(newX,newY);
 	}
 	
 	protected Line drawLines(double startX, double startY,double endX, double endY) {

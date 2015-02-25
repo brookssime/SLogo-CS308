@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 public class View extends Application {
 	private Display display=new Display();
-	private ButtonBar btnz=new ButtonBar(new ColorChooser(display));
+	private ButtonBar btnz=new ButtonBar(new ColorChooser(display),new LanguageChooser());
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private Group root;
