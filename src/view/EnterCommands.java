@@ -30,7 +30,7 @@ public class EnterCommands {
 	}
 	public void handler(Event e) {
 		if ((text.getText().trim() != null && !text.getText().isEmpty())) {
-			history.add(text.getText().replaceAll("\n", " "));
+			history.add(text.getText().replaceAll("\n", " \n "));
 			commandText = commandText+text.getText().replaceAll("\n", " ")+"\n";
 			text.clear();
 			prev.updateTextArea(commandText);

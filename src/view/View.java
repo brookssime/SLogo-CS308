@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -13,6 +14,7 @@ public class View extends Application {
 	private ButtonBar btnz=new ButtonBar(new ColorChooser(display),new LanguageChooser());
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
+	private CommandGuide comm=new CommandGuide();
 	private Group root;
 	public static void main(String[] args) {
 		launch(args);
@@ -24,7 +26,8 @@ public class View extends Application {
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
-		root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t);
+		Button c=comm.makeMyButton();
+		root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t,c);
 		stage.setScene(scene);
 		stage.show();
 	}
