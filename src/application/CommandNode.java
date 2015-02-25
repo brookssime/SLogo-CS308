@@ -10,14 +10,9 @@ public class CommandNode extends EvaluatorNode {
 	private Command myCommand;
 	private List<EvaluatorNode> myChildren;
 
-	public CommandNode(Command cmd){
-		new CommandNode(new ArrayList<EvaluatorNode>(cmd.getArgNum()), cmd);
-	}
-
-	//Might not need this
-	public CommandNode(ArrayList<EvaluatorNode> nodeList, Command cmd) {
-		myChildren = nodeList;
-		myCommand = cmd;
+	public CommandNode(Command command){
+	    myChildren = new ArrayList<EvaluatorNode>(command.getArgNum());
+	    myCommand = command;
 	}
 
 	@Override
