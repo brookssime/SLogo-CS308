@@ -10,8 +10,8 @@ public abstract class Command {
 	protected Model myModel;
 	protected int myArgNum;
 	
-	public Command(Model model, int argNum){
-		myModel = model;
+	public Command(Model myModel, int argNum){
+		myModel = myModel;
 		myArgNum = argNum;
 	}
 	
