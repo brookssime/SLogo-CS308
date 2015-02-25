@@ -10,9 +10,9 @@ public abstract class Command {
 	protected Model myModel;
 	protected int myArgNum;
 	
-	public Command(Model myModel, int argNum){
-		myModel = myModel;
-		myArgNum = argNum;
+	public Command(Model myModel, int myArgNum){
+		this.myModel = myModel;
+		this.myArgNum = myArgNum;
 	}
 	
     /**
