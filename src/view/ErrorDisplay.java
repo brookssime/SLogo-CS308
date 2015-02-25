@@ -11,9 +11,6 @@ public class ErrorDisplay {
 	public Scene display(String s){
 		GridPane grid = new GridPane();
 		grid.setAlignment(Pos.CENTER);
-//		grid.setHgap(10);
-//		grid.setVgap(10);
-//		grid.setPadding(new Insets(25, 25, 25, 25));
 		Label secondLabel = new Label(s);
 
 		grid.getChildren().add(secondLabel);
