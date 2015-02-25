@@ -1,7 +1,8 @@
 package view;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -12,15 +13,15 @@ import javafx.stage.Stage;
 public class LanguageChooser {
 
 	private ComboBox<String> languageComboBox = new ComboBox<String>();
-	
+	private String language="";
 	protected void setLanguage(Stage stage) {
 
 		stage.setTitle("Choose Language");
 		Scene scene = new Scene(new Group(), 450, 250);
 
 		languageComboBox.getItems().addAll(
-				"English",
 				"Chinese",
+				"English",
 				"French",
 				"German",
 				"Italian",
@@ -30,18 +31,17 @@ public class LanguageChooser {
 				"Russian",
 				"Spanish"				
 				);
-
-		//languageComboBox.set
+        languageComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override 
+            public void changed(ObservableValue ov, String t, String t1) {                
+                language = t1;  
+            }    
+        });
 		GridPane grid = new GridPane();
-		grid.setAlignment(Pos.BASELINE_CENTER);
 		Label label=new Label("Choose the Language for Commands: ");
-		
-		//label.setAlignment(Pos.CENTER);
 		grid.add(label,0,0);
 		grid.add(languageComboBox, 0, 1);
-		//grid.setCenterShape(true);
 		grid.setPadding(new Insets (100,100,100,100));
-		//grid.setAlignment(Pos.CENTER);
 		Group root = (Group)scene.getRoot();
 		root.getChildren().add(grid);
 		stage.setScene(scene);
