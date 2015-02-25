@@ -15,12 +15,13 @@ public class Parser {
     private List<Map.Entry<String, Pattern>> myCommandPatterns;
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
     private Model myModel;
-    private static String commandPath = "command.";
+    private static String commandPath = "commands.";
     private TreeBuilder myTreeBuilder;
 
     public Parser(Model myModel) {
         myCommandPatterns = makePatterns("resources/languages/English");
         mySyntaxPatterns = makePatterns("resources/languages/Syntax");
+        myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
     }
 
@@ -66,7 +67,6 @@ public class Parser {
         Enumeration<String> iter = resources.getKeys();
         while (iter.hasMoreElements()) {
             String key = iter.nextElement();
-            System.out.println(resources.getObject(key));
             String regex = resources.getString(key);
             patterns.add(new AbstractMap.SimpleEntry<String, Pattern>(key,
             // THIS IS THE KEY LINE

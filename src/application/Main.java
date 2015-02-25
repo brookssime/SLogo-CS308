@@ -1,5 +1,9 @@
 package application;
 	
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+
+import commands.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -20,7 +24,11 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
 		launch(args);
+	    /*Model myModel = new Model(100, 100);
+	    Parser myParser = new Parser(myModel);
+	    UserCommand myUserCommand = myParser.parse("towards lt 50 st");
+	    System.out.println(myUserCommand.process(new ArrayList<Object>()));*/
 	}
 }

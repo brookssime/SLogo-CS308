@@ -28,12 +28,11 @@ public class TreeBuilder {
     }
 
     private void addChildren(CommandNode node, Iterator<EvaluatorNode> iter) {
-        for (int i = 0; i < node.countChildren() && iter.hasNext(); i++) {
+        for (int i = 0; i < node.getMaxChildren() && iter.hasNext(); i++) {
             EvaluatorNode child = iter.next();
-            if (node instanceof CommandNode) {
+            node.addChild(child);
+            if (child instanceof CommandNode) {
                 addChildren((CommandNode) child, iter);
-            } else {
-                node.addChild(child);
             }
         }
     }
