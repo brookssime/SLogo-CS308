@@ -22,6 +22,9 @@ public class View {
 	private MyDesigns des=new MyDesigns();
 	private Group root;
 
+	public View(Model myModel) {
+		enter.addObserver(myModel);
+	}
 	public void start(Stage stage) {
 		stage.setTitle("SLOGO");
 		root=new Group();
