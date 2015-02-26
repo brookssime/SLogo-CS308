@@ -10,6 +10,7 @@ public class UserCommand extends NodesCommand {
 	
 	public UserCommand(Model model, List<EvaluatorNode> nodeList) {
         super(model, nodeList);
+        myArgNum = 0;
     }
 
     @Override
