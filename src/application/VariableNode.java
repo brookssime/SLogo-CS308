@@ -32,7 +32,10 @@ public class VariableNode extends EvaluatorNode {
 
     @Override
     public int countVariables() {
-        return 0;
+        if (myIndex == null) {
+            return 0;
+        }
+        return 1;
     }
 
     @Override
