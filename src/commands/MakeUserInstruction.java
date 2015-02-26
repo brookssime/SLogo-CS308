@@ -16,31 +16,34 @@ public class MakeUserInstruction extends Command {
     @Override
     public List<Object> function(List<Object> args) {
         String commandName = (String) args.get(0);
-        List<Object> varObjectList = ((EvaluatorNode) args.get(1)).evaluate();
+        List<Object> nodeList = ((EvaluatorNode) args.get(1)).evaluate();
+        List<Object> varObjectList = new ArrayList<>();
+        for (Object o : nodeList) {
+            varObjectList.addAll(((EvaluatorNode) o).evaluate());
+        }
         List<String> varList = new ArrayList<>();
         for (Object o : varObjectList) {
             varList.add((String) o);
         }
-        List<Object> rootObjectList = ((EvaluatorNode) args.get(2)).evaluate();
+        List<Object> rootObjectList = new ArrayList<>();
+        rootObjectList.addAll(((EvaluatorNode) args.get(2)).evaluate());
         List<EvaluatorNode> rootNodeList = new ArrayList<>();
-        for (Object o : varObjectList) {
+        for (Object o : rootObjectList) {
             rootNodeList.add((EvaluatorNode) o);
         }
-        //while(rootNodeList.remove(null));
         for (EvaluatorNode n : rootNodeList) {
             for (int i = 0; i < varList.size(); i ++) {  
                 List<VariableNode> varNodeList = n.getVariableNodes();
+                while(varNodeList.remove(null));
                 for (int j = 0; j < varNodeList.size(); j++) {
                     VariableNode v = varNodeList.get(j);
-                    System.out.println(v.evaluate().get(0));
-                    if (((String) v.evaluate().get(0)).equals(varList.get(i))) {
+                    if (((String) v.evaluate().get(0)).compareTo(varList.get(i)) == 0) {
                         v.setIndex(i);
                     }
                 }
             }
         }
         myModel.addUserCommand(commandName, new EvaluatorCommand(myModel, rootNodeList));
-        System.out.println("Getting here?");
         return putDoubleInList(1);
     }
 
