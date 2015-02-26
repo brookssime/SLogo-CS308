@@ -10,12 +10,14 @@ public class VariableNode extends EvaluatorNode {
     private Integer myIndex;
     
     public VariableNode(Model myModel, String myString) {
+        this.myModel = myModel;
         this.myString = myString;
     }
     
     @Override
     public List<Object> evaluate(List<Object> args) {
         if (myIndex != null) {
+            System.out.println("Am I here?");
             List<Object> list = new ArrayList<>();
             list.add(args.get(myIndex));
             return list;
@@ -46,6 +48,7 @@ public class VariableNode extends EvaluatorNode {
     }
     
     public void setIndex(int i) {
+        System.out.println("Here?");
         myIndex = i;
     }
 

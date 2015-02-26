@@ -87,6 +87,7 @@ public class Parser {
                     | InvocationTargetException | SecurityException e) {
                 Command cmd = (Command) myModel.getUserCommand(s);
                 if (cmd != null) {
+                    System.out.println("Here");
                     return new CommandNode(cmd);
                 }
                 return new ConstantNode(s);
