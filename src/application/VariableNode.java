@@ -5,22 +5,28 @@ import java.util.List;
 
 public class VariableNode extends EvaluatorNode {
 
-	private int myIndex;
-	
-	public VariableNode(int index) {
-		myIndex = index;
-	}
+    private String myString;
+    private Model myModel;
+    
+    public VariableNode(Model myModel, String myString) {
+        this.myString = myString;
+    }
+    
+    @Override
+    public List<Object> evaluate(List<Object> args) {
+        List<Object> list = new ArrayList<>();
+        Double d = myModel.getVariableMap().get(myString);
+        if (d == null) {
+            list.add(myString);
+        } else {
+            list.add(d.doubleValue());
+        }
+        return list;
+    }
 
-	@Override
-	public List<Object> evaluate(List<Object> args) {
-		List<Object> list = new ArrayList<>();
-		list.add(args.get(myIndex));
-		return list;
-	}
-
-	@Override
-	public int countVariables() {
-		return 1;
-	}
+    @Override
+    public int countVariables() {
+        return 0;
+    }
 
 }

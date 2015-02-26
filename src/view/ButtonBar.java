@@ -8,6 +8,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 public class ButtonBar {
 	
+	public static final Integer[] LOCATION_OF_BUTTONBAR={675,550};
+	
+	
 	private ColorChooser colz;
 	private ImageChooser img;
 	private LanguageChooser lang;
@@ -36,15 +39,15 @@ public class ButtonBar {
 		chooseColor.setOnAction(c-> colz.makeColorChooserPopUp(new Stage()));
 		Button setImage=makeButton("Set Image");
 		setImage.setOnAction(s-> img.start(new Stage()));
-		//setLang.setOnAction(l-> lang.setLanguage(new Stage()));
-		setLang.setOnAction(l-> {dis.updateTurtleLocation(dis.getTurtX()+50, dis.getTurtY()+50); dis.drawLines(dis.getTurtX(), dis.getTurtY(), dis.getTurtX()+50, dis.getTurtY()+50);});
+		setLang.setOnAction(l-> lang.setLanguage(new Stage()));
+		//setLang.setOnAction(l-> {dis.updateTurtleLocation(dis.getTurtX()+50, dis.getTurtY()+50); dis.drawLines(dis.getTurtX(), dis.getTurtY(), dis.getTurtX()+50, dis.getTurtY()+50);});
 //		setLang.setOnAction(s-> {Stage newStage=new Stage();
 //		newStage.setScene(err.display("YO ERROR"));
 //		newStage.show();});
 		vbox.getChildren().addAll(setLang,chooseColor,setImage);
 		vbox.setAlignment(Pos.CENTER);
-		vbox.setTranslateX(675);
-		vbox.setTranslateY(550);
+		vbox.setTranslateX(LOCATION_OF_BUTTONBAR[0]);
+		vbox.setTranslateY(LOCATION_OF_BUTTONBAR[1]);
 		return vbox;
 	}
 }

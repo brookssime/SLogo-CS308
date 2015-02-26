@@ -8,6 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 public class ColorChooser{
+	
+	public static final Integer[] SIZE_OF_COLORCHOOSER_POPUP={400,100};
+	
 	private Color penColor;
 	private Color backgroundColor;
 	private Display disp;
@@ -45,7 +48,7 @@ public class ColorChooser{
 	}
 	public void makeColorChooserPopUp(Stage stage) {
 		stage.setTitle("ColorPicker");
-		Scene scene = new Scene(new VBox(20), 400, 100);
+		Scene scene = new Scene(new VBox(20), SIZE_OF_COLORCHOOSER_POPUP[0], SIZE_OF_COLORCHOOSER_POPUP[1]);
 		VBox box = (VBox) scene.getRoot();
 		box.getChildren().addAll(formatColorSelector("Pen"),formatColorSelector("Background"));
 		//stage.setOnCloseRequest(e->disp.setBackgroundFill(backgroundColor));
