@@ -38,13 +38,13 @@ public class EnterCommands extends Observable {
 			String myText=text.getText();
 			String myFormatText=myText.replaceAll("\n", " \n ");
 			history.add(myFormatText);
-			setChanged();
-			notifyObservers(myFormatText);
 			commandText = commandText+myText.replaceAll("\n", " ")+"\n";
 			text.clear();
 			prev.updateTextArea(commandText);
 			printStatement();
 			//System.out.println(commandText);
+			setChanged();
+			notifyObservers(myFormatText);
 		}
 	}
 	protected Button blah() {
