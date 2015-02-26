@@ -71,6 +71,7 @@ public class View {
 			public void changed(ObservableValue<? extends double[]> observable,
 					double[] oldValue, double[] newValue) {
 				// TODO Auto-generated method stub
+				System.out.println("hit");
 				display.updateTurtleLocation(newValue[0],newValue[1]);
 			}  
 	      });
