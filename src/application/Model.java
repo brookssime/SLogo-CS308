@@ -63,10 +63,14 @@ public class Model implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		UserCommand outputCmd;
 		try {
-			myHistory.add(myParser.parse(arg1.toString()));
+			outputCmd = myParser.parse(arg1.toString());
+			myHistory.add(outputCmd);
+			outputCmd.process(null);
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
