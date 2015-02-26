@@ -51,7 +51,8 @@ public class View {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
-				// TODO Auto-generated method stub				
+				// TODO Auto-generated method stub
+				display.updateTurtleHeading(newValue);
 			}  
 	      });
 
@@ -60,6 +61,7 @@ public class View {
 			public void changed(ObservableValue<? extends double[]> observable,
 					double[] oldValue, double[] newValue) {
 				// TODO Auto-generated method stub
+				display.updateTurtleLocation(newValue[0],newValue[1]);
 			}  
 	      });
 		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
@@ -75,7 +77,8 @@ public class View {
 			public void changed(ObservableValue<? extends Boolean> observable,
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				
+				System.out.println("showing changed");
+				display.updateTurtleShowing(newValue);
 			}
 	      });
 		t.getNodeProperty().addListener(new ChangeListener<Node>() {
