@@ -85,7 +85,11 @@ public class Parser {
             } catch (ClassNotFoundException | InstantiationException
                     | IllegalAccessException | IllegalArgumentException
                     | InvocationTargetException | SecurityException e) {
-                return new CommandNode((Command) myModel.getUserCommand(s));
+                Command cmd = (Command) myModel.getUserCommand(s);
+                if (cmd != null) {
+                    return new CommandNode(cmd);
+                }
+                return new ConstantNode(s);
             }
         } else if (p.equals("Constant")) {
             return new ConstantNode(Double.parseDouble(s));
