@@ -15,7 +15,7 @@ public class Main extends Application {
 	private View myView;
 	@Override
 	public void start(Stage primaryStage) {
-		Model myModel = new Model(200, 200);
+		Model myModel = new Model(374/2, 374/2);
 		myView = new View(myModel);
 		myView.addAllListeners(myModel);
 		myView.start(new Stage());
