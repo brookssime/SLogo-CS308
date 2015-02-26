@@ -13,7 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 public class MyDesigns {
 	private Label myLabel;
 	private ComboBox<String> myCombo;

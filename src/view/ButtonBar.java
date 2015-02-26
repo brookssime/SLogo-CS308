@@ -34,8 +34,8 @@ public class ButtonBar {
 		chooseColor.setOnAction(c-> colz.makeColorChooserPopUp(new Stage()));
 		Button setImage=makeButton("Set Image");
 		setImage.setOnAction(s-> img.start(new Stage()));
-		//setLang.setOnAction(l-> lang.setLanguage(new Stage()));
-		setLang.setOnAction(l-> {dis.updateTurtleLocation(dis.getTurtX()+50, dis.getTurtY()+50); dis.drawLines(dis.getTurtX(), dis.getTurtY(), dis.getTurtX()+50, dis.getTurtY()+50);});
+		setLang.setOnAction(l-> lang.setLanguage(new Stage()));
+		//setLang.setOnAction(l-> {dis.updateTurtleLocation(dis.getTurtX()+50, dis.getTurtY()+50); dis.drawLines(dis.getTurtX(), dis.getTurtY(), dis.getTurtX()+50, dis.getTurtY()+50);});
 //		setLang.setOnAction(s-> {Stage newStage=new Stage();
 //		newStage.setScene(err.display("YO ERROR"));
 //		newStage.show();});
