@@ -79,7 +79,7 @@ public class View {
 			public void changed(ObservableValue<? extends Boolean> observable,
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				
+				display.setVisibility(newValue);
 			}
 	      });
 		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {

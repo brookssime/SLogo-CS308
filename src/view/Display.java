@@ -19,6 +19,7 @@ public class Display {
 	private Color penColor;//=Color.BLACK;//needs to change to listener
 	private ImageView turtleImage;
 	private Turtle myTurtle;
+	private boolean penDown;
 	protected Group makeDisplay(int height,int width) {
 		penColor=Color.BLACK;
 		root=new Group();
@@ -65,7 +66,11 @@ public class Display {
 		l.setEndX(endX);
 		l.setEndY(endY);
 		l.setStrokeWidth(2);
+		l.setVisible(penDown);
 		return l;
+	}
+	protected void setVisibility(boolean pen) {
+		penDown=pen;
 	}
 	protected double getTurtX() {
 		return turtleImage.getLayoutX();
