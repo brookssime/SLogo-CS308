@@ -62,7 +62,10 @@ public class Parser {
         return new UserCommand(myModel, myTreeBuilder.build(list));
     }
     
-    private EvaluatorNode generateNode(String s, String p, Iterator<String> iter) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
+    private EvaluatorNode generateNode(String s, String p, Iterator<String> iter)
+            throws InstantiationException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException,
+            SecurityException, ClassNotFoundException {
         if (p.equals("Command")) {
             try {
                 String commandMatch = checkForMatch(s, myCommandPatterns);
@@ -73,8 +76,10 @@ public class Parser {
                     return new CommandNode((Command) Class.forName(
                             commandPath + commandMatch)
                             .getDeclaredConstructors()[0].newInstance(myModel));
-                }                
-            } catch(ClassNotFoundException e) {
+                }
+            } catch (ClassNotFoundException | InstantiationException
+                    | IllegalAccessException | IllegalArgumentException
+                    | InvocationTargetException | SecurityException e) {
                 return new CommandNode((Command) customCommandMap.get(s));
             }
         } else if (p.equals("Constant")) {
