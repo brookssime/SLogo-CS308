@@ -10,12 +10,13 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-
 public class Main extends Application {
+
+	private View myView;
 	@Override
 	public void start(Stage primaryStage) {
-		View view=new View();
-		view.start(new Stage());
+		myView = new View();
+		myView.start(new Stage());
 	}
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {

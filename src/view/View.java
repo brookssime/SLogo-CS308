@@ -41,11 +41,44 @@ public class View {
 	}
 	public void addAllListeners(Model model){
 		Turtle t = model.getActiveTurtle();
-		t.getHeadingProperty().addListener(new ChangeListener(){
-	        @Override public void changed(ObservableValue o,Object oldVal, 
-	                 Object newVal){
-	             System.out.println("Electric bill has changed!");
-	        }
+		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub				
+			}  
+	      });
+
+		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
+			@Override
+			public void changed(ObservableValue<? extends double[]> observable,
+					double[] oldValue, double[] newValue) {
+				// TODO Auto-generated method stub
+			}  
+	      });
+		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+			@Override
+			public void changed(ObservableValue<? extends Node> observable,
+					Node oldValue, Node newValue) {
+				// TODO Auto-generated method stub
+				
+			}
 	      });
 	}
 }
