@@ -23,6 +23,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
 		launch(args);
+
 	    /*Model myModel = new Model(100, 100);
 	    Parser myParser = new Parser(myModel);
 	    UserCommand myUserCommand = myParser.parse("50 40 30");

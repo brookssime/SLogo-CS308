@@ -12,6 +12,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 public class EnterCommands extends Observable {
 	
+	public static final Integer[] LOCATION_OF_ENTERCOMMANDS_BOX={100,500};
+	
 	private TextArea text;
 	private String commandText="";
 	private PreviousCommands prev;
@@ -26,8 +28,8 @@ public class EnterCommands extends Observable {
 		runBtn.setOnAction(e-> handler((ActionEvent)e));
 		HBox hbox=new HBox();
 		hbox.getChildren().addAll(text,runBtn);
-		hbox.setTranslateX(100);
-		hbox.setTranslateY(500);
+		hbox.setTranslateX(LOCATION_OF_ENTERCOMMANDS_BOX[0]);
+		hbox.setTranslateY(LOCATION_OF_ENTERCOMMANDS_BOX[1]);
 		hbox.setAlignment(Pos.CENTER);
 		return hbox;
 	}
@@ -36,8 +38,11 @@ public class EnterCommands extends Observable {
 			String myText=text.getText();
 			String myFormatText=myText.replaceAll("\n", " \n ");
 			history.add(myFormatText);
+			
+			
 			setChanged();
 			notifyObservers(myFormatText);
+			
 			commandText = commandText+myText.replaceAll("\n", " ")+"\n";
 			text.clear();
 			prev.updateTextArea(commandText);

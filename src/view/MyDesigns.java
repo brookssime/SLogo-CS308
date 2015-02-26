@@ -14,6 +14,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 public class MyDesigns {
+	
+	public static final Integer[] LOCATION_OF_MYDESIGNS_BAR={0,100};
+	
 	private Label myLabel;
 	private ComboBox<String> myCombo;
 	private File myFile;
@@ -23,6 +26,9 @@ public class MyDesigns {
 		StackPane chooseDesign = DesignMenu();
 		designSidebar.getChildren().addAll(save, chooseDesign);
 		designSidebar.setAlignment(Pos.TOP_LEFT);
+		designSidebar.setLayoutX(LOCATION_OF_MYDESIGNS_BAR[0]);
+		designSidebar.setLayoutY(LOCATION_OF_MYDESIGNS_BAR[1]);
+		
 		return designSidebar;
 	}
 	private File TextChooser(String... options) {
