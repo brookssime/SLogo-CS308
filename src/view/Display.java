@@ -69,12 +69,45 @@ public class Display {
 		l.setStroke(penColor);
 		l.setStartX(startX);
 		l.setStartY(startY);
-//		if (endX<375 && endX>0 && endY<375 && endY>0) {
+		Line l2=new Line();
+		double x1=0;
+		double y1=0;
+		double x2=0;
+		double y2=0;
+		if (endX<375 && endX>=0 ) {
 			l.setEndX(endX);
+			//l.setEndY(endY);
+		}
+		else if (endX>375) {
+			l.setEndX(374);
+			//root.getChildren().add(new Line(1,startY,endX,endY));
+			//x1=1;//l2.setStartX(0);
+			//x2=endX;//l2.setEndX(endX);
+		}
+//		else if (endX<0) {
+//			l.setEndX(0);
+//			x1=375;//l2.setStartX(0);
+//			x2=endX;//l2.setEndX(endX);
+//		}
+		if (endY<375 && endY>=0 ) {
 			l.setEndY(endY);
+			//l.setEndY(endY);
+		}
+//		else if (endY>375) {
+//			l.setEndY(375);
+//			y1=0;//l2.setStartX(0);
+//			y2=endY;//l2.setEndX(endX);
+//		}
+//		else if (endY<0) {
+//			l.setEndY(0);
+//			y1=375;//l2.setStartX(0);
+//			y2=endY;//l2.setEndX(endX);
 //		}
 //		else if (endX<=0&& ) {
 //			root.getChildren().add(drawLines(374.5,startY,newX+375/2,newY+375/2));
+//		}
+//		if (x1!=x2 || y1!=y2) {
+//			root.getChildren().add(drawLines(x1,y1,x2,y2));
 //		}
 		l.setStrokeWidth(2);
 		l.setVisible(penDown);
