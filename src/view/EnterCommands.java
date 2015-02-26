@@ -34,10 +34,10 @@ public class EnterCommands extends Observable {
 	public void handler(Event e) {
 		if ((text.getText().trim() != null && !text.getText().isEmpty())) {
 			String myText=text.getText();
-			history.add(myText.replaceAll("\n", " \n "));
-			
+			String myFormatText=myText.replaceAll("\n", " \n ");
+			history.add(myFormatText);
 			setChanged();
-			notifyObservers();
+			notifyObservers(myFormatText);
 			commandText = commandText+myText.replaceAll("\n", " ")+"\n";
 			text.clear();
 			prev.updateTextArea(commandText);
