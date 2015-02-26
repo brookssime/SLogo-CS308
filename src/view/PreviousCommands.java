@@ -23,10 +23,6 @@ public class PreviousCommands {
 		text.setMinHeight(SIZE_OF_PREVIOUSCOMMANDS_BOX[1]);
 		VBox vbox=new VBox(10);
 		Button clearBtn=enter.clearHistory();
-		// Button clearBtn=new Button("Clear");
-		// clearBtn.setOnAction(e->{
-		// text.clear();
-		// });
 		vbox.getChildren().addAll(text,clearBtn);
 		vbox.setTranslateX(LOCATION_OF_PREVIOUSCOMMANDS_BOX[0]);
 		vbox.setTranslateY(LOCATION_OF_PREVIOUSCOMMANDS_BOX[1]);
