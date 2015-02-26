@@ -66,4 +66,7 @@ public class EnterCommands extends Observable {
 		}
 		System.out.println("--");
 	}
+	public List<String> getHistory(){
+		return history;
+	}
 }

@@ -22,7 +22,8 @@ public class View {
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private CommandGuide comm=new CommandGuide();
-	private MyDesigns des=new MyDesigns();
+	private ListofDesigns des= new ListofDesigns();
+	private CreateDesign cre = new CreateDesign(enter);
 	private Group root;
 
 	public View(Model myModel) {
@@ -35,8 +36,10 @@ public class View {
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
-		VBox d=des.DesignBar();
-		//d.setLayoutY(100);
+		VBox d= new VBox();
+		d.getChildren().addAll(cre.SaveDesign(), des.openDesign());
+		d.setLayoutY(100);
+
 		Button c=comm.makeMyButton();
 		root.getChildren().addAll(veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
 		stage.setScene(scene);
