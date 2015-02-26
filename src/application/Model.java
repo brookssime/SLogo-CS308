@@ -7,13 +7,14 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import commands.EvaluatorCommand;
 import commands.UserCommand;
 
 public class Model implements Observer{
 	private Parser myParser;
     private Turtle myTurtle;
-    private List<UserCommand> myUserCommands;
-    private List<UserCommand> myHistory;
+    private Map<String, EvaluatorCommand> myUserCommands;
+    private List<EvaluatorCommand> myHistory;
     private double maxX;
     private double maxY;
     private Map<String, UserCommand> commandHistoryMap;
@@ -46,6 +47,10 @@ public class Model implements Observer{
     
     public void setVariableValue(String key, double value) {
         variableMap.put(key, value);
+    }
+    
+    public void addUserCommand(String key, EvaluatorCommand value) {
+        myUserCommands.put(key, value);
     }
 
 	@Override

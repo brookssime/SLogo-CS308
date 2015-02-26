@@ -6,30 +6,19 @@ import java.util.List;
 import application.Model;
 import application.EvaluatorNode;
 
-public class UserCommand extends Command {
-
-	private List<EvaluatorNode> myNodes;
+public class UserCommand extends NodesCommand {
 	
-	public UserCommand(Model model, List<EvaluatorNode> nodeList){
-		super(model, countVariables(nodeList));
-		myNodes = nodeList;
-	}
+	public UserCommand(Model model, List<EvaluatorNode> nodeList) {
+        super(model, nodeList);
+    }
 
-	private static int countVariables(List<EvaluatorNode> nodeList) {
-		int sum = 0;
-		for (EvaluatorNode node: nodeList){
-			sum += node.countVariables();
-		}
-		return sum;
-	} 
-	
-	@Override
+    @Override
 	public List<Object> function(List<Object> args) {
-		List<Object> output = new ArrayList<>();
-		for (EvaluatorNode node: myNodes){
-			output.addAll(node.evaluate(args));
+		List<Object> list = new ArrayList<>();
+		for (EvaluatorNode n : getNodes()) {
+		    list.add((Object) n);
 		}
-		return output;
+		return list;
 	}
 	
 }

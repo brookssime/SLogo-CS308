@@ -12,4 +12,5 @@ abstract public class EvaluatorNode {
 	}
 
 	abstract public int countVariables();
+	public abstract List<VariableNode> getVariableNodes();
 }

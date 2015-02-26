@@ -42,5 +42,14 @@ public class CommandNode extends EvaluatorNode {
 	public int getMaxChildren() {
 	    return maxChildren;
 	}
+	
+	@Override
+    public List<VariableNode> getVariableNodes() {
+        List<VariableNode> variableList = new ArrayList<>();
+        for (EvaluatorNode child : myChildren) {
+            variableList.addAll(child.getVariableNodes());
+        }
+        return variableList;
+    }
 
 }
