@@ -43,7 +43,6 @@ public class ErrorDisplay{
 		Stage e = new Stage();
 		e.setTitle("Error!");
 		e.initModality(Modality.APPLICATION_MODAL);
-		//Quit and close all windows
 		Button yes = new Button();
 		yes.setText("Yes");
 		yes.setOnAction(new EventHandler<ActionEvent>(){
