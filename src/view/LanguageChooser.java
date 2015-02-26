@@ -12,12 +12,15 @@ import javafx.stage.Stage;
 
 public class LanguageChooser {
 
+	public static final Integer[] SIZE_OF_POPUP={450,250};
+
+	
 	private ComboBox<String> languageComboBox = new ComboBox<String>();
 	private String language="English";
 	protected void setLanguage(Stage stage) {
 
 		stage.setTitle("Choose Language");
-		Scene scene = new Scene(new Group(), 450, 250);
+		Scene scene = new Scene(new Group(), SIZE_OF_POPUP[0], SIZE_OF_POPUP[1]);
 		languageComboBox.getItems().addAll(
 				"Chinese",
 				"English",

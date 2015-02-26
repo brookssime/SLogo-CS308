@@ -7,7 +7,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+
 public class Display {
+	
+	public static final int SIZE_OF_TURTLE=30;
+	public static final Integer[] LOCATION_OF_DISPLAY={200,100};
+	
 	private Group root;
 	private Rectangle initial;
 	//private Line l;
@@ -20,21 +25,19 @@ public class Display {
 		initial=new Rectangle(height,width);
 		initial.setStroke(Color.BLACK);
 		initial.setFill(Color.WHITE);
-		ImageView turtle=addTurtle(height/2-15,width/2-15);
+		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2);//location so that the center of the turtle is on the center of the display
 		root.getChildren().addAll(initial,turtle);
-		root.setLayoutX(200);
-		root.setLayoutY(100);
+		root.setLayoutX(LOCATION_OF_DISPLAY[0]);
+		root.setLayoutY(LOCATION_OF_DISPLAY[1]);
 		return root;
 	}
 	private ImageView addTurtle(int xLocation, int yLocation) {
 		turtleImage=new ImageView();
 		Image image = new Image(getClass().getResourceAsStream("arrow.png"));
-		turtleImage.setFitHeight(30);
-        turtleImage.setFitWidth(30);
+		turtleImage.setFitHeight(SIZE_OF_TURTLE);
+        turtleImage.setFitWidth(SIZE_OF_TURTLE);
         turtleImage.setImage(image);
         turtleImage.relocate(xLocation,yLocation);
-//		turtleImage.setLayoutX(xLocation);
-//		turtleImage.setLayoutY(yLocation);
 		return turtleImage;
 	}
 	protected ImageView updateTurtleImage() {
@@ -43,9 +46,15 @@ public class Display {
 	
 	protected void updateTurtleLocation(double newX, double newY) {
 		root.getChildren().add(drawLines(turtleImage.getLayoutX(),turtleImage.getLayoutY(),newX,newY));
-//		turtleImage.setLayoutX(newX);
-//		turtleImage.setLayoutY(newY);
 		turtleImage.relocate(newX,newY);
+	}
+	
+	protected void updateTurtleHeading(Number newValue) {
+		turtleImage.setRotate((double)newValue);
+	}
+	
+	protected void updateTurtleShowing(boolean show) {
+		turtleImage.setVisible(show);
 	}
 	
 	protected Line drawLines(double startX, double startY,double endX, double endY) {
