@@ -1,12 +1,11 @@
 package view;
 
-import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -51,21 +50,17 @@ public class EnterCommands extends Observable {
 		setChanged();
 		notifyObservers(myFormatText);
 
-		System.out.println(commandText);
-
 
 	}
 	protected Button clearHistory() {
 		Button clearBtn=new Button("Clear");
 		clearBtn.setOnAction(e->{
 			prev.getTextArea().clear();
-			resetHistory();
+			
 		});
 		return clearBtn;
 	}
-	protected void resetHistory() {
-		System.out.println(commandText + "d");
-	}
+	
 	protected void printStatement() {
 		System.out.println("--");
 		for (String s: history) {
@@ -73,7 +68,7 @@ public class EnterCommands extends Observable {
 		}
 		System.out.println("--");
 	}
-	public List<String> getHistory(){
+	protected List<String> getHistory(){
 		return history;
 	}
 }
