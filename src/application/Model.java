@@ -17,24 +17,21 @@ public class Model implements Observer{
 	private Parser myParser;
     private Turtle myTurtle;
     private Map<String, EvaluatorCommand> myUserCommands;
-    private List<EvaluatorCommand> myHistory;
+    private Map<String, EvaluatorCommand> myCommandHistory;
+    private Map<String, Double> variableMap;
     private double maxX;
     private double maxY;
-    private Map<String, UserCommand> commandHistoryMap;
-    private Map<String, Double> variableMap;
+
     private BooleanProperty clearScreen;
     
     public Model(double maxX, double maxY) {
+        myParser = new Parser(this);
+        myTurtle = new Turtle();
+        myCommandHistory = new HashMap<String, EvaluatorCommand>();
+        myUserCommands = new HashMap<String, EvaluatorCommand>(); 
         this.maxX = maxX;
         this.maxY = maxY;
-        myTurtle = new Turtle();
-        commandHistoryMap = new HashMap<String, UserCommand>();
-        myParser = new Parser(this);
-
-        myUserCommands = new HashMap<String, EvaluatorCommand>();
-        myHistory = new ArrayList<>(); 
         clearScreen = new SimpleBooleanProperty();
-
     }
     
     public Turtle getActiveTurtle() {
@@ -61,6 +58,10 @@ public class Model implements Observer{
         myUserCommands.put(key, value);
     }
     
+    public void getUserCommand(String key) {
+        myUserCommands.get(key);
+    }
+    
     public BooleanProperty clearScreenProperty(){
     	return clearScreen;
     }
@@ -70,7 +71,7 @@ public class Model implements Observer{
 		EvaluatorCommand outputCmd;
 		try {
 			outputCmd = myParser.parse(arg1.toString());
-			myHistory.add(outputCmd);
+			myCommandHistory.put(arg1.toString(), outputCmd);
 			outputCmd.process(null);
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException e) {
