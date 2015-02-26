@@ -3,11 +3,13 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class EvaluatorNode {
+abstract public class EvaluatorNode {
 
-	abstract public Object evaluate(List<Object> args);
+	abstract public List<Object> evaluate(List<Object> args);
 	
-	public Object evaluate(){
+	public List<Object> evaluate(){
 		return evaluate(new ArrayList<>());
 	}
+
+	abstract public int countVariables();
 }

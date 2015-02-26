@@ -3,6 +3,8 @@ package application;
 import javafx.scene.Node;
 
 public class Turtle {
+    private static double FULL_ROTATION = 360;
+    private static double HALF_ROTATION = 180;
     private double heading;
     private double[] location = new double[2];
     private boolean penDown;
@@ -16,24 +18,51 @@ public class Turtle {
         showing = true;
     }
 
+    public static double getFullRotation() {
+        return FULL_ROTATION;
+    }
+    
+    public static double getHalfRotation() {
+        return HALF_ROTATION;
+    }
+
     public double getHeading() {
         return heading;
     }
 
     public double getRadiansHeading() {
-        return heading / (2 * Math.PI);
+        return heading * Math.PI / HALF_ROTATION;
     }
 
     public void setHeading(double heading) {
-        this.heading = heading;
+        this.heading = heading % FULL_ROTATION;
     }
 
     public double[] getLocation() {
         return location;
     }
-    
-    public void setLocation(double[] location) {
-        this.location = location;
+
+    public double getX() {
+        return location[0];
+    }
+
+    public void setX(double x) {
+        location[0] = x;
+    }
+
+    public void setY(double y) {
+        location[1] = y;
+    }
+
+    public double getY() {
+        return location[1];
+    }
+
+    public double setLocation(double x, double y) {
+        double oldX = location[0];
+        double oldY = location[1];
+        this.location = new double[] { x, y };
+        return Math.sqrt(Math.pow((x - oldX), 2) + Math.pow((y - oldY), 2));
     }
 
     public boolean isPenDown() {

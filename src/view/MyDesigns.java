@@ -14,11 +14,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
 public class MyDesigns {
 	private Label myLabel;
 	private ComboBox<String> myCombo;
 	private File myFile;
-	
+
 	protected VBox DesignBar(){
 		VBox designSidebar = new VBox();
 		Button save = SaveDesign();
@@ -27,7 +30,7 @@ public class MyDesigns {
 		designSidebar.setAlignment(Pos.TOP_LEFT);
 		return designSidebar;
 	}
-	
+
 	private File TextChooser(String... options) {
 		String output = new String();
 		myLabel = new Label();
@@ -46,17 +49,20 @@ public class MyDesigns {
 				// TODO Auto-generated method stub
 				String output = myCombo.getSelectionModel().getSelectedItem();
 				if (output ==null){
-				 // TODO Add error message
+
+					// TODO Add error message
+
 				}
 				if (output != null){
 					myFile = new File ("C:\\output.xml");
 				}
-			}
-			
-		});
-		return myFile;
 
-}
+	
+			}});
+		return myFile;
+	}
+		
+
 	public StackPane DesignMenu (){
 		StackPane root = new StackPane();
 		//TODO Add names of files
@@ -64,12 +70,14 @@ public class MyDesigns {
 		root.getChildren().addAll(myCombo, myLabel);
 		return root;
 	}
-	
+
 	public Button SaveDesign (){
 		Button designs = new Button("Save to My Designs");
 		designs.setOnAction(e -> saveFile());
 		return designs;
 	}
+
+	
 	
 	private File saveFile() {
 
@@ -79,7 +87,9 @@ public class MyDesigns {
 				+ "/src/designs"));
 		ExtensionFilter filter = new ExtensionFilter("XML", "*.xml");
 		saver.getExtensionFilters().add(filter);
-		File savedDesign = saver.showSaveDialog(null);
+
+		File savedDesign = saver.showSaveDialog(new Stage());
 		return savedDesign;
 	}
 }
+
