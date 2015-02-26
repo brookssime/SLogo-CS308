@@ -22,7 +22,7 @@ public class PreviousCommands {
 		text.setMaxWidth(SIZE_OF_PREVIOUSCOMMANDS_BOX[0]);
 		text.setMinHeight(SIZE_OF_PREVIOUSCOMMANDS_BOX[1]);
 		VBox vbox=new VBox(10);
-		Button clearBtn=enter.blah();
+		Button clearBtn=enter.clearHistory();
 		// Button clearBtn=new Button("Clear");
 		// clearBtn.setOnAction(e->{
 		// text.clear();
@@ -37,6 +37,6 @@ public class PreviousCommands {
 		return text;
 	}
 	protected void updateTextArea(String moreText) {
-		text.setText(moreText);
+		text.appendText(moreText);
 	}
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-
+import commands.EvaluatorCommand;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import commands.UserCommand;
@@ -16,25 +16,22 @@ import commands.UserCommand;
 public class Model implements Observer{
 	private Parser myParser;
     private Turtle myTurtle;
-    private List<UserCommand> myUserCommands;
-    private List<UserCommand> myHistory;
+    private Map<String, EvaluatorCommand> myUserCommands;
+    private Map<String, EvaluatorCommand> myCommandHistory;
+    private Map<String, Double> variableMap;
     private double maxX;
     private double maxY;
-    private Map<String, UserCommand> commandHistoryMap;
-    private Map<String, Double> variableMap;
+
     private BooleanProperty clearScreen;
     
     public Model(double maxX, double maxY) {
+        myParser = new Parser(this);
+        myTurtle = new Turtle();
+        myCommandHistory = new HashMap<String, EvaluatorCommand>();
+        myUserCommands = new HashMap<String, EvaluatorCommand>(); 
         this.maxX = maxX;
         this.maxY = maxY;
-        myTurtle = new Turtle();
-        commandHistoryMap = new HashMap<String, UserCommand>();
-        myParser = new Parser(this);
-
-        myUserCommands = new ArrayList<>();
-        myHistory = new ArrayList<>(); 
         clearScreen = new SimpleBooleanProperty();
-
     }
     
     public Turtle getActiveTurtle() {
@@ -49,12 +46,20 @@ public class Model implements Observer{
         return maxY;
     }
     
-    public Map<String, Double> getVariableMap() {
-        return variableMap;
+    public double getVariableValue(String key) {
+        return variableMap.get(key);
     }
-        
-    public void addUserCommand(UserCommand cmd){
-    	myUserCommands.add(cmd);
+    
+    public void setVariableValue(String key, double value) {
+        variableMap.put(key, value);
+    }
+    
+    public void addUserCommand(String key, EvaluatorCommand value) {
+        myUserCommands.put(key, value);
+    }
+    
+    public void getUserCommand(String key) {
+        myUserCommands.get(key);
     }
     
     public BooleanProperty clearScreenProperty(){
@@ -63,10 +68,10 @@ public class Model implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		UserCommand outputCmd;
+		EvaluatorCommand outputCmd;
 		try {
 			outputCmd = myParser.parse(arg1.toString());
-			myHistory.add(outputCmd);
+			myCommandHistory.put(arg1.toString(), outputCmd);
 			outputCmd.process(null);
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException e) {

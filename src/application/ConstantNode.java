@@ -23,4 +23,9 @@ public class ConstantNode extends EvaluatorNode {
 		return 0;
 	}
 
+    @Override
+    public List<VariableNode> getVariableNodes() {
+        return null;
+    }
+
 }
