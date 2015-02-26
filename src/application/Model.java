@@ -58,8 +58,8 @@ public class Model implements Observer{
         myUserCommands.put(key, value);
     }
     
-    public void getUserCommand(String key) {
-        myUserCommands.get(key);
+    public EvaluatorCommand getUserCommand(String key) {
+        return myUserCommands.get(key);
     }
     
     public BooleanProperty clearScreenProperty(){
