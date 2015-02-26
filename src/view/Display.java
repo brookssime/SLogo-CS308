@@ -20,6 +20,8 @@ public class Display {
 	private ImageView turtleImage;
 	private Turtle myTurtle;
 	private boolean penDown;
+	private double xLoc;
+	private double yLoc;
 	protected Group makeDisplay(int height,int width) {
 		penColor=Color.BLACK;
 		root=new Group();
@@ -39,6 +41,8 @@ public class Display {
         turtleImage.setFitWidth(SIZE_OF_TURTLE);
         turtleImage.setImage(image);
         turtleImage.relocate(xLocation,yLocation);
+        xLoc=turtleImage.getLayoutX()+15;
+        yLoc=turtleImage.getLayoutY()+15;
 		return turtleImage;
 	}
 	protected ImageView updateTurtleImage() {
@@ -46,8 +50,10 @@ public class Display {
 	}
 	
 	protected void updateTurtleLocation(double newX, double newY) {
-		root.getChildren().add(drawLines(turtleImage.getLayoutX(),turtleImage.getLayoutY(),newX,newY));
-		turtleImage.relocate(newX,newY);
+		root.getChildren().add(drawLines(xLoc,yLoc,newX+375/2,newY+375/2));
+		turtleImage.relocate(newX+375/2,newY+375/2);
+		xLoc=newX+375/2;
+		yLoc=newY+375/2;
 	}
 	
 	protected void updateTurtleHeading(Number newValue) {
@@ -63,8 +69,13 @@ public class Display {
 		l.setStroke(penColor);
 		l.setStartX(startX);
 		l.setStartY(startY);
-		l.setEndX(endX);
-		l.setEndY(endY);
+//		if (endX<375 && endX>0 && endY<375 && endY>0) {
+			l.setEndX(endX);
+			l.setEndY(endY);
+//		}
+//		else if (endX<=0&& ) {
+//			root.getChildren().add(drawLines(374.5,startY,newX+375/2,newY+375/2));
+//		}
 		l.setStrokeWidth(2);
 		l.setVisible(penDown);
 		return l;
