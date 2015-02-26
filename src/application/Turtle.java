@@ -2,18 +2,21 @@ package application;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Node;
 
 public class Turtle {
     private static final double FULL_ROTATION = 360;
     private static final double HALF_ROTATION = 180;
-    private DoubleProperty heading;
-    private Property<double[]> location;
-    private BooleanProperty penDown;
-    private BooleanProperty showing;
-    private Property<Node> node;
+    private DoubleProperty heading = new SimpleDoubleProperty();
+    private ObjectProperty<double[]> location = new SimpleObjectProperty<>();
+    private BooleanProperty penDown = new SimpleBooleanProperty();
+    private BooleanProperty showing = new SimpleBooleanProperty();
+    private ObjectProperty<Node> node = new SimpleObjectProperty<>();
 
     public Turtle() {
     	heading = new SimpleDoubleProperty();
