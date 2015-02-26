@@ -15,7 +15,8 @@ public class View {
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private CommandGuide comm=new CommandGuide();
-	private MyDesigns des=new MyDesigns(enter);
+	private ListofDesigns des= new ListofDesigns();
+	private CreateDesign cre = new CreateDesign(enter);
 	private Group root;
 
 	public void start(Stage stage) {
@@ -25,7 +26,8 @@ public class View {
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
-		VBox d=des.DesignBar();
+		VBox d= new VBox();
+		d.getChildren().addAll(cre.SaveDesign(), des.DesignMenu());
 		d.setLayoutY(100);
 		Button c=comm.makeMyButton();
 		root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t,c,d);
