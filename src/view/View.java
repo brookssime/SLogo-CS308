@@ -49,12 +49,20 @@ public class View {
 		root.getChildren().add(n);
 	}
 	public void addAllListeners(Model model){
+		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0,
+					Boolean arg1, Boolean arg2) {
+				// TODO Auto-generated method stub
+				
+			}});
 		Turtle t = model.getActiveTurtle();
 		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
-				// TODO Auto-generated method stub				
+				// TODO Auto-generated method stub
+				display.updateTurtleHeading(newValue);
 			}  
 	      });
 
@@ -63,6 +71,8 @@ public class View {
 			public void changed(ObservableValue<? extends double[]> observable,
 					double[] oldValue, double[] newValue) {
 				// TODO Auto-generated method stub
+				System.out.println("hit");
+				display.updateTurtleLocation(newValue[0],newValue[1]);
 			}  
 	      });
 		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
@@ -78,7 +88,8 @@ public class View {
 			public void changed(ObservableValue<? extends Boolean> observable,
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				
+				System.out.println("showing changed");
+				display.updateTurtleShowing(newValue);
 			}
 	      });
 		t.getNodeProperty().addListener(new ChangeListener<Node>() {
