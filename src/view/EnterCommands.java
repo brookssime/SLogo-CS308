@@ -42,9 +42,9 @@ public class EnterCommands extends Observable {
 			text.clear();
 			prev.updateTextArea(commandText);
 			printStatement();
-			//System.out.println(commandText);
 			setChanged();
 			notifyObservers(myFormatText);
+			//System.out.println(commandText);
 		}
 	}
 	protected Button blah() {

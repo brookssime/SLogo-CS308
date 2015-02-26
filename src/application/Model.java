@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import commands.UserCommand;
 
 public class Model implements Observer{
@@ -19,7 +21,7 @@ public class Model implements Observer{
     private double maxY;
     private Map<String, UserCommand> commandHistoryMap;
     private Map<String, Double> variableMap;
-    
+    private BooleanProperty clearScreen;
     
     public Model(double maxX, double maxY) {
         this.maxX = maxX;
@@ -28,7 +30,8 @@ public class Model implements Observer{
         commandHistoryMap = new HashMap<String, UserCommand>();
         myParser = new Parser(this);
         myUserCommands = new ArrayList<>();
-        myHistory = new ArrayList<>();
+        myHistory = new ArrayList<>(); 
+        clearScreen = new SimpleBooleanProperty();
     }
     
     public Turtle getActiveTurtle() {
@@ -49,6 +52,10 @@ public class Model implements Observer{
         
     public void addUserCommand(UserCommand cmd){
     	myUserCommands.add(cmd);
+    }
+    
+    public BooleanProperty clearScreenProperty(){
+    	return clearScreen;
     }
 
 	@Override
