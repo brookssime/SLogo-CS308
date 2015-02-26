@@ -14,9 +14,8 @@ public class View {
 	private ButtonBar btnz=new ButtonBar(new ColorChooser(display),new LanguageChooser());
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
-
 	private CommandGuide comm=new CommandGuide();
-	private MyDesigns des=new MyDesigns();
+	private MyDesigns des=new MyDesigns(enter);
 	private Group root;
 
 	public void start(Stage stage) {
@@ -37,4 +36,3 @@ public class View {
 		root.getChildren().add(n);
 	}
 }
-

@@ -57,4 +57,7 @@ public class EnterCommands {
 		}
 		System.out.println("--");
 	}
+	public List<String> getHistory(){
+		return history;
+	}
 }
