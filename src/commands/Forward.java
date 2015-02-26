@@ -1,7 +1,5 @@
 package commands;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import application.Model;
@@ -40,14 +38,14 @@ public class Forward extends Command {
                 double incrX = turtle.getX() + incrDist*Math.cos(radiansHeading);
             	turtle.setLocation(incrX, signY*maxY);
             	turtle.setPenDown(false);
-            	turtle.setY(-signY*maxY);
+            	turtle.setLocation(incrX, -signY*maxY);
             	turtle.setPenDown(temp);
             	advanceTurtle(distance - incrDist);
             }
             else{
             	turtle.setLocation(signX*maxX, incrY);
             	turtle.setPenDown(false);
-            	turtle.setX(-signX*maxX);
+            	turtle.setLocation(-signX*maxX, incrY);
             	turtle.setPenDown(temp);
             	advanceTurtle(distance - incrDist);
             }
@@ -59,7 +57,7 @@ public class Forward extends Command {
             double incrX = turtle.getX() + incrDist*Math.cos(radiansHeading);
             turtle.setLocation(incrX, signY*maxY);
         	turtle.setPenDown(false);
-        	turtle.setY(-signY*maxY);
+        	turtle.setLocation(incrX, -signY*maxY);
         	turtle.setPenDown(temp);
         	advanceTurtle(distance - incrDist);
         }
