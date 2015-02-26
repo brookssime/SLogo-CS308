@@ -15,7 +15,7 @@ public class VariableNode extends EvaluatorNode {
     @Override
     public List<Object> evaluate(List<Object> args) {
         List<Object> list = new ArrayList<>();
-        Double d = myModel.getVariableMap().get(myString);
+        Double d = myModel.getVariableValue(myString);
         if (d == null) {
             list.add(myString);
         } else {

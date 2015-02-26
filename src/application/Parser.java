@@ -160,8 +160,7 @@ public class Parser {
         toCommandVariables.addAll(stringVarList);
         iter.next();
         customCommandMap.put(commandName, parseIterator(iter));
-        toCommandVariables.removeAll(stringVarList);
-        return;        
+        toCommandVariables.removeAll(stringVarList);       
     }
     
 }

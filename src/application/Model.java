@@ -40,8 +40,12 @@ public class Model implements Observer{
         return maxY;
     }
     
-    public Map<String, Double> getVariableMap() {
-        return variableMap;
+    public double getVariableValue(String key) {
+        return variableMap.get(key);
+    }
+    
+    public void setVariableValue(String key, double value) {
+        variableMap.put(key, value);
     }
 
 	@Override
