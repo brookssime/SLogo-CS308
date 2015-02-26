@@ -44,8 +44,8 @@ public class ImageChooser {
 				ImageView img=display.updateTurtleImage(); 
 				try {
 					Image image = SwingFXUtils.toFXImage(ImageIO.read(file), null);
-	                img.setFitHeight(30);
-	                img.setFitWidth(30);
+	                img.setFitHeight(display.SIZE_OF_TURTLE);
+	                img.setFitWidth(display.SIZE_OF_TURTLE);
 	                img.setImage(image);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

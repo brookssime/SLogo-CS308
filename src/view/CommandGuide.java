@@ -9,11 +9,12 @@ import javafx.stage.Stage;
 
 public class CommandGuide {
 	
+	public static final Integer[] LOCATION_OF_COMMANDGUIDE={15,575};
 	
 	protected Button makeMyButton() {
 		Button btn=new Button("Command\n Guide");
-		btn.setLayoutX(25);
-		btn.setLayoutY(575);
+		btn.setLayoutX(LOCATION_OF_COMMANDGUIDE[0]);
+		btn.setLayoutY(LOCATION_OF_COMMANDGUIDE[1]);
 		btn.setOnAction(b->openCommandGuide());
 		return btn;
 	}

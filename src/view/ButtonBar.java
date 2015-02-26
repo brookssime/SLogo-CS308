@@ -8,6 +8,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 public class ButtonBar {
 	
+	public static final Integer[] LOCATION_OF_BUTTONBAR={675,550};
+	
+	
 	private ColorChooser colz;
 	private ImageChooser img;
 	private LanguageChooser lang;
@@ -41,8 +44,8 @@ public class ButtonBar {
 //		newStage.show();});
 		vbox.getChildren().addAll(setLang,chooseColor,setImage);
 		vbox.setAlignment(Pos.CENTER);
-		vbox.setTranslateX(675);
-		vbox.setTranslateY(550);
+		vbox.setTranslateX(LOCATION_OF_BUTTONBAR[0]);
+		vbox.setTranslateY(LOCATION_OF_BUTTONBAR[1]);
 		return vbox;
 	}
 }
