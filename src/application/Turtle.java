@@ -66,20 +66,6 @@ public class Turtle {
         return location.getValue()[1];
     }
 
-    public void setX(double x) {
-    	setCoord(x, 0);
-    }
-
-    public void setY(double y) {
-    	setCoord(y, 1);
-    }
-
-	private void setCoord(double x, int i) {
-		double[] coords = location.getValue();
-        coords[i] = x;
-        location.setValue(coords);
-	}
-
     public double setLocation(double x, double y) {
         double oldX = location.getValue()[0];
         double oldY = location.getValue()[1];
