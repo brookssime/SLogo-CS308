@@ -2,13 +2,16 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
-public class EnterCommands {
+public class EnterCommands extends Observable {
+	
 	private TextArea text;
 	private String commandText="";
 	private PreviousCommands prev;
@@ -30,8 +33,12 @@ public class EnterCommands {
 	}
 	public void handler(Event e) {
 		if ((text.getText().trim() != null && !text.getText().isEmpty())) {
-			history.add(text.getText().replaceAll("\n", " "));
-			commandText = commandText+text.getText().replaceAll("\n", " ")+"\n";
+			String myText=text.getText();
+			String myFormatText=myText.replaceAll("\n", " \n ");
+			history.add(myFormatText);
+			setChanged();
+			notifyObservers(myFormatText);
+			commandText = commandText+myText.replaceAll("\n", " ")+"\n";
 			text.clear();
 			prev.updateTextArea(commandText);
 			printStatement();

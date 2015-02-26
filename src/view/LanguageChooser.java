@@ -13,12 +13,11 @@ import javafx.stage.Stage;
 public class LanguageChooser {
 
 	private ComboBox<String> languageComboBox = new ComboBox<String>();
-	private String language="";
+	private String language="English";
 	protected void setLanguage(Stage stage) {
 
 		stage.setTitle("Choose Language");
 		Scene scene = new Scene(new Group(), 450, 250);
-
 		languageComboBox.getItems().addAll(
 				"Chinese",
 				"English",
@@ -37,6 +36,7 @@ public class LanguageChooser {
                 language = t1;  
             }    
         });
+
 		GridPane grid = new GridPane();
 		Label label=new Label("Choose the Language for Commands: ");
 		grid.add(label,0,0);

@@ -3,25 +3,22 @@ package application;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import view.View;
 import commands.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-
 public class Main extends Application {
+
+	private View myView;
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+		Model myModel = new Model(200, 200);
+		myView = new View(myModel);
+		myView.addAllListeners(myModel);
+		myView.start(new Stage());
 	}
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {

@@ -1,21 +1,29 @@
 package view;
 
+import application.Model;
+import application.Turtle;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-public class View extends Application {
+public class View {
 	private Display display=new Display();
 	private ButtonBar btnz=new ButtonBar(new ColorChooser(display),new LanguageChooser());
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
+	private CommandGuide comm=new CommandGuide();
+	private MyDesigns des=new MyDesigns();
 	private Group root;
-	public static void main(String[] args) {
-		launch(args);
+
+	public View(Model myModel) {
+		enter.addObserver(myModel);
 	}
 	public void start(Stage stage) {
 		stage.setTitle("SLOGO");
@@ -24,11 +32,56 @@ public class View extends Application {
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
-		root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t);
+		VBox d=des.DesignBar();
+		d.setLayoutY(100);
+		Button c=comm.makeMyButton();
+		root.getChildren().addAll(veebz,display.makeDisplay(375,375),h,t,c,d);
 		stage.setScene(scene);
 		stage.show();
 	}
 	protected void addToRoot(Node n) {
 		root.getChildren().add(n);
+	}
+	public void addAllListeners(Model model){
+		Turtle t = model.getActiveTurtle();
+		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub				
+			}  
+	      });
+
+		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
+			@Override
+			public void changed(ObservableValue<? extends double[]> observable,
+					double[] oldValue, double[] newValue) {
+				// TODO Auto-generated method stub
+			}  
+	      });
+		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+			@Override
+			public void changed(ObservableValue<? extends Node> observable,
+					Node oldValue, Node newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
 	}
 }
