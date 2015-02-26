@@ -4,9 +4,9 @@ import java.util.List;
 
 import application.Model;
 
-public class Back extends Command {
+public class Backward extends Command {
 
-	public Back(Model model) {
+	public Backward(Model model) {
 		super(model, 1);
 	}
 
