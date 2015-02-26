@@ -1,6 +1,10 @@
 package view;
 
+import application.Model;
+import application.Turtle;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -34,5 +38,47 @@ public class View {
 	}
 	protected void addToRoot(Node n) {
 		root.getChildren().add(n);
+	}
+	public void addAllListeners(Model model){
+		Turtle t = model.getActiveTurtle();
+		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub				
+			}  
+	      });
+
+		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
+			@Override
+			public void changed(ObservableValue<? extends double[]> observable,
+					double[] oldValue, double[] newValue) {
+				// TODO Auto-generated method stub
+			}  
+	      });
+		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
+		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+			@Override
+			public void changed(ObservableValue<? extends Node> observable,
+					Node oldValue, Node newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
 	}
 }

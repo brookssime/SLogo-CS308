@@ -1,21 +1,29 @@
 package application;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Node;
 
 public class Turtle {
-    private static double FULL_ROTATION = 360;
-    private static double HALF_ROTATION = 180;
-    private double heading;
-    private double[] location = new double[2];
-    private boolean penDown;
-    private boolean showing;
-    private Node node;
+    private static final double FULL_ROTATION = 360;
+    private static final double HALF_ROTATION = 180;
+    private DoubleProperty heading = new SimpleDoubleProperty();
+    private ObjectProperty<double[]> location = new SimpleObjectProperty<>();
+    private BooleanProperty penDown = new SimpleBooleanProperty();
+    private BooleanProperty showing = new SimpleBooleanProperty();
+    private ObjectProperty<Node> node = new SimpleObjectProperty<>();
 
     public Turtle() {
-        location[0] = 0;
-        location[1] = 0;
-        penDown = false;
-        showing = true;
+    	heading = new SimpleDoubleProperty();
+    	double[] coords = {0,0};
+    	location.setValue(coords);
+        penDown.setValue(false);
+        showing.setValue(true);
     }
 
     public static double getFullRotation() {
@@ -25,67 +33,93 @@ public class Turtle {
     public static double getHalfRotation() {
         return HALF_ROTATION;
     }
+    
+    public DoubleProperty getHeadingProperty(){
+    	return heading;
+    }
 
     public double getHeading() {
-        return heading;
+        return heading.getValue();
     }
 
     public double getRadiansHeading() {
-        return heading * Math.PI / HALF_ROTATION;
+        return heading.getValue() * Math.PI / HALF_ROTATION;
     }
 
     public void setHeading(double heading) {
-        this.heading = heading % FULL_ROTATION;
+        this.heading.setValue(heading % FULL_ROTATION);
+    }
+    
+    public Property<double[]> getLocationProperty(){
+    	return location;
     }
 
     public double[] getLocation() {
-        return location;
+        return location.getValue();
     }
 
     public double getX() {
-        return location[0];
-    }
-
-    public void setX(double x) {
-        location[0] = x;
-    }
-
-    public void setY(double y) {
-        location[1] = y;
+        return location.getValue()[0];
     }
 
     public double getY() {
-        return location[1];
+        return location.getValue()[1];
     }
+
+    public void setX(double x) {
+    	setCoord(x, 0);
+    }
+
+    public void setY(double y) {
+    	setCoord(y, 1);
+    }
+
+	private void setCoord(double x, int i) {
+		double[] coords = location.getValue();
+        coords[i] = x;
+        location.setValue(coords);
+	}
 
     public double setLocation(double x, double y) {
-        double oldX = location[0];
-        double oldY = location[1];
-        this.location = new double[] { x, y };
+        double oldX = location.getValue()[0];
+        double oldY = location.getValue()[1];
+        this.location.setValue(new double[] { x, y });
         return Math.sqrt(Math.pow((x - oldX), 2) + Math.pow((y - oldY), 2));
     }
-
-    public boolean isPenDown() {
+    
+    public BooleanProperty getPenDownProperty() {
         return penDown;
     }
 
-    public void setPenDown(boolean penDown) {
-        this.penDown = penDown;
+    public boolean isPenDown() {
+        return penDown.getValue();
     }
 
-    public boolean isShowing() {
+    public void setPenDown(boolean penDown) {
+        this.penDown.setValue(penDown);
+    }
+    
+    public BooleanProperty getShowingProperty() {
         return showing;
     }
 
-    public void setShowing(boolean showing) {
-        this.showing = showing;
+    public boolean isShowing() {
+        return showing.getValue();
     }
 
-    public Node getNode() {
+    public void setShowing(boolean showing) {
+        this.showing.setValue(showing);
+    }
+    
+    public Property<Node> getNodeProperty() {
         return node;
     }
 
+    public Node getNode() {
+        return node.getValue();
+    }
+
     public void setNode(Node node) {
-        this.node = node;
+        this.node.setValue(node);
     }
 }
