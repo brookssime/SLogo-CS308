@@ -1,6 +1,7 @@
 package application;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +30,11 @@ public class Model implements Observer{
         myTurtle = new Turtle();
         commandHistoryMap = new HashMap<String, UserCommand>();
         myParser = new Parser(this);
+
         myUserCommands = new ArrayList<>();
         myHistory = new ArrayList<>(); 
         clearScreen = new SimpleBooleanProperty();
+
     }
     
     public Turtle getActiveTurtle() {

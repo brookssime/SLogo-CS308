@@ -42,8 +42,10 @@ public class EnterCommands extends Observable {
 			text.clear();
 			prev.updateTextArea(commandText);
 			printStatement();
+
 			setChanged();
 			notifyObservers(myFormatText);
+
 			//System.out.println(commandText);
 		}
 	}

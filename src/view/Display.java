@@ -49,6 +49,14 @@ public class Display {
 		turtleImage.relocate(newX,newY);
 	}
 	
+	protected void updateTurtleHeading(Number newValue) {
+		turtleImage.setRotate((double)newValue);
+	}
+	
+	protected void updateTurtleShowing(boolean show) {
+		turtleImage.setVisible(show);
+	}
+	
 	protected Line drawLines(double startX, double startY,double endX, double endY) {
 		Line l=new Line();
 		l.setStroke(penColor);
