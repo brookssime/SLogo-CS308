@@ -49,6 +49,13 @@ public class View {
 		root.getChildren().add(n);
 	}
 	public void addAllListeners(Model model){
+		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0,
+					Boolean arg1, Boolean arg2) {
+				// TODO Auto-generated method stub
+				
+			}});
 		Turtle t = model.getActiveTurtle();
 		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
 			@Override
