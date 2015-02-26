@@ -42,7 +42,7 @@ public class EnterCommands extends Observable {
 			text.clear();
 			prev.updateTextArea(commandText);
 			printStatement();
-			
+
 			setChanged();
 			notifyObservers(myFormatText);
 
@@ -67,5 +67,8 @@ public class EnterCommands extends Observable {
 			System.out.println(history.indexOf(s)+":"+s);
 		}
 		System.out.println("--");
+	}
+	public List<String> getHistory(){
+		return history;
 	}
 }

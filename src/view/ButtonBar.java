@@ -23,7 +23,9 @@ public class ButtonBar {
 		dis=colz.getDisplay();
 		//lang=new LanguageChooser();
 	}
+
 	private Button makeButton(String name) {
+
 		Button btn = new Button(name);
 		btn.setScaleX(2);
 		btn.setScaleY(2);
