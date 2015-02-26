@@ -5,6 +5,7 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -16,20 +17,29 @@ import commands.*;
 public class Parser {
     private List<Map.Entry<String, Pattern>> myCommandPatterns;
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
+    private Map<String, UserCommand> customCommandMap;
     private Model myModel;
-    private static String commandPath = "commands.";
+    private static final String commandPath = "commands.";
     private TreeBuilder myTreeBuilder;
+    private List<String> toCommandVariables;
 
     public Parser(Model myModel) {
         myCommandPatterns = makePatterns("resources/languages/English");
         mySyntaxPatterns = makePatterns("resources/languages/Syntax");
+        customCommandMap = new HashMap<String, UserCommand>();
         myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
+        toCommandVariables = new ArrayList<>();
     }
 
     public UserCommand parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         String[] inputArray = input.split(" ");
-        return parseIterator(Arrays.asList(inputArray).iterator());
+        Iterator<String> iter = Arrays.asList(inputArray).iterator();
+        UserCommand myUserCommand = parseIterator(iter);
+        if (iter.hasNext()) {
+            //Throw and error here "Closing brackets were placed with no corresponding opening brackets"
+        }
+        return myUserCommand;
     }
 
     private UserCommand parseIterator(Iterator<String> iter)
@@ -39,12 +49,50 @@ public class Parser {
         while(iter.hasNext()) {
             String s = iter.next();
             String p = checkForMatch(s, mySyntaxPatterns);
-            if (p.equals("ListEnd") || p.equals("GroupEnd")) {
+            if (p == null) {
+                //do nothing
+            } else if (p.equals("ListEnd") || p.equals("GroupEnd")) {
                 break;
+            } else if (p.equals("Comment")) {
+                removeComment(iter);
+            } else {
+                list.add(generateNode(s, p, iter));
             }
-            list.add(generateNode(s, p, iter));
         }
         return new UserCommand(myModel, myTreeBuilder.build(list));
+    }
+    
+    private EvaluatorNode generateNode(String s, String p, Iterator<String> iter) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
+        if (p.equals("Command")) {
+            try {
+                String commandMatch = checkForMatch(s, myCommandPatterns);
+                if (commandMatch.equals("To")) {
+                    handleToCommand(iter);
+                    return new ConstantNode(1);
+                } else {
+                    return new CommandNode((Command) Class.forName(
+                            commandPath + commandMatch)
+                            .getDeclaredConstructors()[0].newInstance(myModel));
+                }                
+            } catch(ClassNotFoundException e) {
+                return new CommandNode((Command) customCommandMap.get(s));
+            }
+        } else if (p.equals("Constant")) {
+            return new ConstantNode(Double.parseDouble(s));
+        } else if (p.equals("ListStart") || p.equals("GroupStart")) {
+            return new CommandNode(parseIterator(iter));
+        } else if (p.equals("Variable")) {
+            if (toCommandVariables.size() > 0) {
+                for (int i = 0; i < toCommandVariables.size(); i++) {
+                    if (toCommandVariables.get(i).equals(s)) {
+                        return new IndexNode(i);
+                    }
+                }
+            }
+            return new VariableNode(myModel, s);
+        } else {
+            return null;
+        }
     }
 
     private boolean match(String input, Pattern regex) {
@@ -86,22 +134,29 @@ public class Parser {
         }
         return patterns;
     }
-
-    private EvaluatorNode generateNode(String s, String p, Iterator<String> iter)
-            throws InstantiationException, IllegalAccessException,
-            IllegalArgumentException, InvocationTargetException,
-            SecurityException, ClassNotFoundException {
-        if (p.equals("Command")) {
-            return new CommandNode((Command) Class.forName(
-                    commandPath + checkForMatch(s, myCommandPatterns))
-                    .getDeclaredConstructors()[0].newInstance(myModel));
-        } else if (p.equals("Constant")) {
-            return new ConstantNode(Double.parseDouble(s));
-        } else if (p.equals("ListStart") || p.equals("GroupStart")) {
-            return new CommandNode(parseIterator(iter));
-        } else {
-            return new ConstantNode(s);
+    
+    private void removeComment(Iterator<String> iter) {
+        while(iter.hasNext()) {
+            if (iter.next().equals("\n")) {
+                return;                
+            }
         }
+    }
+    
+    private void handleToCommand(Iterator<String> iter) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+        String commandName = iter.next();
+        iter.next();
+        List<Object> varList = parseIterator(iter).process(new ArrayList<>());
+        List<String> stringVarList = new ArrayList<>();
+        for (Object o : varList) {
+            stringVarList.add((String) o);
+            //Throw error here "must use nonexistent variables to define a command's variable"
+        }
+        toCommandVariables.addAll(stringVarList);
+        iter.next();
+        customCommandMap.put(commandName, parseIterator(iter));
+        toCommandVariables.removeAll(stringVarList);
+        return;        
     }
     
 }
