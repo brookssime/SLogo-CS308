@@ -15,7 +15,7 @@ public class CreateDesign {
 	public CreateDesign(EnterCommands e){
 		myEnter = e;
 	}
-	public Button SaveDesign (){
+	protected Button SaveDesign (){
 		Button designs = new Button("Save to My Designs");
 		designs.setOnAction(e -> saveFile());
 		return designs;

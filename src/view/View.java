@@ -37,7 +37,7 @@ public class View {
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
 		VBox d= new VBox();
-		d.getChildren().addAll(cre.SaveDesign(), des.DesignMenu());
+		d.getChildren().addAll(cre.SaveDesign(), des.openDesign());
 		d.setLayoutY(100);
 
 		Button c=comm.makeMyButton();
