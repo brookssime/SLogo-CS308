@@ -25,15 +25,19 @@ public class Parser {
     private int blockDepthCount = 0;
 
     public Parser(Model myModel) {
-        myCommandPatterns = makePatterns("resources/languages/English");
+        this.myModel = myModel;
+        myCommandPatterns = makePatterns("resources/languages/" + myModel.getLanguage());
         mySyntaxPatterns = makePatterns("resources/languages/Syntax");
         customCommandMap = new HashMap<String, UserCommand>();
         myTreeBuilder = new TreeBuilder();
-        this.myModel = myModel;
         //toCommandVariables = new ArrayList<>();
         
     }
-
+    
+    public void updateCommandPatterns() {
+    	myCommandPatterns = makePatterns("resources/languages/" + myModel.getLanguage());
+    }
+    
     public EvaluatorCommand parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         String[] inputArray = input.split(" ");
         Iterator<String> iter = Arrays.asList(inputArray).iterator();
