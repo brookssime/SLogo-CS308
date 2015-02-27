@@ -33,8 +33,9 @@ public class Model implements Observer{
     	myLanguage="English";
     	myParser = new Parser(this);
         myTurtle = new Turtle();
-        myCommandHistory = new HashMap<String, EvaluatorCommand>();
         myUserCommands = new HashMap<String, EvaluatorCommand>(); 
+        myCommandHistory = new HashMap<String, EvaluatorCommand>();
+        variableMap = new HashMap<String, Double>();
         this.maxX = maxX;
         this.maxY = maxY;
         clearScreen = new SimpleBooleanProperty();
@@ -66,7 +67,7 @@ public class Model implements Observer{
         return maxY;
     }
     
-    public double getVariableValue(String key) {
+    public Double getVariableValue(String key) {
         return variableMap.get(key);
     }
     

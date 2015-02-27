@@ -6,13 +6,17 @@ import java.util.List;
 public class VariableNode extends EvaluatorNode {
 
     private String myString;
-    private Model myModel;
+    private static Model myModel;
     private Integer myIndex;
     
     public VariableNode(Model myModel, String myString) {
+        this.myModel = myModel;
         this.myString = myString;
     }
     
+    public VariableNode(String myString) {
+        this.myString = myString;
+    }
     @Override
     public List<Object> evaluate(List<Object> args) {
         if (myIndex != null) {

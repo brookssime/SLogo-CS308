@@ -25,7 +25,9 @@ public class ConstantNode extends EvaluatorNode {
 
     @Override
     public List<VariableNode> getVariableNodes() {
-        return null;
+        List<VariableNode> list = new ArrayList<>();
+        list.add(new VariableNode(""));
+        return list;
     }
 
 }
