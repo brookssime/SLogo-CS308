@@ -12,7 +12,7 @@ public class Tangent extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.tan(((double) args.get(0))*Math.PI/180));
+        return putObjectInList(Math.tan(((double) args.get(0))*Math.PI/180));
     }
 
 }

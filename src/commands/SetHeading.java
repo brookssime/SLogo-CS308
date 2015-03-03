@@ -16,7 +16,7 @@ public class SetHeading extends Command {
         double newHeading = ((double) args.get(0)) % Turtle.getFullRotation();
         double oldHeading = myModel.getActiveTurtle().getHeading();
         myModel.getActiveTurtle().setHeading(newHeading);
-        return putDoubleInList(Math.abs(newHeading - oldHeading));
+        return putObjectInList(Math.abs(newHeading - oldHeading));
     }
 
 }

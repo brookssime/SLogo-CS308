@@ -13,7 +13,7 @@ public class Not extends Command{
 	@Override
 	public List<Object> function(List<Object> args) {
 		double not = -(double)args.get(0);
-		return putDoubleInList(not);
+		return putObjectInList(not);
 	}
 
 }

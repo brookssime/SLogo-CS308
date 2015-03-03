@@ -12,7 +12,7 @@ public class XCoordinate extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(myModel.getActiveTurtle().getX());
+        return putObjectInList(myModel.getActiveTurtle().getX());
     }
 
 }

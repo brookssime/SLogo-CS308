@@ -13,7 +13,7 @@ public class NotEqual extends Command{
 	@Override
 	public List<Object> function(List<Object> args) {
 		double eqNum = (double)new Equal(myModel).function(args).get(0);
-		return putDoubleInList(-eqNum);
+		return putObjectInList(-eqNum);
 	}
 
 }

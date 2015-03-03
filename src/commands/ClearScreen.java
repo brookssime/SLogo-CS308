@@ -14,7 +14,7 @@ public class ClearScreen extends Command{
 	public List<Object> function(List<Object> args) {
 		myModel.clearScreenProperty().setValue(!myModel.clearScreenProperty().getValue());
 		double dist = (double)new Home(myModel).function(args).get(0);
-		return putDoubleInList(dist);
+		return putObjectInList(dist);
 	}
 
 }

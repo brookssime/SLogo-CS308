@@ -25,11 +25,11 @@ public abstract class Command {
     	return function(args);
     }
     
-    public abstract List<Object> function(List<Object> args);
+    protected abstract List<Object> function(List<Object> args);
     
-    protected List<Object> putDoubleInList(double a) {
+    protected List<Object> putObjectInList(Object o) {
         List<Object> list = new ArrayList<>();
-        list.add(a);
+        list.add(o);
         return list;
     }
     

@@ -12,7 +12,7 @@ public class Or extends Command{
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		return putDoubleInList(Math.max((double)args.get(0), (double)args.get(1)));
+		return putObjectInList(Math.max((double)args.get(0), (double)args.get(1)));
 	}
 
 }

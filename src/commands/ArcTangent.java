@@ -12,7 +12,7 @@ public class ArcTangent extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.atan((double) args.get(0))*180/Math.PI);
+        return putObjectInList(Math.atan((double) args.get(0))*180/Math.PI);
     }
 
 }

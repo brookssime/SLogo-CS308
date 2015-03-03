@@ -13,7 +13,7 @@ public class NaturalLog extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.log((double) args.get(0)));
+        return putObjectInList(Math.log((double) args.get(0)));
     }
 
 }

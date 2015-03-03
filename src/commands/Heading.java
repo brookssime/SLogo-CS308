@@ -12,7 +12,7 @@ public class Heading extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(myModel.getActiveTurtle().getHeading());
+        return putObjectInList(myModel.getActiveTurtle().getHeading());
     }
 
 }

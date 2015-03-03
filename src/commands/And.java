@@ -12,7 +12,7 @@ public class And extends Command{
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		return putDoubleInList(Math.min((double)args.get(0), (double)args.get(1)));
+		return putObjectInList(Math.min((double)args.get(0), (double)args.get(1)));
 	}
 
 }

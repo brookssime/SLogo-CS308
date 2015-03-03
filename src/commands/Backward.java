@@ -12,7 +12,7 @@ public class Backward extends Command {
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		return new Forward(myModel).function(putDoubleInList(-(double)args.get(0)));
+		return new Forward(myModel).function(putObjectInList(-(double)args.get(0)));
 	}
 
 }

@@ -22,7 +22,7 @@ public class SetTowards extends Command {
                 + getOffset(dx, dy);
         double oldHeading = turtle.getHeading();
         turtle.setHeading(newHeading);
-        return putDoubleInList(Math.abs(newHeading - oldHeading));
+        return putObjectInList(Math.abs(newHeading - oldHeading));
     }
 
     private double getOffset(double x, double y) {

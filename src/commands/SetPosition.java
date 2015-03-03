@@ -14,7 +14,7 @@ public class SetPosition extends Command {
     // Need to add error checking for valid x and y values
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(myModel.getActiveTurtle().setLocation(
+        return putObjectInList(myModel.getActiveTurtle().setLocation(
                 (double) args.get(0), (double) args.get(1)));
     }
 

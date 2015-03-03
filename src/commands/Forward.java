@@ -16,7 +16,7 @@ public class Forward extends Command {
     public List<Object> function(List<Object> args) {
     	double distance = (double) args.get(0);
         advanceTurtle(distance);
-        return putDoubleInList(distance);
+        return putObjectInList(distance);
     }
 	private void advanceTurtle(double distance) {
 		maxX = myModel.getMaxX();

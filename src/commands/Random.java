@@ -14,7 +14,7 @@ public class Random extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(rand.nextDouble()*((double)args.get(0)));
+        return putObjectInList(rand.nextDouble()*((double)args.get(0)));
     }
 
 }

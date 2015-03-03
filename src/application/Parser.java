@@ -92,10 +92,10 @@ public class Parser {
             return new ConstantNode(Double.parseDouble(s));
         } else if (p.equals("ListStart") || p.equals("GroupStart")) {
             blockDepthCount++;
-            EvaluatorNode temp = new CommandNode(parseIterator(iter));
+            EvaluatorNode temp = new UserCommandNode(parseIterator(iter));
             List<EvaluatorNode> list = new ArrayList<>();
             list.add(temp);
-            return new CommandNode(new UserCommand(myModel, list));
+            return new UserCommandNode(new UserCommand(myModel, list));
         } else if (p.equals("Variable")) {
             return new VariableNode(myModel, s);
         } else {

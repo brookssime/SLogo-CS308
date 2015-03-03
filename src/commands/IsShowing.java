@@ -13,9 +13,9 @@ public class IsShowing extends Command {
     @Override
     public List<Object> function(List<Object> args) {
         if (myModel.getActiveTurtle().isShowing()) {
-            return putDoubleInList(1);
+            return putObjectInList(1);
         }
-        return putDoubleInList(0);
+        return putObjectInList(0);
     }
 
 }

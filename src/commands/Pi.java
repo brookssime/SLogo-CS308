@@ -12,7 +12,7 @@ public class Pi extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.PI);
+        return putObjectInList(Math.PI);
     }
 
 }

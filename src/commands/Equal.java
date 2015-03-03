@@ -15,7 +15,7 @@ public class Equal extends Command{
 		boolean eq = (double)args.get(0) == (double)args.get(1);
 		double eqNum = -1;
 		if (eq) eqNum = 1;
-		return putDoubleInList(eqNum);
+		return putObjectInList(eqNum);
 	}
 
 }

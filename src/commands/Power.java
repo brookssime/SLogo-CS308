@@ -12,7 +12,7 @@ public class Power extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.pow((double) args.get(0), (double) args.get(1)));
+        return putObjectInList(Math.pow((double) args.get(0), (double) args.get(1)));
     }
 
 }

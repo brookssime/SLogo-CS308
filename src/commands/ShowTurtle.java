@@ -13,7 +13,7 @@ public class ShowTurtle extends Command {
     @Override
     public List<Object> function(List<Object> args) {
         myModel.getActiveTurtle().setShowing(true);
-        return putDoubleInList(1);
+        return putObjectInList(1);
     }
 
 }

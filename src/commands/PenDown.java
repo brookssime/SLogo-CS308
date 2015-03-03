@@ -13,7 +13,7 @@ public class PenDown extends Command {
     @Override
     public List<Object> function(List<Object> args) {
         myModel.getActiveTurtle().setPenDown(true);
-        return putDoubleInList(1);
+        return putObjectInList(1);
     }
 
 }
