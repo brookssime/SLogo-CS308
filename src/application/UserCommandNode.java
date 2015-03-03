@@ -3,7 +3,6 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-import commands.Command;
 import commands.NodesCommand;
 import commands.UserCommand;
 

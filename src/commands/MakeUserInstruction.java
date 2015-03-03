@@ -5,7 +5,6 @@ import java.util.List;
 
 import application.EvaluatorNode;
 import application.Model;
-import application.UserCommandNode;
 import application.VariableNode;
 
 public class MakeUserInstruction extends Command {
@@ -35,16 +34,6 @@ public class MakeUserInstruction extends Command {
         }
         myModel.addUserCommand(commandName, new EvaluatorCommand(myModel, rootNodeList));
         return putObjectInList(1);
-    }
-    
-    private List<EvaluatorNode> getRootNodes(Object myUserCommandNode) {
-        List<Object> rootObjectList = putObjectInList(myUserCommandNode);
-        while(rootObjectList.get(0) instanceof UserCommandNode) {
-            rootObjectList = ((UserCommandNode) rootObjectList.get(0)).evaluate();
-        }
-        List<EvaluatorNode> rootNodeList = new ArrayList<>();
-        rootObjectList.stream().forEach(o -> rootNodeList.add((EvaluatorNode) o));
-        return rootNodeList;
     }
 
     private List<String> getVariableList(List<EvaluatorNode> nodeList) {

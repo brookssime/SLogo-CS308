@@ -3,7 +3,9 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.EvaluatorNode;
 import application.Model;
+import application.UserCommandNode;
 
 public abstract class Command {
 
@@ -35,6 +37,17 @@ public abstract class Command {
     
     public int getArgNum() {
         return myArgNum;
+    }
+    
+    protected List<EvaluatorNode> getRootNodes(Object myUserCommandNode) {
+        // Throw error if myUserCommandNode is not a UserCommandNode
+        List<Object> rootObjectList = putObjectInList(myUserCommandNode);
+        while(rootObjectList.get(0) instanceof UserCommandNode) {
+            rootObjectList = ((UserCommandNode) rootObjectList.get(0)).evaluate();
+        }
+        List<EvaluatorNode> rootNodeList = new ArrayList<>();
+        rootObjectList.stream().forEach(o -> rootNodeList.add((EvaluatorNode) o));
+        return rootNodeList;
     }
 
 }
