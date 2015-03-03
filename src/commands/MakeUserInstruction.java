@@ -3,7 +3,6 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.CommandNode;
 import application.EvaluatorNode;
 import application.Model;
 import application.UserCommandNode;
@@ -18,15 +17,10 @@ public class MakeUserInstruction extends Command {
     @Override
     public List<Object> function(List<Object> args) {
         String commandName = (String) args.get(0);
-        List<String> stringList = createListOfVariableNames(args);
+        List<String> stringList = getVariableList(getRootNodes(args.get(1)));
         
-        List<Object> rootObjectList = new ArrayList<>();
-        rootObjectList.addAll(((EvaluatorNode) args.get(2)).evaluate());
+        List<EvaluatorNode> rootNodeList = getRootNodes(args.get(2));
         
-        List<EvaluatorNode> rootNodeList = new ArrayList<>();
-        for (Object o : rootObjectList) {
-            rootNodeList.add((EvaluatorNode) o);
-        }
         for (EvaluatorNode n : rootNodeList) {
             for (int i = 0; i < stringList.size(); i ++) {  
                 List<VariableNode> varNodeList = n.getVariableNodes();
@@ -43,23 +37,23 @@ public class MakeUserInstruction extends Command {
         return putObjectInList(1);
     }
     
-    private List<Object> evaluateUserCommandNodes(List<Object> userCommandNodeList) {
-        while(userCommandNodeList.get(0) instanceof UserCommandNode) {
-            userCommandNodeList = putObjectInList(((UserCommandNode) userCommandNodeList.get(0)).evaluate());
+    private List<EvaluatorNode> getRootNodes(Object myUserCommandNode) {
+        List<Object> rootObjectList = putObjectInList(myUserCommandNode);
+        while(rootObjectList.get(0) instanceof UserCommandNode) {
+            rootObjectList = ((UserCommandNode) rootObjectList.get(0)).evaluate();
         }
+        List<EvaluatorNode> rootNodeList = new ArrayList<>();
+        rootObjectList.stream().forEach(o -> rootNodeList.add((EvaluatorNode) o));
+        return rootNodeList;
     }
 
-    private List<String> createListOfVariableNames(List<Object> args) {
-        List<Object> commandNodeList = ((EvaluatorNode) args.get(1)).evaluate();
-        // Handles nested brackets [[:x]]
-        while(!(commandNodeList.get(0) instanceof VariableNode)) {
-            commandNodeList = ((EvaluatorNode) commandNodeList.get(0)).evaluate();
-        }
+    private List<String> getVariableList(List<EvaluatorNode> nodeList) {
         List<String> stringList = new ArrayList<>();
-        for (Object o : commandNodeList) {
+        for (EvaluatorNode node : nodeList) {
             List<Object> tempList = new ArrayList<>();
-            tempList.addAll(((EvaluatorNode) o).evaluate());
+            tempList.addAll(node.evaluate());
             for (Object object : tempList) {
+                //Check for existing variables here before adding to stringList
                 stringList.add((String) object);
             }
         }

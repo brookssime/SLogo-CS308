@@ -12,6 +12,7 @@ public class UserCommandNode extends EvaluatorNode {
     private UserCommand myCommand;
 
     public UserCommandNode(NodesCommand myCommand) {
+        // Throw an error here if casting is invalid
         this.myCommand = (UserCommand) myCommand;
     }
 
@@ -24,10 +25,7 @@ public class UserCommandNode extends EvaluatorNode {
      */
     @Override
     public List<Object> evaluate(List<Object> args) {
-        UserCommandNode result;
-        while(myCommand.process().get(0) instanceof UserCommandNode) {
-            
-        }
+        return myCommand.process();
     }
 
     @Override
