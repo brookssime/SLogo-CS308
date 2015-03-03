@@ -13,6 +13,10 @@ public class UserCommand extends NodesCommand {
         myArgNum = 0;
     }
 
+    public List<Object> process(){
+        return function(new ArrayList<Object>());
+    }
+    
     @Override
     public List<Object> function(List<Object> args) {
         List<Object> list = new ArrayList<>();
