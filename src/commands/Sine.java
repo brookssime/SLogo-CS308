@@ -12,7 +12,7 @@ public class Sine extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(Math.sin(((double) args.get(0))*Math.PI/180));
+        return putObjectInList(Math.sin(Math.toRadians((double) args.get(0))));
     }
 
 }

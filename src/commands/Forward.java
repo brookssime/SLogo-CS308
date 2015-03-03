@@ -22,7 +22,7 @@ public class Forward extends Command {
 		maxX = myModel.getMaxX();
         maxY = myModel.getMaxY();
         Turtle turtle = myModel.getActiveTurtle();
-        double radiansHeading = turtle.getRadiansHeading();
+        double radiansHeading = Math.toRadians(turtle.getHeading());
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
         double y = turtle.getY() + distance*Math.sin(radiansHeading);
         boolean temp = turtle.isPenDown();

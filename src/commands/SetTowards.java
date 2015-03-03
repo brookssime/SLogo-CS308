@@ -18,7 +18,7 @@ public class SetTowards extends Command {
         double y = (double) args.get(1);
         double dx = x - turtle.getX();
         double dy = y - turtle.getY();
-        double newHeading = Math.atan(dy / dx) * 180 / Math.PI
+        double newHeading = Math.toDegrees(Math.atan(dy / dx))
                 + getOffset(dx, dy);
         double oldHeading = turtle.getHeading();
         turtle.setHeading(newHeading);

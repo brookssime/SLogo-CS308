@@ -12,7 +12,7 @@ public class Cosine extends Command {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(Math.cos(((double) args.get(0))*Math.PI/180));
+        return putObjectInList(Math.cos(Math.toRadians((double) args.get(0))));
     }
 
 }
