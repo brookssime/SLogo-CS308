@@ -69,13 +69,8 @@ public class Display {
 		l.setStroke(penColor);
 		l.setStartX(startX);
 		l.setStartY(startY);
-//		if (endX<375 && endX>0 && endY<375 && endY>0) {
-			l.setEndX(endX);
-			l.setEndY(endY);
-//		}
-//		else if (endX<=0&& ) {
-//			root.getChildren().add(drawLines(374.5,startY,newX+375/2,newY+375/2));
-//		}
+		l.setEndX(endX);
+		l.setEndY(endY);
 		l.setStrokeWidth(2);
 		l.setVisible(penDown);
 		return l;

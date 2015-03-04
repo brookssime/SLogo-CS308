@@ -1,5 +1,7 @@
 package view;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
@@ -17,6 +19,13 @@ public class LanguageChooser {
 	
 	private ComboBox<String> languageComboBox = new ComboBox<String>();
 	private String language="English";
+	private View view;
+	private StringProperty languageProp=new SimpleStringProperty(language);
+	
+	public LanguageChooser(View v) {
+		view=v;
+	}
+	
 	protected void setLanguage(Stage stage) {
 
 		stage.setTitle("Choose Language");
@@ -36,7 +45,11 @@ public class LanguageChooser {
         languageComboBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override 
             public void changed(ObservableValue ov, String t, String t1) {                
-                language = t1;  
+                //String/ObjectProperty bind what is in here to what is in model
+            	//StringProperty string=
+            	language=t1;
+            	view.getModel().setLanguage(t1);// = t1; 
+            	languageProp.setValue(t1);//=ov;
             }    
         });
 
@@ -49,5 +62,13 @@ public class LanguageChooser {
 		root.getChildren().add(grid);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public StringProperty getStringProperty() {
+		return languageProp;
+	}
+	
+	protected String getLanguage() {
+		return language;
 	}
 }

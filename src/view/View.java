@@ -18,7 +18,8 @@ public class View {
 	public static final Integer[] SIZE_OF_TURTLE_DISPLAY={375,375};
 	
 	private Display display=new Display();
-	private ButtonBar btnz=new ButtonBar(new ColorChooser(display),new LanguageChooser());
+	private LanguageChooser lang;//=new LanguageChooser(this);
+	private ButtonBar btnz;//=new ButtonBar(new ColorChooser(display),lang);
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private CommandGuide comm=new CommandGuide();
@@ -26,8 +27,15 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private Group root;
 
+	private Model m;
+	
 	public View(Model myModel) {
 		enter.addObserver(myModel);
+		lang=new LanguageChooser(this);
+		btnz=new ButtonBar(new ColorChooser(display),lang);
+		
+		m=myModel;
+		//m.setLanguage(lang.getLanguage());
 	}
 	public void start(Stage stage) {
 		stage.setTitle("SLOGO");
@@ -48,6 +56,11 @@ public class View {
 	protected void addToRoot(Node n) {
 		root.getChildren().add(n);
 	}
+	
+	protected LanguageChooser getLang() {
+		return lang;
+	}
+	
 	public void addAllListeners(Model model){
 		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
@@ -56,6 +69,18 @@ public class View {
 				// TODO Auto-generated method stub
 				
 			}});
+		
+		lang.getStringProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable,
+					String oldValue, String newValue) {
+				// TODO Auto-generated method stub
+				model.setLanguage(newValue);
+				System.out.println(newValue);
+				model.updateCommandPatterns();
+			}  
+	      });
+		
 		Turtle t = model.getActiveTurtle();
 		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
 			@Override
@@ -100,5 +125,9 @@ public class View {
 				
 			}
 	      });
+	}
+	
+	protected Model getModel() {
+		return m;
 	}
 }

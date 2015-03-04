@@ -5,7 +5,6 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +16,6 @@ import commands.*;
 public class Parser {
     private List<Map.Entry<String, Pattern>> myCommandPatterns;
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
-    private Map<String, UserCommand> customCommandMap;
     private Model myModel;
     private static final String commandPath = "commands.";
     private TreeBuilder myTreeBuilder;
@@ -25,15 +23,18 @@ public class Parser {
     private int blockDepthCount = 0;
 
     public Parser(Model myModel) {
-        myCommandPatterns = makePatterns("resources/languages/English");
-        mySyntaxPatterns = makePatterns("resources/languages/Syntax");
-        customCommandMap = new HashMap<String, UserCommand>();
-        myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
+        myCommandPatterns = makePatterns("resources/languages/" + myModel.getLanguage());
+        mySyntaxPatterns = makePatterns("resources/languages/Syntax");
+        myTreeBuilder = new TreeBuilder();
         //toCommandVariables = new ArrayList<>();
         
     }
-
+    
+    public void updateCommandPatterns() {
+    	myCommandPatterns = makePatterns("resources/languages/" + myModel.getLanguage());
+    }
+    
     public EvaluatorCommand parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         String[] inputArray = input.split(" ");
         Iterator<String> iter = Arrays.asList(inputArray).iterator();
@@ -95,7 +96,10 @@ public class Parser {
             return new ConstantNode(Double.parseDouble(s));
         } else if (p.equals("ListStart") || p.equals("GroupStart")) {
             blockDepthCount++;
-            return new CommandNode(parseIterator(iter));
+            EvaluatorNode temp = new CommandNode(parseIterator(iter));
+            List<EvaluatorNode> list = new ArrayList<>();
+            list.add(temp);
+            return new CommandNode(new UserCommand(myModel, list));
         } else if (p.equals("Variable")) {
             return new VariableNode(myModel, s);
         } else {
@@ -150,20 +154,5 @@ public class Parser {
             }
         }
     }
-    
-    /*private void handleToCommand(Iterator<String> iter) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
-        String commandName = iter.next();
-        iter.next();
-        List<Object> varList = parseIterator(iter).process(new ArrayList<>());
-        List<String> stringVarList = new ArrayList<>();
-        for (Object o : varList) {
-            stringVarList.add((String) o);
-            //Throw error here "must use nonexistent variables to define a command's variable"
-        }
-        toCommandVariables.addAll(stringVarList);
-        iter.next();
-        customCommandMap.put(commandName, parseIterator(iter));
-        toCommandVariables.removeAll(stringVarList);       
-    }*/
     
 }
