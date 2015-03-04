@@ -22,49 +22,20 @@ public class CreateDesign {
 	}
 
 
-//	private void nameFile() {
-//		VBox vbox = new VBox();
-//		Stage fileName = new Stage();
-//		TextArea writeName = new TextArea();
-//		Button ok = new Button ("OK");
-//		ok.setOnMouseClicked(new EventHandler<MouseEvent>(){
-//			@Override
-//			public void handle(MouseEvent event) {
-//				fileName.hide();
-//				if ((writeName.getText().trim() != null && !writeName.getText().isEmpty())) {
-//				try {
-//					saveFile();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//				
-//			}
-//			}
-//		});
-//		vbox.getChildren().addAll(writeName, ok);
-//		vbox.setAlignment(Pos.CENTER);
-//		Scene text = new Scene(vbox, 100, 100);
-//
-//		fileName.setScene(text);
-//		fileName.show();
-//
-//		
-//
-//
-//	}
 	
 	
 	public void saveFile (){
-		FileChooser chooser = new FileChooser();
-		chooser.setInitialDirectory(new File(System.getProperty("user.dir")
+		FileChooser saver = new FileChooser();
+		saver.setInitialDirectory(new File(System.getProperty("user.dir")
 				+ "/src/designs"));
 		ExtensionFilter filter = new ExtensionFilter("TXT", "*.txt");
-		chooser.getExtensionFilters().add(filter);
-	    File myDesign = chooser.showSaveDialog(null);
+		saver.getExtensionFilters().add(filter);
+	    File myDesign = saver.showSaveDialog(null);
 		FileWriter myFileWriter;
 		try {
 			myFileWriter = new FileWriter(myDesign.getAbsoluteFile());
 			BufferedWriter myBufferedWriter = new BufferedWriter(myFileWriter);
+			System.out.println(myEnter);
 			for (String h: myEnter.getHistory()){
 				myBufferedWriter.write(h);
 				myBufferedWriter.write("\n");

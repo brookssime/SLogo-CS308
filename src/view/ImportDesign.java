@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
-public class ListofDesigns {
+public class ImportDesign {
 
 	protected Button openDesign(){
 		Button open = new Button("Import Design");

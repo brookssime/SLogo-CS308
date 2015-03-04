@@ -22,7 +22,7 @@ public class View {
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private CommandGuide comm=new CommandGuide();
-	private ListofDesigns des= new ListofDesigns();
+	private ImportDesign des= new ImportDesign();
 	private CreateDesign cre = new CreateDesign(enter);
 	private Group root;
 
