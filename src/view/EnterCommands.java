@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Observable;
 
 
+
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -14,7 +16,7 @@ public class EnterCommands extends Observable {
 
 	public static final Integer[] LOCATION_OF_ENTERCOMMANDS_BOX={100,500};
 
-	private TextArea text;
+	protected TextArea text;
 	private String commandText="";
 	private PreviousCommands prev;
 	private List<String> history;
@@ -55,7 +57,10 @@ public class EnterCommands extends Observable {
 	protected Button clearHistory() {
 		Button clearBtn=new Button("Clear");
 		clearBtn.setOnAction(e->{
-			prev.getTextArea().clear();
+			//prev.getTextArea().clear();
+			history.clear();
+			System.out.println(this);
+			history = null;
 			
 		});
 		return clearBtn;
