@@ -19,7 +19,6 @@ public class Parser {
     private Model myModel;
     private static final String commandPath = "commands.";
     private TreeBuilder myTreeBuilder;
-    //private List<String> toCommandVariables;
     private int blockDepthCount = 0;
 
     public Parser(Model myModel) {
@@ -27,24 +26,17 @@ public class Parser {
         mySyntaxPatterns = makePatterns("resources/languages/Syntax");
         myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
-        //toCommandVariables = new ArrayList<>();
         
     }
 
     public EvaluatorCommand parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
-        String[] inputArray = input.split(" ");
-        Iterator<String> iter = Arrays.asList(inputArray).iterator();
-        EvaluatorCommand myEvaluatorCommand = (EvaluatorCommand) parseIterator(iter);
-        if (iter.hasNext()) {
-            //Throw and error here "Closing brackets were placed with no corresponding opening brackets"
-        }
-        return myEvaluatorCommand;
+        return (EvaluatorCommand) parseIterator(Arrays.asList(input.split(" ")).iterator());
     }
 
     private NodesCommand parseIterator(Iterator<String> iter)
             throws InstantiationException, IllegalAccessException,
             InvocationTargetException, ClassNotFoundException {
-        List<EvaluatorNode> list = new ArrayList<>();
+        List<EvaluatorNode> nodeList = new ArrayList<>();
         while(iter.hasNext()) {
             String s = iter.next();
             String p = checkForMatch(s, mySyntaxPatterns);
@@ -52,7 +44,8 @@ public class Parser {
                 //do nothing
             } else if (p.equals("ListEnd") || p.equals("GroupEnd")) {
                 if (blockDepthCount > 0) {
-                    break;
+                    blockDepthCount--;
+                    return new UserCommand(myModel, myTreeBuilder.build(nodeList));
                 }
                 else {
                     //Throw an uneven bracket count error
@@ -60,14 +53,10 @@ public class Parser {
             } else if (p.equals("Comment")) {
                 removeComment(iter);
             } else {
-                list.add(generateNode(s, p, iter));
+                nodeList.add(generateNode(s, p, iter));
             }
         }
-        if (blockDepthCount > 0) {
-            blockDepthCount--;
-            return new UserCommand(myModel, myTreeBuilder.build(list));
-        }
-        return new EvaluatorCommand(myModel, myTreeBuilder.build(list));
+        return new EvaluatorCommand(myModel, myTreeBuilder.build(nodeList));
     }
     
     private EvaluatorNode generateNode(String s, String p, Iterator<String> iter)
