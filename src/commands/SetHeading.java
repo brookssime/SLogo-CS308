@@ -5,7 +5,7 @@ import java.util.List;
 import application.Model;
 import application.Turtle;
 
-public class SetHeading extends Command {
+public class SetHeading extends CommandNode {
 
     public SetHeading(Model myModel) {
         super(myModel, 1);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Difference extends Command {
+public class Difference extends CommandNode {
 
     public Difference(Model myModel) {
         super(myModel, 2);

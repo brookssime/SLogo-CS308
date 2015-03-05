@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Cosine extends Command {
+public class Cosine extends CommandNode {
 
     public Cosine(Model myModel) {
         super(myModel, 1);

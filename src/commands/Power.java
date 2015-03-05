@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Power extends Command {
+public class Power extends CommandNode {
 
     public Power(Model myModel) {
         super(myModel, 2);

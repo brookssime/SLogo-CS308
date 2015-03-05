@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import commands.Command;
+import commands.CommandNode;
 import application.CommandNode;
 import application.ConstantNode;
 import application.EvaluatorNode;
@@ -30,11 +30,11 @@ public class CommandHandler extends SyntaxHandler {
             ClassNotFoundException {
         String p = PatternMatcher.checkForMatch(s, myCommandPatterns);
         if (p != null) {
-            nodeList.add(new CommandNode((Command) Class.forName(
+            nodeList.add(new CommandNode((CommandNode) Class.forName(
                     commandPath + p).getDeclaredConstructors()[0]
                     .newInstance(myModel)));
         } else {
-            Command cmd = (Command) myModel.getUserCommand(s);
+            CommandNode cmd = (CommandNode) myModel.getUserCommand(s);
             if (cmd != null) {
                 nodeList.add(new CommandNode(cmd));
             } else {

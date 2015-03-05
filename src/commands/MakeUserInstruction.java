@@ -7,7 +7,7 @@ import application.EvaluatorNode;
 import application.Model;
 import application.VariableNode;
 
-public class MakeUserInstruction extends Command {
+public class MakeUserInstruction extends CommandNode {
 
     public MakeUserInstruction(Model myModel) {
         super(myModel, 3);

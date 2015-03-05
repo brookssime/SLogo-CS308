@@ -5,7 +5,7 @@ import java.util.List;
 import application.Model;
 import application.Turtle;
 
-public class Forward extends Command {    
+public class Forward extends CommandNode {    
     private double maxX;
     private double maxY;
 

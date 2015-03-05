@@ -93,7 +93,7 @@ public class Model implements Observer{
 		try {
 			outputCmd = myParser.parse(arg1.toString());
 			myCommandHistory.put(arg1.toString(), outputCmd);
-			outputCmd.process(null);
+			outputCmd.evaluate(null);
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block

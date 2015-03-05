@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Sine extends Command {
+public class Sine extends CommandNode {
 
     public Sine(Model myModel) {
         super(myModel, 1);

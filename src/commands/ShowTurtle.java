@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class ShowTurtle extends Command {
+public class ShowTurtle extends CommandNode {
 
     public ShowTurtle(Model myModel) {
         super(myModel, 0);

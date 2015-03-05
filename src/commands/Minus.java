@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Minus extends Command {
+public class Minus extends CommandNode {
 
     public Minus(Model myModel) {
         super(myModel, 1);

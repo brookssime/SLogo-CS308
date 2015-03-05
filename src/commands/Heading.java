@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Heading extends Command {
+public class Heading extends CommandNode {
 
     public Heading(Model myModel) {
         super(myModel, 0);

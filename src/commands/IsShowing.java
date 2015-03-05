@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class IsShowing extends Command {
+public class IsShowing extends CommandNode {
 
     public IsShowing(Model myModel) {
         super(myModel, 0);

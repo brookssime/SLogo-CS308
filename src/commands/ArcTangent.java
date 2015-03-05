@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class ArcTangent extends Command {
+public class ArcTangent extends CommandNode {
 
     public ArcTangent(Model myModel) {
         super(myModel, 1);

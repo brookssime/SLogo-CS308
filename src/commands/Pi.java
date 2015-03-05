@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Pi extends Command {
+public class Pi extends CommandNode {
 
     public Pi(Model myModel) {
         super(myModel, 0);

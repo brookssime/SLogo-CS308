@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class MakeVariable extends Command {
+public class MakeVariable extends CommandNode {
 
     public MakeVariable(Model myModel) {
         super(myModel, 1);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class And extends Command{
+public class And extends CommandNode{
 
 	public And(Model model) {
 		super(model, 2);

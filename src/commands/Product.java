@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Product extends Command {
+public class Product extends CommandNode {
 
     public Product(Model myModel) {
         super(myModel, 2);

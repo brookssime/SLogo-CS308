@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Not extends Command{
+public class Not extends CommandNode{
 
 	public Not(Model model) {
 		super(model, 1);

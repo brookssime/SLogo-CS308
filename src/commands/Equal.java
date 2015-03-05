@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Equal extends Command{
+public class Equal extends CommandNode{
 
 	public Equal(Model model) {
 		super(model, 2);

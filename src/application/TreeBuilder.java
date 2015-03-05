@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import commands.CommandNode;
+
 public class TreeBuilder {
 
     public TreeBuilder() {
@@ -27,7 +29,7 @@ public class TreeBuilder {
     }
 
     private void addChildren(CommandNode node, Iterator<EvaluatorNode> iter) {
-        for (int i = 0; i < node.getMaxChildren() && iter.hasNext(); i++) {
+        for (int i = 0; i < node.getArgNum() && iter.hasNext(); i++) {
             EvaluatorNode child = iter.next();
             node.addChild(child);
             if (child instanceof CommandNode) {

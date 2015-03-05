@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Tangent extends Command {
+public class Tangent extends CommandNode {
 
     public Tangent(Model myModel) {
         super(myModel, 1);

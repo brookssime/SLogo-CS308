@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Or extends Command{
+public class Or extends CommandNode{
 
 	public Or(Model model) {
 		super(model, 2);

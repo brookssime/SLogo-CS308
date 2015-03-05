@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Quotient extends Command {
+public class Quotient extends CommandNode {
 
     public Quotient(Model myModel) {
         super(myModel, 2);

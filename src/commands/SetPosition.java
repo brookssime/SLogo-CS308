@@ -5,7 +5,7 @@ import java.util.List;
 import application.Model;
 import application.Turtle;
 
-public class SetPosition extends Command {
+public class SetPosition extends CommandNode {
 
     public SetPosition(Model myModel) {
         super(myModel, 2);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class YCoordinate extends Command {
+public class YCoordinate extends CommandNode {
 
     public YCoordinate(Model myModel) {
         super(myModel, 0);

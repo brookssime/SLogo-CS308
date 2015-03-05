@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Backward extends Command {
+public class Backward extends CommandNode {
 
 	public Backward(Model model) {
 		super(model, 1);

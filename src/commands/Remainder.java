@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Remainder extends Command {
+public class Remainder extends CommandNode {
 
     public Remainder(Model myModel) {
         super(myModel, 2);

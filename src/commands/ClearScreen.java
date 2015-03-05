@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class ClearScreen extends Command{
+public class ClearScreen extends CommandNode{
 
 	public ClearScreen(Model myModel) {
 		super(myModel, 0);

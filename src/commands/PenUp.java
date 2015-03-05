@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class PenUp extends Command {
+public class PenUp extends CommandNode {
 
     public PenUp(Model myModel) {
         super(myModel, 0);

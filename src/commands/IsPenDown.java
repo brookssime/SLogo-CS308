@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class IsPenDown extends Command {
+public class IsPenDown extends CommandNode {
 
     public IsPenDown(Model myModel) {
         super(myModel, 0);

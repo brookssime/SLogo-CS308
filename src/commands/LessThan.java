@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class LessThan extends Command{
+public class LessThan extends CommandNode{
 
 	public LessThan(Model model) {
 		super(model, 2);

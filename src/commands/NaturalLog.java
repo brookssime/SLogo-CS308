@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class NaturalLog extends Command {
+public class NaturalLog extends CommandNode {
 
     public NaturalLog(Model myModel) {
         super(myModel, 1);

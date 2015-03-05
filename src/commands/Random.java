@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Random extends Command {
+public class Random extends CommandNode {
     public static java.util.Random rand;;
     
     public Random(Model myModel) {

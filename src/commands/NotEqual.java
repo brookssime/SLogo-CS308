@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class NotEqual extends Command{
+public class NotEqual extends CommandNode{
 
 	public NotEqual(Model model) {
 		super(model, 2);

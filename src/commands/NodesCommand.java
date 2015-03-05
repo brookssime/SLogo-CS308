@@ -5,7 +5,7 @@ import java.util.List;
 import application.EvaluatorNode;
 import application.Model;
 
-public abstract class NodesCommand extends Command {
+public abstract class NodesCommand extends CommandNode {
     private List<EvaluatorNode> myNodes;
     
     public NodesCommand(Model model, List<EvaluatorNode> nodeList){

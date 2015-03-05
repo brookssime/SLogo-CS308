@@ -5,7 +5,7 @@ import java.util.List;
 import application.Model;
 import application.Turtle;
 
-public class SetTowards extends Command {
+public class SetTowards extends CommandNode {
 
     public SetTowards(Model myModel) {
         super(myModel, 2);

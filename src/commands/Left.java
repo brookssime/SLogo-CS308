@@ -5,7 +5,7 @@ import java.util.List;
 import application.Model;
 import application.Turtle;
 
-public class Left extends Command {
+public class Left extends CommandNode {
 
     public Left(Model myModel) {
         super(myModel, 1);

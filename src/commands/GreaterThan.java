@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class GreaterThan extends Command{
+public class GreaterThan extends CommandNode{
 
 	public GreaterThan(Model model) {
 		super(model, 2);

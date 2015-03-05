@@ -4,7 +4,7 @@ import java.util.List;
 
 import application.Model;
 
-public class Sum extends Command {
+public class Sum extends CommandNode {
 
     public Sum(Model myModel) {
         super(myModel, 2);
