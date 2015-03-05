@@ -22,8 +22,8 @@ public class Parser {
     private int blockDepthCount = 0;
 
     public Parser(Model myModel) {
-        myCommandPatterns = makePatterns("resources/languages/English");
-        mySyntaxPatterns = makePatterns("resources/languages/Syntax");
+        myCommandPatterns = PatternMatcher.makePatterns("resources/languages/English");
+        mySyntaxPatterns = PatternMatcher.makePatterns("resources/languages/Syntax");
         myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
         
@@ -39,7 +39,7 @@ public class Parser {
         List<EvaluatorNode> nodeList = new ArrayList<>();
         while(iter.hasNext()) {
             String s = iter.next();
-            String p = checkForMatch(s, mySyntaxPatterns);
+            String p = PatternMatcher.checkForMatch(s, mySyntaxPatterns);
             if (p == null) {
                 //do nothing
             } else if (p.equals("ListEnd") || p.equals("GroupEnd")) {
@@ -66,7 +66,7 @@ public class Parser {
         if (p.equals("Command")) {
             try {
                 return new CommandNode((Command) Class.forName(
-                        commandPath + checkForMatch(s, myCommandPatterns))
+                        commandPath + PatternMatcher.checkForMatch(s, myCommandPatterns))
                         .getDeclaredConstructors()[0].newInstance(myModel));
             } catch (ClassNotFoundException | InstantiationException
                     | IllegalAccessException | IllegalArgumentException
@@ -90,46 +90,6 @@ public class Parser {
         } else {
             return null;
         }
-    }
-
-    private boolean match(String input, Pattern regex) {
-        // THIS IS THE KEY LINE
-        return regex.matcher(input).matches();
-        // basic strings can match also, but not using a Pattern
-        // return input.matches(regex);
-    }
-
-    /**
-     * Checks if the given String falls under any of the given patterns
-     * 
-     * @param s
-     * @param patterns
-     * @return the pattern name that the String matches, or null if it does not
-     *         match a pattern
-     */
-    private String checkForMatch(String s,
-            List<Map.Entry<String, Pattern>> patterns) {
-        for (Map.Entry<String, Pattern> p : patterns) {
-            if (match(s, p.getValue())) {
-                return p.getKey();
-            }
-        }
-        // Maybe throw an exception here
-        return null;
-    }
-
-    private List<Map.Entry<String, Pattern>> makePatterns(String syntax) {
-        ResourceBundle resources = ResourceBundle.getBundle(syntax);
-        List<Map.Entry<String, Pattern>> patterns = new ArrayList<>();
-        Enumeration<String> iter = resources.getKeys();
-        while (iter.hasMoreElements()) {
-            String key = iter.nextElement();
-            String regex = resources.getString(key);
-            patterns.add(new AbstractMap.SimpleEntry<String, Pattern>(key,
-            // THIS IS THE KEY LINE
-                    Pattern.compile(regex, Pattern.CASE_INSENSITIVE)));
-        }
-        return patterns;
     }
     
     private void removeComment(Iterator<String> iter) {
