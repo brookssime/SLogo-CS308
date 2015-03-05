@@ -43,8 +43,8 @@ public class Parser {
                 continue;
             }
             SyntaxHandler mySyntaxHandler = (SyntaxHandler) Class.forName(
-                    p + "Handler").getDeclaredConstructors()[0]
-                    .newInstance(myModel);
+                    String.format("syntax.%sHandler", p))
+                    .getDeclaredConstructors()[0].newInstance(myModel, this, myCommandPatterns);
             if (!mySyntaxHandler.handle(s, iter, nodeList)) {
                 return new BlockNode(myTreeBuilder.build(nodeList));
             }

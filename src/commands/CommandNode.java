@@ -13,7 +13,7 @@ public abstract class CommandNode extends Node {
 
 	protected Model myModel;
 	private List<Node> myChildren;
-	protected int myArgNum;
+	private int myArgNum;
 	
 	public CommandNode(Model myModel, int myArgNum){
 		this.myModel = myModel;
@@ -46,9 +46,13 @@ public abstract class CommandNode extends Node {
         return myArgNum;
     }
     
-    protected List<Node> getRootNodes(Object myUserCommandNode) {
+    protected void setArgNum(int myArgNum) {
+        this.myArgNum = myArgNum;
+    }
+    
+    protected List<Node> getRootNodes(Object myBlockNode) {
         // Throw error if myUserCommandNode is not a UserCommandNode
-        List<Object> rootObjectList = putObjectInList(myUserCommandNode);
+        List<Object> rootObjectList = putObjectInList(myBlockNode);
         while(rootObjectList.get(0) instanceof BlockNode) {
             rootObjectList = ((BlockNode) rootObjectList.get(0)).evaluate();
         }
@@ -57,8 +61,8 @@ public abstract class CommandNode extends Node {
         return rootNodeList;
     }
     
-    public void addChild(Node...child){
-        myChildren.addAll(Arrays.asList(child));
+    public void addChild(Node child){
+        myChildren.add(child);
     }
     
     @Override

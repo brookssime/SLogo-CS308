@@ -21,6 +21,8 @@ public class VariableNode extends Node {
     public List<Object> evaluate(List<Object> args) {
         if (myIndex != null) {
             List<Object> list = new ArrayList<>();
+            System.out.println("Size: " + args.size());
+            System.out.println("Index: " + myIndex);
             list.add(args.get(myIndex));
             return list;
         }
