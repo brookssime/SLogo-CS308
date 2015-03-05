@@ -3,16 +3,12 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-import commands.NodesCommand;
-import commands.UserCommand;
+public class BlockNode extends Node {
 
-public class UserCommandNode extends EvaluatorNode {
+    private List<Node> nodeList;
 
-    private UserCommand myCommand;
-
-    public UserCommandNode(NodesCommand myCommand) {
-        // Throw an error here if casting is invalid
-        this.myCommand = (UserCommand) myCommand;
+    public BlockNode(List<Node> nodeList) {
+        this.nodeList = nodeList;
     }
 
     /**
@@ -24,7 +20,9 @@ public class UserCommandNode extends EvaluatorNode {
      */
     @Override
     public List<Object> evaluate(List<Object> args) {
-        return myCommand.process();
+        List<Object> list = new ArrayList<>();
+        nodeList.stream().forEach(node -> list.add((Object) node));
+        return list;
     }
 
     @Override

@@ -3,7 +3,7 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.EvaluatorNode;
+import application.Node;
 import application.Model;
 import application.VariableNode;
 
@@ -18,9 +18,9 @@ public class MakeUserInstruction extends CommandNode {
         String commandName = (String) args.get(0);
         List<String> stringList = getVariableList(getRootNodes(args.get(1)));
         
-        List<EvaluatorNode> rootNodeList = getRootNodes(args.get(2));
+        List<Node> rootNodeList = getRootNodes(args.get(2));
         
-        for (EvaluatorNode n : rootNodeList) {
+        for (Node n : rootNodeList) {
             for (int i = 0; i < stringList.size(); i ++) {  
                 List<VariableNode> varNodeList = n.getVariableNodes();
                 while(varNodeList.remove(null));
@@ -32,13 +32,13 @@ public class MakeUserInstruction extends CommandNode {
                 }
             }
         }
-        myModel.addUserCommand(commandName, new EvaluatorCommand(myModel, rootNodeList));
+        myModel.addUserCommand(commandName, new EvaluatorNode(myModel, rootNodeList));
         return putObjectInList(1);
     }
 
-    private List<String> getVariableList(List<EvaluatorNode> nodeList) {
+    private List<String> getVariableList(List<Node> nodeList) {
         List<String> stringList = new ArrayList<>();
-        for (EvaluatorNode node : nodeList) {
+        for (Node node : nodeList) {
             List<Object> tempList = new ArrayList<>();
             tempList.addAll(node.evaluate());
             for (Object object : tempList) {

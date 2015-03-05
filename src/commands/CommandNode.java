@@ -1,23 +1,24 @@
 package commands;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import application.EvaluatorNode;
+import application.Node;
 import application.Model;
-import application.UserCommandNode;
+import application.BlockNode;
 import application.VariableNode;
 
-public abstract class CommandNode extends EvaluatorNode {
+public abstract class CommandNode extends Node {
 
 	protected Model myModel;
-	private List<EvaluatorNode> myChildren;
+	private List<Node> myChildren;
 	protected int myArgNum;
 	
 	public CommandNode(Model myModel, int myArgNum){
 		this.myModel = myModel;
 		this.myArgNum = myArgNum;
-		myChildren = new ArrayList<EvaluatorNode>();
+		myChildren = new ArrayList<Node>();
 	}
 	
     /**
@@ -27,7 +28,7 @@ public abstract class CommandNode extends EvaluatorNode {
      */
     public List<Object> evaluate(List<Object> args){
         List<Object> cmdArgs = new ArrayList<Object>();
-        for (EvaluatorNode child: myChildren){
+        for (Node child: myChildren){
             cmdArgs.addAll(child.evaluate(args));
         }
         return function(cmdArgs);
@@ -45,25 +46,25 @@ public abstract class CommandNode extends EvaluatorNode {
         return myArgNum;
     }
     
-    protected List<EvaluatorNode> getRootNodes(Object myUserCommandNode) {
+    protected List<Node> getRootNodes(Object myUserCommandNode) {
         // Throw error if myUserCommandNode is not a UserCommandNode
         List<Object> rootObjectList = putObjectInList(myUserCommandNode);
-        while(rootObjectList.get(0) instanceof UserCommandNode) {
-            rootObjectList = ((UserCommandNode) rootObjectList.get(0)).evaluate();
+        while(rootObjectList.get(0) instanceof BlockNode) {
+            rootObjectList = ((BlockNode) rootObjectList.get(0)).evaluate();
         }
-        List<EvaluatorNode> rootNodeList = new ArrayList<>();
-        rootObjectList.stream().forEach(o -> rootNodeList.add((EvaluatorNode) o));
+        List<Node> rootNodeList = new ArrayList<>();
+        rootObjectList.stream().forEach(o -> rootNodeList.add((Node) o));
         return rootNodeList;
     }
     
-    public void addChild(EvaluatorNode child){
-        myChildren.add(child);
+    public void addChild(Node...child){
+        myChildren.addAll(Arrays.asList(child));
     }
     
     @Override
     public int countVariables() {
         int sum = 0;
-        for (EvaluatorNode child: myChildren){
+        for (Node child: myChildren){
             sum += child.countVariables();
         }
         return sum;
@@ -72,7 +73,7 @@ public abstract class CommandNode extends EvaluatorNode {
     @Override
     public List<VariableNode> getVariableNodes() {
         List<VariableNode> variableList = new ArrayList<>();
-        for (EvaluatorNode child : myChildren) {
+        for (Node child : myChildren) {
             variableList.addAll(child.getVariableNodes());
         }
         return variableList;

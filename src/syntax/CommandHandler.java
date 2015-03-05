@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import commands.CommandNode;
-import application.CommandNode;
+import commands.*;
 import application.ConstantNode;
-import application.EvaluatorNode;
+import application.Node;
 import application.Model;
 import application.Parser;
 import application.PatternMatcher;
@@ -24,21 +23,22 @@ public class CommandHandler extends SyntaxHandler {
 
     @Override
     public boolean handle(String s, Iterator<String> iter,
-            List<EvaluatorNode> nodeList) throws InstantiationException,
+            List<Node> nodeList) throws InstantiationException,
             IllegalAccessException, IllegalArgumentException,
             InvocationTargetException, SecurityException,
             ClassNotFoundException {
-        String p = PatternMatcher.checkForMatch(s, myCommandPatterns);
-        if (p != null) {
-            nodeList.add(new CommandNode((CommandNode) Class.forName(
-                    commandPath + p).getDeclaredConstructors()[0]
-                    .newInstance(myModel)));
-        } else {
+        try {
+            nodeList.add((CommandNode) Class.forName(
+                    commandPath + PatternMatcher.checkForMatch(s, myCommandPatterns)).getDeclaredConstructors()[0]
+                    .newInstance(myModel));
+        } catch (ClassNotFoundException e) {
             CommandNode cmd = (CommandNode) myModel.getUserCommand(s);
             if (cmd != null) {
-                nodeList.add(new CommandNode(cmd));
-            } else {
+                nodeList.add(cmd);
+            } else if (nodeList.get(nodeList.size() - 1) instanceof MakeUserInstruction) {
                 nodeList.add(new ConstantNode(s));
+            } else {
+                //Throw an error for incorrect command name here
             }
         }
         return true;

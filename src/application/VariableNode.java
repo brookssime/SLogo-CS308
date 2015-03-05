@@ -3,7 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VariableNode extends EvaluatorNode {
+public class VariableNode extends Node {
 
     private String myString;
     private static Model myModel;

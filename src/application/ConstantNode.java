@@ -3,7 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConstantNode extends EvaluatorNode {
+public class ConstantNode extends Node {
 	
 	private Object myData;
 
