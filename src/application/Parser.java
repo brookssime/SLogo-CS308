@@ -1,16 +1,14 @@
 package application;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import syntax.SyntaxHandler;
 import commands.*;
 
 public class Parser {
@@ -22,18 +20,21 @@ public class Parser {
     private int blockDepthCount = 0;
 
     public Parser(Model myModel) {
-        myCommandPatterns = PatternMatcher.makePatterns("resources/languages/English");
-        mySyntaxPatterns = PatternMatcher.makePatterns("resources/languages/Syntax");
-        myTreeBuilder = new TreeBuilder();
         this.myModel = myModel;
-        
+        myCommandPatterns = PatternMatcher.makePatterns("resources/languages/" + myModel.getLanguage());
+        mySyntaxPatterns = PatternMatcher.makePatterns("resources/languages/Syntax");
+        myTreeBuilder = new TreeBuilder();        
     }
-
+    
+    public void updateCommandPatterns() {
+    	myCommandPatterns = PatternMatcher.makePatterns("resources/languages/" + myModel.getLanguage());
+    }
+    
     public EvaluatorCommand parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         return (EvaluatorCommand) parseIterator(Arrays.asList(input.split(" ")).iterator());
     }
 
-    private NodesCommand parseIterator(Iterator<String> iter)
+    /*private NodesCommand parseIterator(Iterator<String> iter)
             throws InstantiationException, IllegalAccessException,
             InvocationTargetException, ClassNotFoundException {
         List<EvaluatorNode> nodeList = new ArrayList<>();
@@ -54,6 +55,26 @@ public class Parser {
                 removeComment(iter);
             } else {
                 nodeList.add(generateNode(s, p, iter));
+            }
+        }
+        return new EvaluatorCommand(myModel, myTreeBuilder.build(nodeList));
+    }*/
+    
+    public NodesCommand parseIterator(Iterator<String> iter)
+            throws InstantiationException, IllegalAccessException,
+            InvocationTargetException, ClassNotFoundException {
+        List<EvaluatorNode> nodeList = new ArrayList<>();
+        while (iter.hasNext()) {
+            String s = iter.next();
+            String p = PatternMatcher.checkForMatch(s, mySyntaxPatterns);
+            if (p == null) {
+                continue;
+            }
+            SyntaxHandler mySyntaxHandler = (SyntaxHandler) Class.forName(
+                    p + "Handler").getDeclaredConstructors()[0]
+                    .newInstance(myModel);
+            if (!mySyntaxHandler.handle(s, iter, nodeList)) {
+                return new UserCommand(myModel, myTreeBuilder.build(nodeList));
             }
         }
         return new EvaluatorCommand(myModel, myTreeBuilder.build(nodeList));

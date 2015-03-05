@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+
+import view.View;
 import commands.EvaluatorCommand;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.StringProperty;
 import commands.UserCommand;
 
 public class Model implements Observer{
@@ -21,11 +24,14 @@ public class Model implements Observer{
     private Map<String, Double> variableMap;
     private double maxX;
     private double maxY;
-
+    private String myLanguage;
     private BooleanProperty clearScreen;
+    private StringProperty language;
+    private View view;
     
     public Model(double maxX, double maxY) {
-        myParser = new Parser(this);
+    	myLanguage="English";
+    	myParser = new Parser(this);
         myTurtle = new Turtle();
         myUserCommands = new HashMap<String, EvaluatorCommand>(); 
         myCommandHistory = new HashMap<String, EvaluatorCommand>();
@@ -33,6 +39,20 @@ public class Model implements Observer{
         this.maxX = maxX;
         this.maxY = maxY;
         clearScreen = new SimpleBooleanProperty();
+        
+    }
+    
+    public void updateCommandPatterns() {
+    	myParser.updateCommandPatterns();
+    }
+    
+    public void setLanguage(String language) {
+    	myLanguage=language;
+    	//this.language.bind(view.);
+    }
+    
+    public String getLanguage() {
+    	return myLanguage;
     }
     
     public Turtle getActiveTurtle() {

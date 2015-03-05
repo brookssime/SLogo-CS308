@@ -10,10 +10,7 @@ import java.util.regex.Pattern;
 
 public class PatternMatcher {
     private static boolean match(String input, Pattern regex) {
-        // THIS IS THE KEY LINE
         return regex.matcher(input).matches();
-        // basic strings can match also, but not using a Pattern
-        // return input.matches(regex);
     }
 
     /**
@@ -43,7 +40,6 @@ public class PatternMatcher {
             String key = iter.nextElement();
             String regex = resources.getString(key);
             patterns.add(new AbstractMap.SimpleEntry<String, Pattern>(key,
-            // THIS IS THE KEY LINE
                     Pattern.compile(regex, Pattern.CASE_INSENSITIVE)));
         }
         return patterns;
