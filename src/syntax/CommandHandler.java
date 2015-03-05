@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import tree.CommandNode;
+import tree.ConstantNode;
+import tree.Node;
 import commands.*;
-import application.ConstantNode;
-import application.Node;
 import application.Model;
 import application.Parser;
 import application.PatternMatcher;

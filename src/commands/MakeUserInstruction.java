@@ -3,9 +3,11 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.Node;
+import tree.CommandNode;
+import tree.EvaluatorNode;
+import tree.Node;
+import tree.VariableNode;
 import application.Model;
-import application.VariableNode;
 
 public class MakeUserInstruction extends CommandNode {
 

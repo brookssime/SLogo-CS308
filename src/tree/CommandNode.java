@@ -1,13 +1,10 @@
-package commands;
+package tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import application.Node;
 import application.Model;
-import application.BlockNode;
-import application.VariableNode;
 
 public abstract class CommandNode extends Node {
 

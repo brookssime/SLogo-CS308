@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import tree.Node;
+import tree.VariableNode;
 import application.Model;
-import application.Node;
 import application.Parser;
-import application.VariableNode;
 
 public class VariableHandler extends SyntaxHandler {
 

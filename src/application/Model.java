@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import tree.CommandNode;
+import tree.EvaluatorNode;
 import view.View;
-import commands.CommandNode;
-import commands.EvaluatorNode;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.StringProperty;

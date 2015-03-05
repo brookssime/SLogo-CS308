@@ -2,6 +2,7 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
 public class Sum extends CommandNode {

@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import application.BlockNode;
+import tree.BlockNode;
+import tree.Node;
 import application.Model;
-import application.Node;
 import application.Parser;
 
 public class GroupStartHandler extends GroupHandler {

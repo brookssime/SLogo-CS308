@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import tree.Node;
 import application.Model;
-import application.Node;
 import application.Parser;
 
 public class ListEndHandler extends ListHandler {

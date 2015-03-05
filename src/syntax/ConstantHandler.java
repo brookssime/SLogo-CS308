@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import application.ConstantNode;
-import application.Node;
+import tree.ConstantNode;
+import tree.Node;
 import application.Model;
 import application.Parser;
 

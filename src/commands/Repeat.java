@@ -2,6 +2,8 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
+
 public class Repeat extends CommandNode {
 
     @Override

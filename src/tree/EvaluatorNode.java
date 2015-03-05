@@ -1,10 +1,9 @@
-package commands;
+package tree;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import application.Model;
-import application.Node;
 
 public class EvaluatorNode extends CommandNode {
     private List<Node> nodeList;

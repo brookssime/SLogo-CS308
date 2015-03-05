@@ -9,6 +9,11 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import syntax.SyntaxHandler;
+import tree.BlockNode;
+import tree.CommandNode;
+import tree.EvaluatorNode;
+import tree.Node;
+import tree.TreeBuilder;
 import commands.*;
 
 public class Parser {

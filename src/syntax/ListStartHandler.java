@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import application.Node;
+import tree.BlockNode;
+import tree.Node;
 import application.Model;
 import application.Parser;
-import application.BlockNode;
 
 public class ListStartHandler extends ListHandler {
 
