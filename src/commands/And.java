@@ -8,7 +8,7 @@ import application.Model;
 public class And extends CommandNode {
     
     public And(Model myModel) {
-        super(myModel, double.class, double.class);
+        super(myModel, Double.class, Double.class);
     }
 
     @Override

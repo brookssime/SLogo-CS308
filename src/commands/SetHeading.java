@@ -9,7 +9,7 @@ import application.Turtle;
 public class SetHeading extends CommandNode {
 
     public SetHeading(Model myModel) {
-        super(myModel, double.class);
+        super(myModel, Double.class);
     }
 
     @Override

@@ -8,7 +8,7 @@ import application.Model;
 public class Tangent extends CommandNode {
 
     public Tangent(Model myModel) {
-        super(myModel, double.class);
+        super(myModel, Double.class);
     }
 
     @Override

@@ -9,7 +9,7 @@ import application.Turtle;
 public class SetPosition extends CommandNode {
 
     public SetPosition(Model myModel) {
-        super(myModel, double.class, double.class);
+        super(myModel, Double.class, Double.class);
     }
 
     // Need to add error checking for valid x and y values

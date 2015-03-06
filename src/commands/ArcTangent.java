@@ -8,7 +8,7 @@ import application.Model;
 public class ArcTangent extends CommandNode {
 
     public ArcTangent(Model myModel) {
-        super(myModel, double.class);
+        super(myModel, Double.class);
     }
 
     @Override

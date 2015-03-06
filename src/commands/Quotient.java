@@ -8,7 +8,7 @@ import application.Model;
 public class Quotient extends CommandNode {
 
     public Quotient(Model myModel) {
-        super(myModel, double.class, double.class);
+        super(myModel, Double.class, Double.class);
         // TODO Auto-generated constructor stub
     }
 

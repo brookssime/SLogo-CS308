@@ -8,7 +8,7 @@ import application.Model;
 public class Not extends CommandNode{
 
 	public Not(Model model) {
-		super(model, double.class);
+		super(model, Double.class);
 	}
 
 	@Override

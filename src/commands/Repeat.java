@@ -9,7 +9,7 @@ public class Repeat extends DoTimes {
 
     public Repeat(Model myModel) {
         super(myModel);
-        setParameterArray(double.class, BlockNode.class);
+        setParameterArray(Double.class, BlockNode.class);
     }
 
     @Override

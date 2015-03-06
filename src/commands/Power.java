@@ -8,7 +8,7 @@ import application.Model;
 public class Power extends CommandNode {
 
     public Power(Model myModel) {
-        super(myModel, double.class, double.class);
+        super(myModel, Double.class, Double.class);
     }
 
     @Override

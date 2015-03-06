@@ -8,7 +8,7 @@ import application.Model;
 public class NotEqual extends CommandNode{
 
 	public NotEqual(Model model) {
-		super(model, double.class, double.class);
+		super(model, Double.class, Double.class);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import application.Turtle;
 public class SetTowards extends CommandNode {
 
     public SetTowards(Model myModel) {
-        super(myModel, double.class, double.class);
+        super(myModel, Double.class, Double.class);
     }
 
     @Override

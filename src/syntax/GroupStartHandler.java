@@ -1,14 +1,12 @@
 package syntax;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import exceptions.UnbalancedBracketsException;
-import tree.BlockNode;
 import tree.EvaluatorNode;
 import tree.TreeNode;
 import application.Model;
@@ -29,9 +27,7 @@ public class GroupStartHandler extends GroupHandler {
         if (temp instanceof EvaluatorNode) {
             throw new UnbalancedBracketsException();
         }
-        List<TreeNode> list = new ArrayList<>();
-        list.add(temp);
-        return nodeList.add(new BlockNode(list));
+        return nodeList.add(temp);
     }
 
 }

@@ -11,7 +11,7 @@ import tree.TreeNode;
 public class If extends CommandNode {
 
     public If(Model myModel) {
-        super(myModel, double.class, BlockNode.class);
+        super(myModel, Double.class, BlockNode.class);
     }
 
     @Override

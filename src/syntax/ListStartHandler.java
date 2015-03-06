@@ -29,6 +29,7 @@ public class ListStartHandler extends ListHandler {
         if (temp instanceof EvaluatorNode) {
             throw new UnbalancedBracketsException();
         }
+        //Lists are double-wrapped with BlockNodes so the parent node receives a BlockNode upon evaluating its child
         List<TreeNode> list = new ArrayList<>();
         list.add(temp);
         return nodeList.add(new BlockNode(list));

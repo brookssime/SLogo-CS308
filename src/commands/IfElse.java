@@ -9,7 +9,7 @@ public class IfElse extends If {
 
     public IfElse(Model myModel) {
         super(myModel);
-        setParameterArray(double.class, BlockNode.class, BlockNode.class);
+        setParameterArray(Double.class, BlockNode.class, BlockNode.class);
     }
     
     @Override
