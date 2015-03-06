@@ -14,7 +14,7 @@ public class Repeat extends DoTimes {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return runForLoop(args, (int) args.get(0), ":repcount");
+        return runForLoop(args, ((Double) args.get(0)).intValue(), ":repcount");
     }
 
 }

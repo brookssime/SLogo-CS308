@@ -21,7 +21,7 @@ public class DoTimes extends CommandNode {
         if (!checkParameters(firstBlock, String.class, double.class)) {
             //Throw incorrect parameters exception
         }
-        return runForLoop(args, (int) firstBlock.get(0), (String) firstBlock.get(1));
+        return runForLoop(args, ((Double) firstBlock.get(0)).intValue(), (String) firstBlock.get(1));
     }
 
     protected List<Object> runForLoop(List<Object> args, int end, String s) {

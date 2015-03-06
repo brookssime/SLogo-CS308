@@ -17,6 +17,6 @@ public class For extends DoTimes {
         if (!checkParameters(firstBlock, String.class, double.class, double.class, double.class)) {
             //Throw incorrect parameters exception
         }
-        return runForLoop(args, (int) args.get(2), (String) args.get(0), (int) args.get(1), (int) args.get(3));
+        return runForLoop(args, ((Double) args.get(2)).intValue(), (String) args.get(0), ((Double) args.get(1)).intValue(), ((Double) args.get(3)).intValue());
     }
 }
