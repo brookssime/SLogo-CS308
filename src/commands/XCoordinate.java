@@ -13,7 +13,7 @@ public class XCoordinate extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(myModel.getActiveTurtle().getX());
+        return putObjectInList(getModel().getActiveTurtle().getX());
     }
 
 }

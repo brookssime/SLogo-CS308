@@ -13,7 +13,7 @@ public class IsPenDown extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        if (myModel.getActiveTurtle().isPenDown()) {
+        if (getModel().getActiveTurtle().isPenDown()) {
             return putObjectInList((double) 1);
         }
         return putObjectInList((double) 0);

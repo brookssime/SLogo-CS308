@@ -15,7 +15,7 @@ public class Right extends CommandNode {
     @Override
     public List<Object> function(List<Object> args) {
         double degrees = ((double) args.get(0)) % Turtle.getFullRotation();
-        Turtle turtle = myModel.getActiveTurtle();
+        Turtle turtle = getModel().getActiveTurtle();
         turtle.setHeading(turtle.getHeading() + degrees);
         return putObjectInList(degrees);
     }

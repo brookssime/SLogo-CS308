@@ -8,8 +8,8 @@ import application.Model;
 
 public abstract class CommandNode extends TreeNode {
 
-	protected Model myModel;
-	private List<TreeNode> myChildren;
+	private Model myModel;
+    private List<TreeNode> myChildren;
 	private int myArgNum;
 	private Class[] myParameterArray;
 	
@@ -42,6 +42,10 @@ public abstract class CommandNode extends TreeNode {
         List<Object> list = new ArrayList<>();
         list.add(o);
         return list;
+    }
+    
+    protected Model getModel() {
+        return myModel;
     }
     
     public int getArgNum() {

@@ -13,8 +13,8 @@ public class ClearScreen extends CommandNode{
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		myModel.clearScreenProperty().setValue(!myModel.clearScreenProperty().getValue());
-		double dist = (double)new Home(myModel).function(args).get(0);
+		getModel().clearScreenProperty().setValue(!getModel().clearScreenProperty().getValue());
+		double dist = (double)new Home(getModel()).function(args).get(0);
 		return putObjectInList(dist);
 	}
 

@@ -35,7 +35,7 @@ public class MakeUserInstruction extends CommandNode {
                 }
             }
         }
-        myModel.addUserCommand(commandName, new EvaluatorNode(myModel, rootNodeList));
+        getModel().addUserCommand(commandName, new EvaluatorNode(getModel(), rootNodeList));
         return putObjectInList(1);
     }
 

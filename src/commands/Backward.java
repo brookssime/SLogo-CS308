@@ -13,7 +13,7 @@ public class Backward extends CommandNode {
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		return new Forward(myModel).function(putObjectInList(-(double)args.get(0)));
+		return new Forward(getModel()).function(putObjectInList(-(double)args.get(0)));
 	}
 
 }

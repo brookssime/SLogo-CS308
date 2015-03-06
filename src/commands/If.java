@@ -26,7 +26,7 @@ public class If extends CommandNode {
     protected Object evaluateCommand(Object o) {
         Object result;
         List<TreeNode> nodeList = getRootNodes(o);
-        EvaluatorNode evalNode = new EvaluatorNode(myModel, nodeList);
+        EvaluatorNode evalNode = new EvaluatorNode(getModel(), nodeList);
         List<Object> tempList =  evalNode.evaluate();
         result = tempList.get(tempList.size() - 1);
         return result;

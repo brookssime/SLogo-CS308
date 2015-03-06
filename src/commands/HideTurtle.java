@@ -13,7 +13,7 @@ public class HideTurtle extends CommandNode {
     
     @Override
     public List<Object> function(List<Object> args) {
-        myModel.getActiveTurtle().setShowing(false);
+        getModel().getActiveTurtle().setShowing(false);
         return putObjectInList((double) 0);
     }
 

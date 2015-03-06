@@ -13,7 +13,7 @@ public class Heading extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(myModel.getActiveTurtle().getHeading());
+        return putObjectInList(getModel().getActiveTurtle().getHeading());
     }
 
 }
