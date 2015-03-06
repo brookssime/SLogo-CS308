@@ -19,9 +19,6 @@ public class TreeBuilder {
             if (node instanceof CommandNode) {
                 addChildren((CommandNode) node, iter);
             }
-            else {
-                //throw an exception?
-            }
         }
         return nodeList;
     }

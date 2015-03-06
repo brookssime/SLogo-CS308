@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import exceptions.UnbalancedBracketsException;
 import tree.TreeNode;
 import application.Model;
 import application.Parser;
@@ -24,7 +25,7 @@ public class GroupEndHandler extends GroupHandler {
         if (getGroupDepthCount() > 0) {
             setGroupDepthCount(getGroupDepthCount() - 1);
         } else {
-            //Throw an error about uneven brackets
+            throw new UnbalancedBracketsException();
         }
         return false;
     }

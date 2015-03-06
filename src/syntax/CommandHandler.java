@@ -10,6 +10,7 @@ import tree.CommandNode;
 import tree.ConstantNode;
 import tree.TreeNode;
 import commands.*;
+import exceptions.InvalidCommandException;
 import application.Model;
 import application.Parser;
 import application.PatternMatcher;
@@ -39,7 +40,7 @@ public class CommandHandler extends SyntaxHandler {
             } else if (cmd != null) {
                 nodeList.add(cmd);
             } else {
-                //Throw an error for incorrect command name here
+                throw new InvalidCommandException(s);
             }
         }
         return true;

@@ -3,6 +3,7 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.IncorrectParametersException;
 import application.Model;
 
 public abstract class CommandNode extends TreeNode {
@@ -30,7 +31,7 @@ public abstract class CommandNode extends TreeNode {
             cmdArgs.addAll(child.evaluate(args));
         }
         if (!checkParameters(cmdArgs, myParameterArray)) {
-            //Throw incorrect parameters exception
+            throw new IncorrectParametersException(this.getClass().getName());
         };
         return function(cmdArgs);
     }

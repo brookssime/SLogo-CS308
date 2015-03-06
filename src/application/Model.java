@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import exceptions.*;
 import tree.CommandNode;
 import tree.EvaluatorNode;
 import view.View;
@@ -96,9 +97,8 @@ public class Model implements Observer{
 			myCommandHistory.put(arg1.toString(), outputCmd);
 			outputCmd.evaluate(null);
 		} catch (InstantiationException | IllegalAccessException
-				| InvocationTargetException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 

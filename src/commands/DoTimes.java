@@ -3,6 +3,7 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.IncorrectParametersException;
 import tree.BlockNode;
 import tree.EvaluatorNode;
 import tree.TreeNode;
@@ -19,7 +20,7 @@ public class DoTimes extends CommandNode {
         List<Object> firstBlock = new ArrayList<>();
         getRootNodes(args.get(0)).stream().forEach(node -> firstBlock.add(node.evaluate()));
         if (!checkParameters(firstBlock, String.class, double.class)) {
-            //Throw incorrect parameters exception
+            throw new IncorrectParametersException(this.getClass().getName());
         }
         return runForLoop(args, ((Double) firstBlock.get(0)).intValue(), (String) firstBlock.get(1));
     }
