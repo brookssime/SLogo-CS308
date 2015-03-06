@@ -2,14 +2,19 @@ package commands;
 
 import java.util.List;
 
-public class Repeat extends Command {
+import application.Model;
+import tree.BlockNode;
+
+public class Repeat extends DoTimes {
+
+    public Repeat(Model myModel) {
+        super(myModel);
+        setParameterArray(Double.class, BlockNode.class);
+    }
 
     @Override
     public List<Object> function(List<Object> args) {
-        
-        for (int i = 0; i < (int) args.get(0); i++) {
-            
-        }
+        return runForLoop(args, ((Double) args.get(0)).intValue(), ":repcount");
     }
 
 }

@@ -2,27 +2,28 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 import application.Turtle;
 
-public class Forward extends Command {    
+public class Forward extends CommandNode {    
     private double maxX;
     private double maxY;
 
     public Forward(Model myModel) {
-        super(myModel, 1);
+        super(myModel, Double.class);
     }
     @Override
     public List<Object> function(List<Object> args) {
     	double distance = (double) args.get(0);
         advanceTurtle(distance);
-        return putDoubleInList(distance);
+        return putObjectInList(distance);
     }
 	private void advanceTurtle(double distance) {
-		maxX = myModel.getMaxX();
-        maxY = myModel.getMaxY();
-        Turtle turtle = myModel.getActiveTurtle();
-        double radiansHeading = turtle.getRadiansHeading();
+		maxX = getModel().getMaxX();
+        maxY = getModel().getMaxY();
+        Turtle turtle = getModel().getActiveTurtle();
+        double radiansHeading = Math.toRadians(turtle.getHeading());
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
         double y = turtle.getY() + distance*Math.sin(radiansHeading);
         boolean temp = turtle.isPenDown();

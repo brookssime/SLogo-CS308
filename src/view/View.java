@@ -35,7 +35,6 @@ public class View {
 		btnz=new ButtonBar(new ColorChooser(display),lang);
 		
 		m=myModel;
-		//m.setLanguage(lang.getLanguage());
 	}
 	public void start(Stage stage) {
 		stage.setTitle("SLOGO");
@@ -129,5 +128,11 @@ public class View {
 	
 	protected Model getModel() {
 		return m;
+	}
+	public void displayError(String s) {
+		ErrorDisplay error=new ErrorDisplay();
+		Stage newStage=new Stage();
+		newStage.setScene(error.display(s));
+		newStage.show();
 	}
 }

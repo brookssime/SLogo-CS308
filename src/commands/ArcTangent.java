@@ -2,17 +2,18 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class ArcTangent extends Command {
+public class ArcTangent extends CommandNode {
 
     public ArcTangent(Model myModel) {
-        super(myModel, 1);
+        super(myModel, Double.class);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.atan((double) args.get(0))*180/Math.PI);
+        return putObjectInList(Math.toDegrees(Math.atan((double) args.get(0))));
     }
 
 }

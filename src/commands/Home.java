@@ -2,18 +2,19 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 import application.Turtle;
 
-public class Home extends Command {
+public class Home extends CommandNode {
 
     public Home(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
     
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(myModel.getActiveTurtle().setLocation(0, 0));
+        return putObjectInList(getModel().getActiveTurtle().setLocation(0, 0));
     }
 
 }

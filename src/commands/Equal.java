@@ -2,20 +2,21 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class Equal extends Command{
+public class Equal extends CommandNode{
 
 	public Equal(Model model) {
-		super(model, 2);
+		super(model, Double.class, Double.class);
 	}
 
 	@Override
 	public List<Object> function(List<Object> args) {
 		boolean eq = (double)args.get(0) == (double)args.get(1);
-		double eqNum = -1;
+		double eqNum = 0;
 		if (eq) eqNum = 1;
-		return putDoubleInList(eqNum);
+		return putObjectInList(eqNum);
 	}
 
 }
