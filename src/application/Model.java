@@ -25,7 +25,7 @@ public class Model implements Observer{
     private String myLanguage;
     private BooleanProperty clearScreen;
     private StringProperty language;
-    private View view;
+    private View view=new View(this);
     
     public Model(double maxX, double maxY) {
     	myLanguage="English";
@@ -98,7 +98,7 @@ public class Model implements Observer{
 			outputCmd.evaluate(null);
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
-			System.out.println(e.getMessage());
+			view.displayError(e.getMessage());
 		}
 	}
 
