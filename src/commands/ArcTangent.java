@@ -8,12 +8,12 @@ import application.Model;
 public class ArcTangent extends CommandNode {
 
     public ArcTangent(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(Math.toDegrees(Math.atan(Math.toRadians((double) args.get(0)))));
+        return putObjectInList(Math.toDegrees(Math.atan((double) args.get(0))));
     }
 
 }

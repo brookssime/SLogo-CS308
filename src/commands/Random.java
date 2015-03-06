@@ -9,7 +9,7 @@ public class Random extends CommandNode {
     public static java.util.Random rand;;
     
     public Random(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
         rand = new java.util.Random();
     }
 

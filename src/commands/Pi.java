@@ -8,7 +8,7 @@ import application.Model;
 public class Pi extends CommandNode {
 
     public Pi(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
 
     @Override

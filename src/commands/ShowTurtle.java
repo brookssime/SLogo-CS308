@@ -8,13 +8,13 @@ import application.Model;
 public class ShowTurtle extends CommandNode {
 
     public ShowTurtle(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
     
     @Override
     public List<Object> function(List<Object> args) {
         myModel.getActiveTurtle().setShowing(true);
-        return putObjectInList(1);
+        return putObjectInList((double) 1);
     }
 
 }

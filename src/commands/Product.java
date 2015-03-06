@@ -8,7 +8,7 @@ import application.Model;
 public class Product extends CommandNode {
 
     public Product(Model myModel) {
-        super(myModel, 2);
+        super(myModel, double.class, double.class);
     }
 
     @Override

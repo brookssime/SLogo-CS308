@@ -8,7 +8,7 @@ import application.Model;
 public class Sum extends CommandNode {
 
     public Sum(Model myModel) {
-        super(myModel, 2);
+        super(myModel, double.class, double.class);
     }
 
     @Override

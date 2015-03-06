@@ -8,7 +8,7 @@ import application.Model;
 public class Cosine extends CommandNode {
 
     public Cosine(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
 
     @Override

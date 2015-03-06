@@ -8,7 +8,7 @@ import application.Model;
 public class NaturalLog extends CommandNode {
 
     public NaturalLog(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
         // TODO Auto-generated constructor stub
     }
 

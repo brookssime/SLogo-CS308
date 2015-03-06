@@ -11,10 +11,12 @@ public abstract class CommandNode extends Node {
 	protected Model myModel;
 	private List<Node> myChildren;
 	private int myArgNum;
+	private Class[] myParameterArray;
 	
-	public CommandNode(Model myModel, int myArgNum){
+	public CommandNode(Model myModel, Class...myParameterArray){
 		this.myModel = myModel;
-		this.myArgNum = myArgNum;
+		this.myParameterArray = myParameterArray;
+		this.myArgNum = myParameterArray.length;
 		myChildren = new ArrayList<Node>();
 	}
 	
@@ -28,6 +30,9 @@ public abstract class CommandNode extends Node {
         for (Node child: myChildren){
             cmdArgs.addAll(child.evaluate(args));
         }
+        if (!checkParameters(cmdArgs)) {
+            //Throw incorrect parameters exception
+        };
         return function(cmdArgs);
     }
     
@@ -48,7 +53,6 @@ public abstract class CommandNode extends Node {
     }
     
     protected List<Node> getRootNodes(Object myBlockNode) {
-        // Throw error if myUserCommandNode is not a UserCommandNode
         List<Object> rootObjectList = putObjectInList(myBlockNode);
         while(rootObjectList.get(0) instanceof BlockNode) {
             rootObjectList = ((BlockNode) rootObjectList.get(0)).evaluate();
@@ -78,6 +82,29 @@ public abstract class CommandNode extends Node {
             variableList.addAll(child.getVariableNodes());
         }
         return variableList;
+    }
+    
+    /*
+     * Checks the parameters of a command's evaluate function
+     * 
+     * Each element in args corresponds to a Class object in myClass
+     * 
+     * return false if the parameters in args are not the correct type
+     */
+    protected boolean checkParameters(List<Object> args) {
+        if (args.size() != myParameterArray.length) {
+            return false;
+        }
+        for (int i = 0; i < args.size(); i++) {
+            if (!args.get(i).getClass().equals(myParameterArray[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    protected void setParameterArray(Class...myParameterArray) {
+            this.myParameterArray = myParameterArray;
     }
 
 }

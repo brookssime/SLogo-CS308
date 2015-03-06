@@ -8,7 +8,7 @@ import application.Model;
 public class Backward extends CommandNode {
 
 	public Backward(Model model) {
-		super(model, 1);
+		super(model, double.class);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import application.Turtle;
 public class Right extends CommandNode {
 
     public Right(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
 
     @Override

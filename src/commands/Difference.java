@@ -8,7 +8,7 @@ import application.Model;
 public class Difference extends CommandNode {
 
     public Difference(Model myModel) {
-        super(myModel, 2);
+        super(myModel, double.class, double.class);
     }
 
     @Override

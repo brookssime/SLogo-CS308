@@ -8,7 +8,7 @@ import application.Model;
 public class MakeVariable extends CommandNode {
 
     public MakeVariable(Model myModel) {
-        super(myModel, 1);
+        super(myModel, String.class);
     }
 
     @Override

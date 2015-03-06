@@ -8,7 +8,7 @@ import application.Model;
 public class YCoordinate extends CommandNode {
 
     public YCoordinate(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
 
     @Override

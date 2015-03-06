@@ -8,7 +8,7 @@ import application.Model;
 public class Sine extends CommandNode {
 
     public Sine(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
 
     @Override

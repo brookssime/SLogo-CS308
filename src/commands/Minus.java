@@ -8,7 +8,7 @@ import application.Model;
 public class Minus extends CommandNode {
 
     public Minus(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
 
     @Override

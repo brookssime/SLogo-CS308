@@ -3,6 +3,7 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import tree.BlockNode;
 import tree.CommandNode;
 import tree.EvaluatorNode;
 import tree.Node;
@@ -12,7 +13,7 @@ import application.Model;
 public class MakeUserInstruction extends CommandNode {
 
     public MakeUserInstruction(Model myModel) {
-        super(myModel, 3);
+        super(myModel, String.class, BlockNode.class, BlockNode.class);
     }
 
     @Override

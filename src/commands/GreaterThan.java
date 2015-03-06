@@ -8,7 +8,7 @@ import application.Model;
 public class GreaterThan extends CommandNode{
 
 	public GreaterThan(Model model) {
-		super(model, 2);
+		super(model, double.class, double.class);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class GreaterThan extends CommandNode{
 		if ((double)args.get(0) > (double)args.get(1)) {
 		    return putObjectInList(1);
 		}
-		return putObjectInList(-1);
+		return putObjectInList((double) -1);
 	}
 
 }

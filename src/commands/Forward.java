@@ -11,7 +11,7 @@ public class Forward extends CommandNode {
     private double maxY;
 
     public Forward(Model myModel) {
-        super(myModel, 1);
+        super(myModel, double.class);
     }
     @Override
     public List<Object> function(List<Object> args) {

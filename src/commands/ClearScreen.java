@@ -8,7 +8,7 @@ import application.Model;
 public class ClearScreen extends CommandNode{
 
 	public ClearScreen(Model myModel) {
-		super(myModel, 0);
+		super(myModel, new Class[0]);
 	}
 
 	@Override

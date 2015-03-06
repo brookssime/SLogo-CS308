@@ -8,12 +8,15 @@ import application.Model;
 public class Or extends CommandNode{
 
 	public Or(Model model) {
-		super(model, 2);
+		super(model, double.class, double.class);
 	}
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		return putObjectInList(Math.max((double)args.get(0), (double)args.get(1)));
+		if ((double) args.get(0) != (double) 0 || (double) args.get(1) != (double) 0) {
+		    return putObjectInList((double) 1);
+		}
+		return putObjectInList((double) 0);
 	}
 
 }

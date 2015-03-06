@@ -8,15 +8,15 @@ import application.Model;
 public class IsPenDown extends CommandNode {
 
     public IsPenDown(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
         if (myModel.getActiveTurtle().isPenDown()) {
-            return putObjectInList(1);
+            return putObjectInList((double) 1);
         }
-        return putObjectInList(0);
+        return putObjectInList((double) 0);
     }
 
 }
