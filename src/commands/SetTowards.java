@@ -14,7 +14,7 @@ public class SetTowards extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        Turtle turtle = myModel.getActiveTurtle();
+        Turtle turtle = getModel().getActiveTurtle();
         double x = (double) args.get(0);
         double y = (double) args.get(1);
         double dx = x - turtle.getX();

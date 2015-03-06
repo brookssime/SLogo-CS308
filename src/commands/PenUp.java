@@ -13,7 +13,7 @@ public class PenUp extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        myModel.getActiveTurtle().setPenDown(false);
+        getModel().getActiveTurtle().setPenDown(false);
         return putObjectInList((double) 0);
     }
 

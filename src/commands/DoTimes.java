@@ -31,14 +31,14 @@ public class DoTimes extends CommandNode {
     
     protected List<Object> runForLoop(List<Object> args, int end, String s, int start, int increment) {
         List<TreeNode> nodeList = getRootNodes(args.get(1));
-        EvaluatorNode evalNode = new EvaluatorNode(myModel, nodeList);
+        EvaluatorNode evalNode = new EvaluatorNode(getModel(), nodeList);
         Object result = null;;
         for (int i = start; i <= (int) end; i += increment) {
-            myModel.setVariableValue(s, (double) i);
+            getModel().setVariableValue(s, (double) i);
             List<Object> tempList =  evalNode.evaluate();
             result = tempList.get(tempList.size() - 1);
         }
-        myModel.removeVariableValue(s);
+        getModel().removeVariableValue(s);
         return putObjectInList(result);
     }
 }

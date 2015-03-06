@@ -14,7 +14,7 @@ public class Home extends CommandNode {
     
     @Override
     public List<Object> function(List<Object> args) {
-        return putObjectInList(myModel.getActiveTurtle().setLocation(0, 0));
+        return putObjectInList(getModel().getActiveTurtle().setLocation(0, 0));
     }
 
 }

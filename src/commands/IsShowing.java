@@ -13,7 +13,7 @@ public class IsShowing extends CommandNode {
 
     @Override
     public List<Object> function(List<Object> args) {
-        if (myModel.getActiveTurtle().isShowing()) {
+        if (getModel().getActiveTurtle().isShowing()) {
             return putObjectInList((double) 1);
         }
         return putObjectInList((double) 0);

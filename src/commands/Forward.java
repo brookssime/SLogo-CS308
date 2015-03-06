@@ -20,9 +20,9 @@ public class Forward extends CommandNode {
         return putObjectInList(distance);
     }
 	private void advanceTurtle(double distance) {
-		maxX = myModel.getMaxX();
-        maxY = myModel.getMaxY();
-        Turtle turtle = myModel.getActiveTurtle();
+		maxX = getModel().getMaxX();
+        maxY = getModel().getMaxY();
+        Turtle turtle = getModel().getActiveTurtle();
         double radiansHeading = Math.toRadians(turtle.getHeading());
         double x = turtle.getX() + distance*Math.cos(radiansHeading);
         double y = turtle.getY() + distance*Math.sin(radiansHeading);
