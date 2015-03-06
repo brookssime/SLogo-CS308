@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import commands.MakeVariable;
+import tree.ConstantNode;
 import tree.TreeNode;
 import tree.VariableNode;
 import application.Model;
@@ -23,6 +25,9 @@ public class VariableHandler extends SyntaxHandler {
             throws InstantiationException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException,
             SecurityException, ClassNotFoundException {
+        if (nodeList.size() > 0 && nodeList.get(nodeList.size() - 1) instanceof MakeVariable) {
+            return nodeList.add(new ConstantNode(s));
+        }
         return nodeList.add(new VariableNode(myModel, s));
     }
 
