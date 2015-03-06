@@ -34,10 +34,10 @@ public class CommandHandler extends SyntaxHandler {
                     .newInstance(myModel));
         } catch (ClassNotFoundException e) {
             CommandNode cmd = (CommandNode) myModel.getUserCommand(s);
-            if (cmd != null) {
-                nodeList.add(cmd);
-            } else if (nodeList.get(nodeList.size() - 1) instanceof MakeUserInstruction) {
+            if (nodeList.size() > 0 && nodeList.get(nodeList.size() - 1) instanceof MakeUserInstruction) {
                 nodeList.add(new ConstantNode(s));
+            } else if (cmd != null) {
+                nodeList.add(cmd);
             } else {
                 //Throw an error for incorrect command name here
             }

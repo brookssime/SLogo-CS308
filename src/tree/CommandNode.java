@@ -53,7 +53,7 @@ public abstract class CommandNode extends TreeNode {
     
     protected List<TreeNode> getRootNodes(Object myBlockNode) {
         List<Object> rootObjectList = putObjectInList(myBlockNode);
-        while(rootObjectList.get(0) instanceof BlockNode) {
+        while(rootObjectList.size() > 0 && rootObjectList.get(0) instanceof BlockNode) {
             rootObjectList = ((BlockNode) rootObjectList.get(0)).evaluate();
         }
         List<TreeNode> rootNodeList = new ArrayList<>();
