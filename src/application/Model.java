@@ -72,6 +72,10 @@ public class Model implements Observer{
         variableMap.put(key, value);
     }
     
+    public void removeVariableValue(String key) {
+        variableMap.remove(key);
+    }
+    
     public void addUserCommand(String key, EvaluatorNode value) {
         myUserCommands.put(key, value);
     }

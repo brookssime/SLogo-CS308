@@ -24,15 +24,20 @@ public class DoTimes extends CommandNode {
         return runForLoop(args, (int) firstBlock.get(0), (String) firstBlock.get(1));
     }
 
-    protected List<Object> runForLoop(List<Object> args, int limit, String s) {
+    protected List<Object> runForLoop(List<Object> args, int end, String s) {
+        return runForLoop(args, end, s, 1, 1);
+    }
+    
+    protected List<Object> runForLoop(List<Object> args, int end, String s, int start, int increment) {
         List<TreeNode> nodeList = getRootNodes(args.get(1));
         EvaluatorNode evalNode = new EvaluatorNode(myModel, nodeList);
         Object result = null;;
-        for (int i = 1; i <= (int) limit; i++) {
+        for (int i = start; i <= (int) end; i += increment) {
             myModel.setVariableValue(s, (double) i);
             List<Object> tempList =  evalNode.evaluate();
             result = tempList.get(tempList.size() - 1);
         }
+        myModel.removeVariableValue(s);
         return putObjectInList(result);
     }
 }
