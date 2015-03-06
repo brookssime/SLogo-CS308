@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import tree.ConstantNode;
-import tree.Node;
+import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
@@ -20,7 +20,7 @@ public class ConstantHandler extends SyntaxHandler {
     
     @Override
     public boolean handle(String s, Iterator<String> iter,
-            List<Node> nodeList) throws InstantiationException,
+            List<TreeNode> nodeList) throws InstantiationException,
             IllegalAccessException, IllegalArgumentException,
             InvocationTargetException, SecurityException,
             ClassNotFoundException {

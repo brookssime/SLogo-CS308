@@ -1,15 +1,14 @@
 package tree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import application.Model;
 
-public abstract class CommandNode extends Node {
+public abstract class CommandNode extends TreeNode {
 
 	protected Model myModel;
-	private List<Node> myChildren;
+	private List<TreeNode> myChildren;
 	private int myArgNum;
 	private Class[] myParameterArray;
 	
@@ -17,7 +16,7 @@ public abstract class CommandNode extends Node {
 		this.myModel = myModel;
 		this.myParameterArray = myParameterArray;
 		this.myArgNum = myParameterArray.length;
-		myChildren = new ArrayList<Node>();
+		myChildren = new ArrayList<TreeNode>();
 	}
 	
     /**
@@ -27,10 +26,10 @@ public abstract class CommandNode extends Node {
      */
     public List<Object> evaluate(List<Object> args){
         List<Object> cmdArgs = new ArrayList<Object>();
-        for (Node child: myChildren){
+        for (TreeNode child: myChildren){
             cmdArgs.addAll(child.evaluate(args));
         }
-        if (!checkParameters(cmdArgs)) {
+        if (!checkParameters(cmdArgs, myParameterArray)) {
             //Throw incorrect parameters exception
         };
         return function(cmdArgs);
@@ -52,24 +51,24 @@ public abstract class CommandNode extends Node {
         this.myArgNum = myArgNum;
     }
     
-    protected List<Node> getRootNodes(Object myBlockNode) {
+    protected List<TreeNode> getRootNodes(Object myBlockNode) {
         List<Object> rootObjectList = putObjectInList(myBlockNode);
         while(rootObjectList.get(0) instanceof BlockNode) {
             rootObjectList = ((BlockNode) rootObjectList.get(0)).evaluate();
         }
-        List<Node> rootNodeList = new ArrayList<>();
-        rootObjectList.stream().forEach(o -> rootNodeList.add((Node) o));
+        List<TreeNode> rootNodeList = new ArrayList<>();
+        rootObjectList.stream().forEach(o -> rootNodeList.add((TreeNode) o));
         return rootNodeList;
     }
     
-    public void addChild(Node child){
+    public void addChild(TreeNode child){
         myChildren.add(child);
     }
     
     @Override
     public int countVariables() {
         int sum = 0;
-        for (Node child: myChildren){
+        for (TreeNode child: myChildren){
             sum += child.countVariables();
         }
         return sum;
@@ -78,7 +77,7 @@ public abstract class CommandNode extends Node {
     @Override
     public List<VariableNode> getVariableNodes() {
         List<VariableNode> variableList = new ArrayList<>();
-        for (Node child : myChildren) {
+        for (TreeNode child : myChildren) {
             variableList.addAll(child.getVariableNodes());
         }
         return variableList;
@@ -91,7 +90,7 @@ public abstract class CommandNode extends Node {
      * 
      * return false if the parameters in args are not the correct type
      */
-    protected boolean checkParameters(List<Object> args) {
+    protected boolean checkParameters(List<Object> args, Class...myParameterArray) {
         if (args.size() != myParameterArray.length) {
             return false;
         }

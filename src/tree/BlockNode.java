@@ -3,11 +3,11 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockNode extends Node {
+public class BlockNode extends TreeNode {
 
-    private List<Node> nodeList;
+    private List<TreeNode> nodeList;
 
-    public BlockNode(List<Node> nodeList) {
+    public BlockNode(List<TreeNode> nodeList) {
         this.nodeList = nodeList;
     }
 

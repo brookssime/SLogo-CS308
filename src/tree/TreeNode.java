@@ -3,7 +3,7 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class Node {
+abstract public class TreeNode {
 
 	public abstract List<Object> evaluate(List<Object> args);
 	

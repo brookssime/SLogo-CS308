@@ -5,7 +5,7 @@ import java.util.List;
 
 import application.Model;
 
-public class VariableNode extends Node {
+public class VariableNode extends TreeNode {
 
     private String myString;
     private static Model myModel;

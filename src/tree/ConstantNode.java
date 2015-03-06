@@ -3,7 +3,7 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConstantNode extends Node {
+public class ConstantNode extends TreeNode {
 	
 	private Object myData;
 

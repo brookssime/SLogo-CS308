@@ -12,7 +12,7 @@ import syntax.SyntaxHandler;
 import tree.BlockNode;
 import tree.CommandNode;
 import tree.EvaluatorNode;
-import tree.Node;
+import tree.TreeNode;
 import tree.TreeBuilder;
 import commands.*;
 
@@ -37,10 +37,10 @@ public class Parser {
         return (CommandNode) parseIterator(Arrays.asList(input.split(" ")).iterator());
     }
     
-    public Node parseIterator(Iterator<String> iter)
+    public TreeNode parseIterator(Iterator<String> iter)
             throws InstantiationException, IllegalAccessException,
             InvocationTargetException, ClassNotFoundException {
-        List<Node> nodeList = new ArrayList<>();
+        List<TreeNode> nodeList = new ArrayList<>();
         while (iter.hasNext()) {
             String s = iter.next();
             String p = PatternMatcher.checkForMatch(s, mySyntaxPatterns);

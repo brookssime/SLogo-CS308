@@ -6,7 +6,7 @@ import java.util.List;
 import tree.BlockNode;
 import tree.CommandNode;
 import tree.EvaluatorNode;
-import tree.Node;
+import tree.TreeNode;
 import tree.VariableNode;
 import application.Model;
 
@@ -21,9 +21,9 @@ public class MakeUserInstruction extends CommandNode {
         String commandName = (String) args.get(0);
         List<String> stringList = getVariableList(getRootNodes(args.get(1)));
         
-        List<Node> rootNodeList = getRootNodes(args.get(2));
+        List<TreeNode> rootNodeList = getRootNodes(args.get(2));
         
-        for (Node n : rootNodeList) {
+        for (TreeNode n : rootNodeList) {
             for (int i = 0; i < stringList.size(); i ++) {  
                 List<VariableNode> varNodeList = n.getVariableNodes();
                 while(varNodeList.remove(null));
@@ -39,9 +39,9 @@ public class MakeUserInstruction extends CommandNode {
         return putObjectInList(1);
     }
 
-    private List<String> getVariableList(List<Node> nodeList) {
+    private List<String> getVariableList(List<TreeNode> nodeList) {
         List<String> stringList = new ArrayList<>();
-        for (Node node : nodeList) {
+        for (TreeNode node : nodeList) {
             List<Object> tempList = new ArrayList<>();
             tempList.addAll(node.evaluate());
             for (Object object : tempList) {

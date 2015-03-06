@@ -10,11 +10,11 @@ public class TreeBuilder {
 
     }
 
-    public List<Node> build(List<Node> list) {
-        List<Node> nodeList = new ArrayList<>();
-        Iterator<Node> iter = list.iterator();
+    public List<TreeNode> build(List<TreeNode> list) {
+        List<TreeNode> nodeList = new ArrayList<>();
+        Iterator<TreeNode> iter = list.iterator();
         while (iter.hasNext()) {
-            Node node = iter.next();
+            TreeNode node = iter.next();
             nodeList.add(node);
             if (node instanceof CommandNode) {
                 addChildren((CommandNode) node, iter);
@@ -26,9 +26,9 @@ public class TreeBuilder {
         return nodeList;
     }
 
-    private void addChildren(CommandNode node, Iterator<Node> iter) {
+    private void addChildren(CommandNode node, Iterator<TreeNode> iter) {
         for (int i = 0; i < node.getArgNum() && iter.hasNext(); i++) {
-            Node child = iter.next();
+            TreeNode child = iter.next();
             node.addChild(child);
             if (child instanceof CommandNode) {
                 addChildren((CommandNode) child, iter);

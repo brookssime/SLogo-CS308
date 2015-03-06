@@ -7,13 +7,13 @@ import java.util.List;
 import application.Model;
 
 public class EvaluatorNode extends CommandNode {
-    private List<Node> nodeList;
+    private List<TreeNode> nodeList;
 
-    public EvaluatorNode(Model myModel, List<Node> nodeList) {
+    public EvaluatorNode(Model myModel, List<TreeNode> nodeList) {
         super(myModel, new Class[0]);
         this.nodeList = nodeList;
         int sum = 0;
-        for (Node node : nodeList) {
+        for (TreeNode node : nodeList) {
             sum += node.countVariables();
         }
         setArgNum(sum);

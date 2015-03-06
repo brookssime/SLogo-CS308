@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 import tree.BlockNode;
-import tree.Node;
+import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
@@ -21,10 +21,10 @@ public class ListStartHandler extends ListHandler {
 
     @Override
     public boolean handle(String s, Iterator<String> iter,
-            List<Node> nodeList) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+            List<TreeNode> nodeList) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         setListDepthCount(getListDepthCount() + 1);
-        Node temp = myParser.parseIterator(iter);
-        List<Node> list = new ArrayList<>();
+        TreeNode temp = myParser.parseIterator(iter);
+        List<TreeNode> list = new ArrayList<>();
         list.add(temp);
         return nodeList.add(new BlockNode(list));
     }

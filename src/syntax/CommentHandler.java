@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import tree.Node;
+import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
@@ -18,7 +18,7 @@ public class CommentHandler extends SyntaxHandler {
     }
 
     @Override
-    public boolean handle(String s, Iterator<String> iter, List<Node> nodeList)
+    public boolean handle(String s, Iterator<String> iter, List<TreeNode> nodeList)
             throws InstantiationException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException,
             SecurityException, ClassNotFoundException {
