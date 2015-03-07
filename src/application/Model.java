@@ -34,7 +34,6 @@ public class Model implements Observer{
     private DoubleProperty penColor = new SimpleDoubleProperty();
     private ObjectProperty<double[]> pallet = new SimpleObjectProperty<>();
     private BooleanProperty clearScreen = new SimpleBooleanProperty();
-    private BooleanProperty stamp = new SimpleBooleanProperty();
     private BooleanProperty clearStamp = new SimpleBooleanProperty();
     
     public Model(double maxX, double maxY) {
@@ -115,10 +114,6 @@ public class Model implements Observer{
     
     public BooleanProperty clearScreenProperty(){
     	return clearScreen;
-    }
-    
-    public BooleanProperty stampProperty(){
-    	return stamp;
     }
     
     public BooleanProperty clearStampProperty(){
