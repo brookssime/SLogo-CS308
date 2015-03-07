@@ -33,7 +33,7 @@ public class View {
 	public View(Model myModel) {
 		enter.addObserver(myModel);
 		lang=new LanguageChooser(this);
-		btnz=new ButtonBar(new ColorChooser(display),lang);
+		btnz=new ButtonBar(new ColorChooser(display),lang, new TurtleState());
 		
 		m=myModel;
 	}
