@@ -17,13 +17,14 @@ public class ButtonBar {
 	private ImageChooser img;
 	private LanguageChooser lang;
 	private Display dis;
-	
+	private TurtleState tur;
 	public ButtonBar(ColorChooser c,LanguageChooser l) {
 		colz=c;
 		lang=l;
 		img=new ImageChooser(colz.getDisplay());
 		dis=colz.getDisplay();
 		//lang=new LanguageChooser();
+		
 	}
 
 	private Button makeButton(String name) {
