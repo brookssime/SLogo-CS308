@@ -9,7 +9,7 @@ import application.Turtle;
 public class PenDown extends CommandNode {
 
     public PenDown(Model myModel) {
-        super(null, new Class[0]);
+        super(myModel, new Class[0]);
     }
 
     @Override

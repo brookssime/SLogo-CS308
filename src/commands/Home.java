@@ -9,7 +9,7 @@ import application.Turtle;
 public class Home extends CommandNode {
 
     public Home(Model myModel) {
-        super(null, new Class[0]);
+        super(myModel, new Class[0]);
     }
     
     @Override

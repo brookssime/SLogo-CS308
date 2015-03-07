@@ -9,7 +9,7 @@ import application.Turtle;
 public class Minus extends CommandNode {
 
     public Minus(Model myModel) {
-        super(null, Double.class);
+        super(myModel, Double.class);
     }
 
     @Override

@@ -9,7 +9,7 @@ import application.Turtle;
 public class Not extends CommandNode{
 
 	public Not(Model myModel) {
-		super(null, Double.class);
+		super(myModel, Double.class);
 	}
 
 	@Override

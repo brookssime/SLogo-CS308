@@ -9,7 +9,7 @@ import application.Turtle;
 public class GreaterThan extends CommandNode{
 
 	public GreaterThan(Model myModel) {
-		super(null, Double.class, Double.class);
+		super(myModel, Double.class, Double.class);
 	}
 
 	@Override

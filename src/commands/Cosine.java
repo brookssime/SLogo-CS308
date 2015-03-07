@@ -9,7 +9,7 @@ import application.Turtle;
 public class Cosine extends CommandNode {
 
     public Cosine(Model myModel) {
-        super(null, Double.class);
+        super(myModel, Double.class);
     }
 
     @Override
