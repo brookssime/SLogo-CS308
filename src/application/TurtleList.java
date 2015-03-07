@@ -15,7 +15,7 @@ public class TurtleList {
 		return myActiveList;
 	}
 	
-	public double getTurtleID(Turtle t){
+	public double getID(Turtle t){
 		return IDMap.get(t);
 	}
 	
@@ -24,12 +24,15 @@ public class TurtleList {
 	}
 	
 	public void addTurtle(double id){
-		if (TurtleMap.containsKey(id)) myActiveList.add(TurtleMap.get(id));
-		else{
+		if (!TurtleMap.containsKey(id)){
 			Turtle t = new Turtle();
 			IDMap.put(t, id);
 			TurtleMap.put(id, t);
 		}
+		myActiveList.add(TurtleMap.get(id));
 	}
 
+	public double getTurtleCount(){
+		return TurtleMap.size();
+	}
 }
