@@ -30,6 +30,5 @@ public class Wrapper {
 		myView.addAllListeners(myModel);
 		myView.start(new Stage());
 		listOfWindows.add(new Pair<Model,View>(myModel,myView));
-		System.out.println("HEREHERE:" +listOfWindows.size());
 	}
 }
