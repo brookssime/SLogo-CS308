@@ -14,7 +14,7 @@ public class ID extends CommandNode {
 
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
-        return putObjectInList(getModel().getTurtleGroup().getID(myTurtle));
+        return putObjectInList(getModel().getTurtleList().getID(myTurtle));
     }
 
 }

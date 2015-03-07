@@ -14,7 +14,7 @@ public class Turtles extends CommandNode {
 
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
-        return putObjectInList(getModel().getTurtleGroup().getTurtleCount());
+        return putObjectInList(getModel().getTurtleList().getTurtleCount());
     }
 
 }
