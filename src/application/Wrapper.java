@@ -27,7 +27,7 @@ public class Wrapper {
 	
 	
 	public void makeNewWindow(Model myModel, View myView) {
-		myView.addAllListeners(myModel);
+		myView.addModelListeners(myModel);
 		myView.start(new Stage());
 		listOfWindows.add(new Pair<Model,View>(myModel,myView));
 	}
