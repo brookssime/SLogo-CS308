@@ -111,14 +111,6 @@ public class View {
 			
 			}});
 		
-		model.stampProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> arg0,
-					Boolean oldValue, Boolean newValue) {
-				// TODO Auto-generated method stub
-			
-			}});
-		
 		model.clearStampProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0,
@@ -193,6 +185,13 @@ public class View {
 				
 			}
 	      });
+		t.stampProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+			
+			}});
 	}
 	
 	protected Model getModel() {
