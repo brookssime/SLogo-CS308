@@ -29,7 +29,7 @@ public abstract class CommandNode extends TreeNode {
     public List<Object> evaluate(Turtle myTurtle, List<Object> args){
         List<Turtle> myTurtles = new ArrayList<>();
         if (myTurtle == null) {
-            myTurtles = myModel.getTurtleGroup().getActiveTurtles();
+            myTurtles = myModel.getTurtleList().getActiveTurtles();
         } else {
             myTurtles.add(myTurtle);
         }
