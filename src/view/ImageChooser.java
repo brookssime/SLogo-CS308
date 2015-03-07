@@ -41,7 +41,7 @@ public class ImageChooser {
 	}
 
 	private void openFile(File file) {
-				ImageView img=display.updateTurtleImage(); 
+		ImageView img=display.updateTurtleImage(); 
 				try {
 					Image image = SwingFXUtils.toFXImage(ImageIO.read(file), null);
 	                img.setFitHeight(display.SIZE_OF_TURTLE);
@@ -51,7 +51,7 @@ public class ImageChooser {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
- 
+		
 	}
 }
 
