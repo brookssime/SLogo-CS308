@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import application.Model;
+import application.Turtle;
 
 public class EvaluatorNode extends CommandNode {
     private List<TreeNode> nodeList;
@@ -21,9 +22,9 @@ public class EvaluatorNode extends CommandNode {
     }
 
     @Override
-    protected List<Object> function(List<Object> args) {
+    protected List<Object> function(Turtle myTurtle, List<Object> args) {
         List<Object> list = new ArrayList<>();
-        nodeList.stream().forEach(node -> list.add(node.evaluate(args)));
+        nodeList.stream().forEach(node -> list.add(node.evaluate(null, args)));
         return list;
     }
     

@@ -8,6 +8,7 @@ import tree.BlockNode;
 import tree.EvaluatorNode;
 import tree.TreeNode;
 import application.Model;
+import application.Turtle;
 import tree.CommandNode;
 
 public class DoTimes extends CommandNode {
@@ -16,7 +17,7 @@ public class DoTimes extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         List<Object> firstBlock = new ArrayList<>();
         getRootNodes(args.get(0)).stream().forEach(node -> firstBlock.add(node.evaluate()));
         if (!checkParameters(firstBlock, String.class, double.class)) {

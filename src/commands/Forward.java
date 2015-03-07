@@ -14,56 +14,55 @@ public class Forward extends CommandNode {
         super(myModel, Double.class);
     }
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
     	double distance = (double) args.get(0);
-        advanceTurtle(distance);
+        advanceTurtle(myTurtle, distance);
         return putObjectInList(distance);
     }
-	private void advanceTurtle(double distance) {
+	private void advanceTurtle(Turtle myTurtle, double distance) {
 		maxX = getModel().getMaxX();
         maxY = getModel().getMaxY();
-        Turtle turtle = getModel().getActiveTurtle();
-        double radiansHeading = Math.toRadians(turtle.getHeading());
-        double x = turtle.getX() + distance*Math.cos(radiansHeading);
-        double y = turtle.getY() + distance*Math.sin(radiansHeading);
-        boolean temp = turtle.isPenDown();
+        double radiansHeading = Math.toRadians(myTurtle.getHeading());
+        double x = myTurtle.getX() + distance*Math.cos(radiansHeading);
+        double y = myTurtle.getY() + distance*Math.sin(radiansHeading);
+        boolean temp = myTurtle.isPenDown();
         if (outOfXBounds(x)) {
             double signX = Math.signum(x);
-            double distX = signX*maxX - turtle.getX();
+            double distX = signX*maxX - myTurtle.getX();
             double incrDist = distX/Math.cos(radiansHeading);
-            double incrY = turtle.getY() + incrDist*Math.sin(radiansHeading);
+            double incrY = myTurtle.getY() + incrDist*Math.sin(radiansHeading);
             if(outOfYBounds(incrY)){
                 double signY = Math.signum(y);
-                double distY = signY*maxY - turtle.getY();
+                double distY = signY*maxY - myTurtle.getY();
                 incrDist = distY/Math.sin(radiansHeading);
-                double incrX = turtle.getX() + incrDist*Math.cos(radiansHeading);
-            	turtle.setLocation(incrX, signY*maxY);
-            	turtle.setPenDown(false);
-            	turtle.setLocation(incrX, -signY*maxY);
-            	turtle.setPenDown(temp);
-            	advanceTurtle(distance - incrDist);
+                double incrX = myTurtle.getX() + incrDist*Math.cos(radiansHeading);
+            	myTurtle.setLocation(incrX, signY*maxY);
+            	myTurtle.setPenDown(false);
+            	myTurtle.setLocation(incrX, -signY*maxY);
+            	myTurtle.setPenDown(temp);
+            	advanceTurtle(myTurtle, distance - incrDist);
             }
             else{
-            	turtle.setLocation(signX*maxX, incrY);
-            	turtle.setPenDown(false);
-            	turtle.setLocation(-signX*maxX, incrY);
-            	turtle.setPenDown(temp);
-            	advanceTurtle(distance - incrDist);
+            	myTurtle.setLocation(signX*maxX, incrY);
+            	myTurtle.setPenDown(false);
+            	myTurtle.setLocation(-signX*maxX, incrY);
+            	myTurtle.setPenDown(temp);
+            	advanceTurtle(myTurtle, distance - incrDist);
             }
         }
         else if (outOfYBounds(y)){
             double signY = Math.signum(y);
-            double distY = signY*maxY - turtle.getY();
+            double distY = signY*maxY - myTurtle.getY();
             double incrDist = distY/Math.sin(radiansHeading);
-            double incrX = turtle.getX() + incrDist*Math.cos(radiansHeading);
-            turtle.setLocation(incrX, signY*maxY);
-        	turtle.setPenDown(false);
-        	turtle.setLocation(incrX, -signY*maxY);
-        	turtle.setPenDown(temp);
-        	advanceTurtle(distance - incrDist);
+            double incrX = myTurtle.getX() + incrDist*Math.cos(radiansHeading);
+            myTurtle.setLocation(incrX, signY*maxY);
+        	myTurtle.setPenDown(false);
+        	myTurtle.setLocation(incrX, -signY*maxY);
+        	myTurtle.setPenDown(temp);
+        	advanceTurtle(myTurtle, distance - incrDist);
         }
         else{
-        	turtle.setLocation(x, y);
+        	myTurtle.setLocation(x, y);
         }
 	}
     

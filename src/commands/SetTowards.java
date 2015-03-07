@@ -9,20 +9,19 @@ import application.Turtle;
 public class SetTowards extends CommandNode {
 
     public SetTowards(Model myModel) {
-        super(myModel, Double.class, Double.class);
+        super(null, Double.class, Double.class);
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
-        Turtle turtle = getModel().getActiveTurtle();
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         double x = (double) args.get(0);
         double y = (double) args.get(1);
-        double dx = x - turtle.getX();
-        double dy = y - turtle.getY();
+        double dx = x - myTurtle.getX();
+        double dy = y - myTurtle.getY();
         double newHeading = Math.toDegrees(Math.atan(dy / dx))
                 + getOffset(dx, dy);
-        double oldHeading = turtle.getHeading();
-        turtle.setHeading(newHeading);
+        double oldHeading = myTurtle.getHeading();
+        myTurtle.setHeading(newHeading);
         return putObjectInList(Math.abs(newHeading - oldHeading));
     }
 

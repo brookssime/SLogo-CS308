@@ -3,6 +3,7 @@ package commands;
 import java.util.List;
 
 import application.Model;
+import application.Turtle;
 import tree.BlockNode;
 import tree.CommandNode;
 import tree.EvaluatorNode;
@@ -15,7 +16,7 @@ public class If extends CommandNode {
     }
 
     @Override
-    protected List<Object> function(List<Object> args) {
+    protected List<Object> function(Turtle myTurtle, List<Object> args) {
         Object result = (double) 0;
         if ((double) args.get(0) != (double) 0) {
             result = evaluateCommand(args.get(1));

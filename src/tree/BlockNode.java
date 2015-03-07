@@ -3,6 +3,8 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Turtle;
+
 public class BlockNode extends TreeNode {
 
     private List<TreeNode> nodeList;
@@ -19,7 +21,7 @@ public class BlockNode extends TreeNode {
      * return CommandNodes
      */
     @Override
-    public List<Object> evaluate(List<Object> args) {
+    public List<Object> evaluate(Turtle myTurtle, List<Object> args) {
         List<Object> list = new ArrayList<>();
         nodeList.stream().forEach(node -> list.add((Object) node));
         return list;
