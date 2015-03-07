@@ -24,7 +24,7 @@ public class EvaluatorNode extends CommandNode {
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
         List<Object> list = new ArrayList<>();
-        nodeList.stream().forEach(node -> list.add(node.evaluate(null, args)));
+        nodeList.stream().forEach(node -> list.add(node.evaluate(myTurtle, args)));
         return list;
     }
     

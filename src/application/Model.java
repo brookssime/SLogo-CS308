@@ -101,7 +101,7 @@ public class Model implements Observer{
 			myCommandHistory.put(arg1.toString(), outputCmd);
 			outputCmd.evaluate();
 		} catch (InstantiationException | IllegalAccessException
-				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
+				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException | NonexistantTurtleException e) {
 			errorMsg.set(e.getMessage());
 		}
 	}
