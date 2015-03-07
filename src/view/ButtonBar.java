@@ -1,6 +1,8 @@
 
 package view;
 
+import application.Model;
+import application.Wrapper;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
