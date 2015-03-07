@@ -66,9 +66,10 @@ public class View {
 		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0,
-					Boolean arg1, Boolean arg2) {
+					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				
+				display.getRoot().getChildren().clear();
+				display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]);
 			}});
 		
 		lang.getStringProperty().addListener(new ChangeListener<String>() {
@@ -82,50 +83,50 @@ public class View {
 			}  
 	      });
 		
-		Turtle t = model.getActiveTurtle();
-		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
-			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {
-				// TODO Auto-generated method stub
-				display.updateTurtleHeading(newValue);
-			}  
-	      });
-
-		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
-			@Override
-			public void changed(ObservableValue<? extends double[]> observable,
-					double[] oldValue, double[] newValue) {
-				// TODO Auto-generated method stub
-				System.out.println("hit");
-				display.updateTurtleLocation(newValue[0],newValue[1]);
-			}  
-	      });
-		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable,
-					Boolean oldValue, Boolean newValue) {
-				// TODO Auto-generated method stub
-				display.setVisibility(newValue);
-			}
-	      });
-		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable,
-					Boolean oldValue, Boolean newValue) {
-				// TODO Auto-generated method stub
-				System.out.println("showing changed");
-				display.updateTurtleShowing(newValue);
-			}
-	      });
-		t.getNodeProperty().addListener(new ChangeListener<Node>() {
-			@Override
-			public void changed(ObservableValue<? extends Node> observable,
-					Node oldValue, Node newValue) {
-				// TODO Auto-generated method stub
-				
-			}
-	      });
+//		Turtle t = model.getActiveTurtle();
+//		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
+//			@Override
+//			public void changed(ObservableValue<? extends Number> observable,
+//					Number oldValue, Number newValue) {
+//				// TODO Auto-generated method stub
+//				display.updateTurtleHeading(newValue);
+//			}  
+//	      });
+//
+//		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
+//			@Override
+//			public void changed(ObservableValue<? extends double[]> observable,
+//					double[] oldValue, double[] newValue) {
+//				// TODO Auto-generated method stub
+//				System.out.println("hit");
+//				display.updateTurtleLocation(newValue[0],newValue[1]);
+//			}  
+//	      });
+//		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
+//			@Override
+//			public void changed(ObservableValue<? extends Boolean> observable,
+//					Boolean oldValue, Boolean newValue) {
+//				// TODO Auto-generated method stub
+//				display.setVisibility(newValue);
+//			}
+//	      });
+//		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
+//			@Override
+//			public void changed(ObservableValue<? extends Boolean> observable,
+//					Boolean oldValue, Boolean newValue) {
+//				// TODO Auto-generated method stub
+//				System.out.println("showing changed");
+//				display.updateTurtleShowing(newValue);
+//			}
+//	      });
+//		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+//			@Override
+//			public void changed(ObservableValue<? extends Node> observable,
+//					Node oldValue, Node newValue) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//	      });
 	}
 	
 	protected Model getModel() {

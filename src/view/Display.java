@@ -75,6 +75,11 @@ public class Display {
 		l.setVisible(penDown);
 		return l;
 	}
+	
+	protected Group getRoot() {
+		return root;
+	}
+	
 	protected void setVisibility(boolean pen) {
 		penDown=pen;
 	}
