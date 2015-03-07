@@ -19,8 +19,17 @@ public class TurtleList {
 		return IDMap.get(t);
 	}
 	
-	public Turtle getTurtle(double id){
-		return TurtleMap.get(id);
+	public List<Turtle> getTurtles(List<Double> turtleIDList){
+	    List<Turtle> turtleList = new ArrayList<>();
+	    turtleIDList.stream().forEach(id -> addTurtleToList(id, turtleList));
+		return turtleList;
+	}
+	
+	private void addTurtleToList(double id, List<Turtle> turtleList) {
+	    Turtle t = TurtleMap.get(id);
+	    if (t != null) {
+	        turtleList.add(t);
+	    }
 	}
 	
 	public void addTurtle(double id){
