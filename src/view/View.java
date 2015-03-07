@@ -28,7 +28,7 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
-	private TurtleState tState = new TurtleState();
+	private TurtleState tState = new TurtleState(new TurtleList());
 
 	private Model m;
 	
