@@ -67,7 +67,42 @@ public class View {
 		return lang;
 	}
 	
-	public void addModelListeners(Model model){
+	public void addModelListeners(Model model){		
+		model.errorMessageProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0,
+					String oldValue, String newValue) {
+				displayError(newValue);
+			}});	
+		
+		model.backgroundProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				
+			}});
+		
+		model.penColorProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				
+			}});
+		
+		model.penSizeProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				
+			}});
+		
+		model.palletProperty().addListener(new ChangeListener<double[]>() {
+			@Override
+			public void changed(ObservableValue<? extends double[]> observable,
+					double[] oldValue, double[] newValue) {
+			}  
+	      });
+		
 		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0,
@@ -76,12 +111,13 @@ public class View {
 			
 			}});
 		
-		model.errorMessageProperty().addListener(new ChangeListener<String>() {
+		model.clearStampProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
-			public void changed(ObservableValue<? extends String> arg0,
-					String oldValue, String newValue) {
-				displayError(newValue);
-			}});	
+			public void changed(ObservableValue<? extends Boolean> arg0,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+			
+			}});
 		
 		TurtleList tList = model.getTurtleList();
 		tList.IDProperty().addListener(new ChangeListener<Number>() {
@@ -141,14 +177,21 @@ public class View {
 				display.updateTurtleShowing(newValue);
 			}
 	      });
-		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+		t.shapeProperty().addListener(new ChangeListener<Number>() {
 			@Override
-			public void changed(ObservableValue<? extends Node> observable,
-					Node oldValue, Node newValue) {
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
 				// TODO Auto-generated method stub
 				
 			}
 	      });
+		t.stampProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> arg0,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+			
+			}});
 	}
 	
 	protected Model getModel() {

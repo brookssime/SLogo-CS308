@@ -16,6 +16,8 @@ public class Turtle {
     private ObjectProperty<double[]> location = new SimpleObjectProperty<>();
     private BooleanProperty penDown = new SimpleBooleanProperty();
     private BooleanProperty showing = new SimpleBooleanProperty();
+    private BooleanProperty stamp = new SimpleBooleanProperty();
+    private DoubleProperty shape = new SimpleDoubleProperty();
     private ObjectProperty<Node> node = new SimpleObjectProperty<>();
 
     public Turtle() {
@@ -93,10 +95,14 @@ public class Turtle {
         this.showing.setValue(showing);
     }
     
-    public Property<Node> getNodeProperty() {
-        return node;
+    public DoubleProperty shapeProperty(){
+    	return shape;
     }
 
+    public BooleanProperty stampProperty(){
+    	return stamp;
+    }
+    
     public Node getNode() {
         return node.getValue();
     }

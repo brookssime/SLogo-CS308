@@ -11,9 +11,9 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 public class TurtleList {
 	
-	private List<Turtle> myActiveList = new ArrayList<Turtle>();
-	private Map<Turtle, Double> IDMap = new HashMap<Turtle, Double>();
-	private Map<Double, Turtle> TurtleMap = new HashMap<Double, Turtle>();
+	private List<Turtle> myActiveList = new ArrayList<>();
+	private Map<Turtle, Double> IDMap = new HashMap<>();
+	private Map<Double, Turtle> TurtleMap = new HashMap<>();
 	private DoubleProperty newID = new SimpleDoubleProperty();
 	
 	public TurtleList(){
@@ -61,7 +61,7 @@ public class TurtleList {
 	}
 	
 	public void setActiveTurtles(List<Double> list){
-		myActiveList = new ArrayList();
+		myActiveList = new ArrayList<>();
 		for (double id: list){
 		addTurtle(id);
 		}
