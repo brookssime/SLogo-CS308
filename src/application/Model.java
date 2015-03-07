@@ -11,7 +11,11 @@ import tree.CommandNode;
 import tree.EvaluatorNode;
 import view.View;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -24,8 +28,13 @@ public class Model implements Observer{
     private double maxX;
     private double maxY;
     private String myLanguage;
-    private BooleanProperty clearScreen;
-    private StringProperty errorMsg;
+    private StringProperty errorMsg = new SimpleStringProperty();
+    private DoubleProperty background = new SimpleDoubleProperty();
+    private DoubleProperty penSize = new SimpleDoubleProperty();
+    private DoubleProperty penColor = new SimpleDoubleProperty();
+    private ObjectProperty<double[]> pallet = new SimpleObjectProperty<>();
+    private BooleanProperty clearScreen = new SimpleBooleanProperty();
+    private BooleanProperty clearStamp = new SimpleBooleanProperty();
     
     public Model(double maxX, double maxY) {
     	myLanguage="English";
@@ -36,8 +45,6 @@ public class Model implements Observer{
         variableMap = new HashMap<String, Double>();
         this.maxX = maxX;
         this.maxY = maxY;
-        clearScreen = new SimpleBooleanProperty();
-        errorMsg = new SimpleStringProperty();
     }
     
     public void updateCommandPatterns() {
@@ -85,12 +92,32 @@ public class Model implements Observer{
         return myUserCommands.get(key);
     }
     
+    public StringProperty errorMessageProperty(){
+    	return errorMsg;
+    }
+    
+    public DoubleProperty backgroundProperty(){
+    	return background;
+    }
+    
+    public DoubleProperty penSizeProperty(){
+    	return penSize;
+    }
+
+    public DoubleProperty penColorProperty(){
+    	return penColor;
+    }
+    
+    public ObjectProperty<double[]> palletProperty(){
+    	return pallet;
+    }
+    
     public BooleanProperty clearScreenProperty(){
     	return clearScreen;
     }
     
-    public StringProperty errorMessageProperty(){
-    	return errorMsg;
+    public BooleanProperty clearStampProperty(){
+    	return clearStamp;
     }
 
 	@Override
@@ -101,7 +128,7 @@ public class Model implements Observer{
 			myCommandHistory.put(arg1.toString(), outputCmd);
 			outputCmd.evaluate();
 		} catch (InstantiationException | IllegalAccessException
-				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
+				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException | NonexistantTurtleException e) {
 			errorMsg.set(e.getMessage());
 		}
 	}

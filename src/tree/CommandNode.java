@@ -137,7 +137,7 @@ public abstract class CommandNode extends TreeNode {
     
     protected List<Double> blockToDoubleList(BlockNode myBlockNode) {
         List<Object> turtleIDList= new ArrayList<>();
-        getRootNodes(myBlockNode).stream().forEach(node -> turtleIDList.add(node.evaluate()));
+        getRootNodes(myBlockNode).stream().forEach(node -> turtleIDList.addAll(node.evaluate()));
         checkParameters(turtleIDList, generateClassArray(Double.class, turtleIDList.size()));
         List<Double> doubleList = new ArrayList<>();
         turtleIDList.stream().forEach(o -> doubleList.add((Double) o));
