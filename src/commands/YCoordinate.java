@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class YCoordinate extends CommandNode {
 
@@ -12,8 +13,8 @@ public class YCoordinate extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
-        return putObjectInList(getModel().getActiveTurtle().getY());
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
+        return putObjectInList(myTurtle.getY());
     }
 
 }

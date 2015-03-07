@@ -9,6 +9,7 @@ import tree.EvaluatorNode;
 import tree.TreeNode;
 import tree.VariableNode;
 import application.Model;
+import application.Turtle;
 
 public class MakeUserInstruction extends CommandNode {
 
@@ -17,7 +18,7 @@ public class MakeUserInstruction extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         String commandName = (String) args.get(0);
         List<String> stringList = getVariableList(getRootNodes(args.get(1)));
         

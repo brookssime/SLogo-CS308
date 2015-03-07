@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class Power extends CommandNode {
 
@@ -12,7 +13,7 @@ public class Power extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         return putObjectInList(Math.pow((double) args.get(0), (double) args.get(1)));
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class ArcTangent extends CommandNode {
 
@@ -12,7 +13,7 @@ public class ArcTangent extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         return putObjectInList(Math.toDegrees(Math.atan((double) args.get(0))));
     }
 

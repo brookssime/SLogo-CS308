@@ -53,10 +53,6 @@ public class Model implements Observer{
     	return myLanguage;
     }
     
-    public Turtle getActiveTurtle() {
-        return myTurtle;
-    }
-    
     public double getMaxX() {
         return maxX;
     }
@@ -95,7 +91,7 @@ public class Model implements Observer{
 		try {
 			outputCmd = myParser.parse(arg1.toString());
 			myCommandHistory.put(arg1.toString(), outputCmd);
-			outputCmd.evaluate(null);
+			outputCmd.evaluate();
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
 			System.out.println(e.getMessage());

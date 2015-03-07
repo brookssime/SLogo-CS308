@@ -13,10 +13,10 @@ public class SetHeading extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         double newHeading = ((double) args.get(0)) % Turtle.getFullRotation();
-        double oldHeading = getModel().getActiveTurtle().getHeading();
-        getModel().getActiveTurtle().setHeading(newHeading);
+        double oldHeading = myTurtle.getHeading();
+        myTurtle.setHeading(newHeading);
         return putObjectInList(Math.abs(newHeading - oldHeading));
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class PenDown extends CommandNode {
 
@@ -12,8 +13,8 @@ public class PenDown extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
-        getModel().getActiveTurtle().setPenDown(true);
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
+        myTurtle.setPenDown(true);
         return putObjectInList((double) 1);
     }
 

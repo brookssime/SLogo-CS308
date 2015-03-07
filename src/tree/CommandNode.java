@@ -5,6 +5,7 @@ import java.util.List;
 
 import exceptions.IncorrectParametersException;
 import application.Model;
+import application.Turtle;
 
 public abstract class CommandNode extends TreeNode {
 
@@ -25,18 +26,32 @@ public abstract class CommandNode extends TreeNode {
      *            collection of parameters needed to compute the given command
      * @return double result from executing the command
      */
-    public List<Object> evaluate(List<Object> args){
-        List<Object> cmdArgs = new ArrayList<Object>();
-        for (TreeNode child: myChildren){
-            cmdArgs.addAll(child.evaluate(args));
+    public List<Object> evaluate(Turtle myTurtle, List<Object> args){
+        List<Turtle> myTurtles = new ArrayList<>();
+        if (myTurtle == null) {
+            myTurtles = myModel.getTurtleGroup().getActiveTurtles();
+        } else {
+            myTurtles.add(myTurtle);
         }
-        if (!checkParameters(cmdArgs, myParameterArray)) {
-            throw new IncorrectParametersException(this.getClass().getName());
-        };
-        return function(cmdArgs);
+        return evaluateTurtles(myTurtles, args);
     }
     
-    protected abstract List<Object> function(List<Object> args);
+    private List<Object> evaluateTurtles(List<Turtle> myTurtles, List<Object> args) {
+        List<Object> result = new ArrayList<>();
+        for (Turtle myTurtle : myTurtles) {
+            List<Object> cmdArgs = new ArrayList<Object>();
+            for (TreeNode child : myChildren) {
+                cmdArgs.addAll(child.evaluate(myTurtle, args));
+            }
+            if (!checkParameters(cmdArgs, myParameterArray)) {
+                throw new IncorrectParametersException(this.getClass().getName());
+            }
+            result = function(myTurtle, cmdArgs);
+        }
+        return result;
+    }
+    
+    protected abstract List<Object> function(Turtle myTurtle, List<Object> args);
     
     protected List<Object> putObjectInList(Object o) {
         List<Object> list = new ArrayList<>();
