@@ -2,17 +2,18 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class Sine extends Command {
+public class Sine extends CommandNode {
 
     public Sine(Model myModel) {
-        super(myModel, 1);
+        super(myModel, Double.class);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.sin(((double) args.get(0))*Math.PI/180));
+        return putObjectInList(Math.sin(Math.toRadians((double) args.get(0))));
     }
 
 }

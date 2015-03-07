@@ -1,9 +1,9 @@
-package application;
+package tree;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConstantNode extends EvaluatorNode {
+public class ConstantNode extends TreeNode {
 	
 	private Object myData;
 
@@ -26,7 +26,6 @@ public class ConstantNode extends EvaluatorNode {
     @Override
     public List<VariableNode> getVariableNodes() {
         List<VariableNode> list = new ArrayList<>();
-        list.add(new VariableNode(""));
         return list;
     }
 

@@ -2,17 +2,18 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class YCoordinate extends Command {
+public class YCoordinate extends CommandNode {
 
     public YCoordinate(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(myModel.getActiveTurtle().getY());
+        return putObjectInList(getModel().getActiveTurtle().getY());
     }
 
 }

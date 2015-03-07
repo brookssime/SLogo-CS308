@@ -42,10 +42,6 @@ public class Turtle {
         return heading.getValue();
     }
 
-    public double getRadiansHeading() {
-        return heading.getValue() * Math.PI / HALF_ROTATION;
-    }
-
     public void setHeading(double heading) {
         this.heading.setValue(heading % FULL_ROTATION);
     }

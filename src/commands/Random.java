@@ -2,19 +2,20 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class Random extends Command {
+public class Random extends CommandNode {
     public static java.util.Random rand;;
     
     public Random(Model myModel) {
-        super(myModel, 1);
+        super(myModel, Double.class);
         rand = new java.util.Random();
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(rand.nextDouble()*((double)args.get(0)));
+        return putObjectInList(rand.nextDouble()*((double)args.get(0)));
     }
 
 }

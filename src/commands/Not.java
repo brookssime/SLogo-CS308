@@ -2,18 +2,21 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class Not extends Command{
+public class Not extends CommandNode{
 
 	public Not(Model model) {
-		super(model, 1);
+		super(model, Double.class);
 	}
 
 	@Override
 	public List<Object> function(List<Object> args) {
-		double not = -(double)args.get(0);
-		return putDoubleInList(not);
+		if ((double) args.get(0) == (double) 0) {
+		    return putObjectInList((double) 1);
+		}
+		return putObjectInList(0);
 	}
 
 }

@@ -2,17 +2,18 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class Cosine extends Command {
+public class Cosine extends CommandNode {
 
     public Cosine(Model myModel) {
-        super(myModel, 1);
+        super(myModel, Double.class);
     }
 
     @Override
     public List<Object> function(List<Object> args) {
-        return putDoubleInList(Math.cos(((double) args.get(0))*Math.PI/180));
+        return putObjectInList(Math.cos(Math.toRadians((double) args.get(0))));
     }
 
 }

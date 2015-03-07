@@ -2,18 +2,19 @@ package commands;
 
 import java.util.List;
 
+import tree.CommandNode;
 import application.Model;
 
-public class HideTurtle extends Command {
+public class HideTurtle extends CommandNode {
 
     public HideTurtle(Model myModel) {
-        super(myModel, 0);
+        super(myModel, new Class[0]);
     }
     
     @Override
     public List<Object> function(List<Object> args) {
-        myModel.getActiveTurtle().setShowing(false);
-        return putDoubleInList(0);
+        getModel().getActiveTurtle().setShowing(false);
+        return putObjectInList((double) 0);
     }
 
 }

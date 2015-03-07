@@ -1,9 +1,11 @@
-package application;
+package tree;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VariableNode extends EvaluatorNode {
+import application.Model;
+
+public class VariableNode extends TreeNode {
 
     private String myString;
     private static Model myModel;
@@ -21,6 +23,8 @@ public class VariableNode extends EvaluatorNode {
     public List<Object> evaluate(List<Object> args) {
         if (myIndex != null) {
             List<Object> list = new ArrayList<>();
+            System.out.println("Size: " + args.size());
+            System.out.println("Index: " + myIndex);
             list.add(args.get(myIndex));
             return list;
         }
