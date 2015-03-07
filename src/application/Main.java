@@ -17,8 +17,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		Model myModel = new Model(374/2, 374/2);
 		myView = new View(myModel);
-		myView.addAllListeners(myModel);
-		myView.start(new Stage());
+		
+		Wrapper wrapper=new Wrapper();
+		wrapper.makeNewWindow(myModel,myView);
 	}
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {

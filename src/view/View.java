@@ -25,6 +25,7 @@ public class View {
 	private CommandGuide comm=new CommandGuide();
 	private ImportDesign des= new ImportDesign();
 	private CreateDesign cre = new CreateDesign(enter);
+	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
 
 	private Model m;
@@ -40,6 +41,7 @@ public class View {
 		stage.setTitle("SLOGO");
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
+		Button work=workspaceAdder.addButton();
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
@@ -48,7 +50,7 @@ public class View {
 		d.setLayoutY(100);
 
 		Button c=comm.makeMyButton();
-		root.getChildren().addAll(veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
+		root.getChildren().addAll(work,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
 		stage.setScene(scene);
 		stage.show();
 	}
