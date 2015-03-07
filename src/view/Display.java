@@ -1,6 +1,11 @@
 package view;
 
+
+
+import javax.swing.Timer;
+
 import application.Turtle;
+import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,9 +56,12 @@ public class Display {
 	
 	protected void updateTurtleLocation(double newX, double newY) {
 		root.getChildren().add(drawLines(xLoc,yLoc,newX+375/2,newY+375/2));
+
+		
+		
 		turtleImage.relocate(newX+375/2,newY+375/2);
-		xLoc=newX+375/2;
-		yLoc=newY+375/2;
+		xLoc=newX+375/2.0;
+		yLoc=newY+375/2.0;
 	}
 	
 	protected void updateTurtleHeading(Number newValue) {

@@ -28,10 +28,8 @@ public class TurtleState {
 		return "True";
 	}
 	
-	protected void StateOfTurtle(){
-		Stage s = new Stage();
-		s.setTitle("Turtle State");
-		Group root = new Group();
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	protected TableView createTable(){
 		TableView table = new TableView();
 		table.setEditable(false);
 		TableColumn attributes = new TableColumn("Turtle Attributes");
@@ -39,7 +37,16 @@ public class TurtleState {
 		TableColumn output = new TableColumn("Output");
 		output.setMinWidth(120);
 		table.getColumns().addAll(attributes, output);
-		root.getChildren().add(table);
+		return table;
+	}
+	
+	
+	protected void StateOfTurtle(){
+		Stage s = new Stage();
+		s.setTitle("Turtle State");
+		Group root = new Group();
+		
+		root.getChildren().add(createTable());
 		Scene scene = new Scene(root);
 		s.setScene(scene);
 		s.show();
