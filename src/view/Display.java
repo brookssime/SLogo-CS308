@@ -1,5 +1,9 @@
 package view;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import application.Turtle;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -17,41 +21,51 @@ public class Display {
 	private Rectangle initial;
 	//private Line l;
 	private Color penColor;//=Color.BLACK;//needs to change to listener
-	private ImageView turtleImage;
-	private Turtle myTurtle;
+	private ImageView turtleImage=new ImageView();
+	//private Turtle myTurtle;
 	private boolean penDown;
 	private double xLoc;
 	private double yLoc;
-	protected Group makeDisplay(int height,int width) {
+	private Map<Turtle, ImageView> imageMap = new HashMap<Turtle, ImageView>();
+	//private Map<Double, Turtle> TurtleMap = new HashMap<Double, Turtle>();
+	
+	
+	protected Group makeDisplay(int height,int width,Turtle t) {
 		penColor=Color.BLACK;
 		root=new Group();
 		initial=new Rectangle(height,width);
 		initial.setStroke(Color.BLACK);
 		initial.setFill(Color.WHITE);
-		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2);//location so that the center of the turtle is on the center of the display
+		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2,t);//location so that the center of the turtle is on the center of the display
 		root.getChildren().addAll(initial,turtle);
 		root.setLayoutX(LOCATION_OF_DISPLAY[0]);
 		root.setLayoutY(LOCATION_OF_DISPLAY[1]);
 		return root;
 	}
-	private ImageView addTurtle(int xLocation, int yLocation) {
-		turtleImage=new ImageView();
+	protected ImageView addTurtle(int xLocation, int yLocation,Turtle turtle) {
+		
+		ImageView turtleImage1=turtleImage;
+		if (!(imageMap.containsKey(turtle)))
+			imageMap.put(turtle, turtleImage1);
+		
 		Image image = new Image(getClass().getResourceAsStream("arrow.png"));
-		turtleImage.setFitHeight(SIZE_OF_TURTLE);
-        turtleImage.setFitWidth(SIZE_OF_TURTLE);
-        turtleImage.setImage(image);
-        turtleImage.relocate(xLocation,yLocation);
-        xLoc=turtleImage.getLayoutX()+15;
-        yLoc=turtleImage.getLayoutY()+15;
-		return turtleImage;
+		turtleImage1.setFitHeight(SIZE_OF_TURTLE);
+        turtleImage1.setFitWidth(SIZE_OF_TURTLE);
+        turtleImage1.setImage(image);
+        turtleImage1.relocate(xLocation,yLocation);
+        xLoc=turtleImage1.getLayoutX()+15;
+        yLoc=turtleImage1.getLayoutY()+15;
+		return turtleImage1;
 	}
-	protected ImageView updateTurtleImage() {
-		return turtleImage;
+	protected Collection<ImageView> updateTurtleImage() {
+		return imageMap.values();
 	}
 	
-	protected void updateTurtleLocation(double newX, double newY) {
+	protected void updateTurtleLocation(double newX, double newY,Turtle turtle) {
 		root.getChildren().add(drawLines(xLoc,yLoc,newX+375/2,newY+375/2));
-		turtleImage.relocate(newX+375/2,newY+375/2);
+		imageMap.get(turtle).relocate(newX+375/2,newY+375/2);
+		
+		//turtleImage.relocate(newX+375/2,newY+375/2);
 		xLoc=newX+375/2;
 		yLoc=newY+375/2;
 	}

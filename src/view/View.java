@@ -43,6 +43,13 @@ public class View {
 		stage.setTitle("SLOGO");
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
+		
+		TurtleList tList = m.getTurtleList();
+		Button practice=new Button("NEW TURT");
+		practice.setLayoutX(200);
+		tList.addTurtle(3);
+		practice.setOnAction(p-> display.addTurtle(375/2, 375/2, tList.getTurtle(3)));
+		
 		Button work=workspaceAdder.addButton();
 		Button state = tState.state();
 		VBox Sprint2Buttons = new VBox();
@@ -55,7 +62,7 @@ public class View {
 		d.setLayoutY(100);
 
 		Button c=comm.makeMyButton();
-		root.getChildren().addAll(Sprint2Buttons,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
+		root.getChildren().addAll(practice,Sprint2Buttons,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1],m.getTurtleList().getTurtle(0)),h,t,c,d);
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -74,7 +81,7 @@ public class View {
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
 				display.getRoot().getChildren().clear();
-				display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]);
+				display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1],model.getTurtleList().getTurtle(0));
 			}});
 		
 		model.errorMessageProperty().addListener(new ChangeListener<String>() {
@@ -90,6 +97,7 @@ public class View {
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
 				addTurtleListeners(tList.getTurtle((double) newValue));
+				display.addTurtle(SIZE_OF_TURTLE_DISPLAY[0]/2, SIZE_OF_TURTLE_DISPLAY[1]/2, tList.getTurtle((double) newValue));
 				tList.IDProperty().set(0);
 			}});
 		addTurtleListeners(tList.getTurtle(0));
@@ -123,7 +131,7 @@ public class View {
 					double[] oldValue, double[] newValue) {
 				// TODO Auto-generated method stub
 				System.out.println("hit");
-				display.updateTurtleLocation(newValue[0],newValue[1]);
+				display.updateTurtleLocation(newValue[0],newValue[1],t);
 			}  
 	      });
 		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
