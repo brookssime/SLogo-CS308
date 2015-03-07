@@ -3,6 +3,8 @@ package tree;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Turtle;
+
 public class ConstantNode extends TreeNode {
 	
 	private Object myData;
@@ -12,7 +14,7 @@ public class ConstantNode extends TreeNode {
 	}
 
 	@Override
-	public List<Object> evaluate(List<Object> args) {
+	public List<Object> evaluate(Turtle myTurtle, List<Object> args) {
 		List<Object> list = new ArrayList<>();
 		list.add(myData);
 		return list;

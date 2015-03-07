@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Model;
+import application.Turtle;
 
 public class VariableNode extends TreeNode {
 
     private String myString;
-    private static Model myModel;
+    private Model myModel;
     private Integer myIndex;
     
     public VariableNode(Model myModel, String myString) {
@@ -16,11 +17,8 @@ public class VariableNode extends TreeNode {
         this.myString = myString;
     }
     
-    public VariableNode(String myString) {
-        this.myString = myString;
-    }
     @Override
-    public List<Object> evaluate(List<Object> args) {
+    public List<Object> evaluate(Turtle myTurtle, List<Object> args) {
         if (myIndex != null) {
             List<Object> list = new ArrayList<>();
             System.out.println("Size: " + args.size());
