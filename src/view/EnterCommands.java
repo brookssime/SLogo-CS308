@@ -77,6 +77,7 @@ public class EnterCommands extends Observable {
 	
 	protected void uploadCommand(String s){
 		String command = s;
+		System.out.println(command);
 		
 		
 	}
