@@ -28,13 +28,14 @@ public class MakeUserInstruction extends CommandNode {
         for (TreeNode n : rootNodeList) {
             for (int i = 0; i < stringList.size(); i ++) {  
                 List<VariableNode> varNodeList = n.getVariableNodes();
-                while(varNodeList.remove(null));
+                while(varNodeList.remove(null)){
                 for (int j = 0; j < varNodeList.size(); j++) {
                     VariableNode v = varNodeList.get(j);
                     if (((String) v.evaluate().get(0)).compareTo(stringList.get(i)) == 0) {
                         v.setIndex(i);
                     }
                 }
+            }
             }
         }
         getModel().addUserCommand(commandName, new EvaluatorNode(getModel(), rootNodeList));

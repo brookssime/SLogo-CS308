@@ -22,8 +22,10 @@ public class CommentHandler extends SyntaxHandler {
             throws InstantiationException, IllegalAccessException,
             IllegalArgumentException, InvocationTargetException,
             SecurityException, ClassNotFoundException {
-        while(iter.hasNext() && !iter.next().equals("\n"));
-        return true;
+        while(iter.hasNext() && !iter.next().equals("\n")){
+        	return true;
+        }
+        return false;
     }
 
 }
