@@ -1,5 +1,6 @@
 package commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import application.Model;
@@ -16,9 +17,13 @@ public class Tell extends CommandNode {
 
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
-        List
-        List<TreeNode> nodeList = getRootNodes(args.get(0));
-        
+        List<Object> turtleIDList= new ArrayList<>();
+        getRootNodes(args.get(0)).stream().forEach(node -> turtleIDList.add(node.evaluate()));
+        checkParameters(turtleIDList, generateClassArray(Double.class, turtleIDList.size()));
+        List<Double> doubleList = new ArrayList<>();
+        turtleIDList.stream().forEach(o -> doubleList.add((Double) o));
+        getModel().getTurtleList().setActiveTurtles(doubleList);
+        return putObjectInList(turtleIDList.get(turtleIDList.size() - 1));        
     }
 
 }
