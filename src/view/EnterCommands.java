@@ -19,11 +19,11 @@ public class EnterCommands extends Observable {
 	protected TextArea text;
 	private String commandText="";
 	private PreviousCommands prev;
-	private List<String> history;
-
+	private ArrayList <String> history=new ArrayList<String>();
+	private String myFormatText;
 	public EnterCommands(PreviousCommands p) {
 		prev=p;
-		history=new ArrayList<String>();
+		
 	}
 	protected HBox makeBox() {
 		text =new TextArea();
@@ -40,15 +40,11 @@ public class EnterCommands extends Observable {
 	protected void runCommand(){
 
 		String myText=text.getText();
-		String myFormatText=myText.replaceAll("\n", " \n ");
-		history.add(myFormatText);
+		myFormatText=myText.replaceAll("\n", " \n ");
 		commandText = myText.replaceAll("\n", " ")+"\n";
 		text.clear();
-
 		prev.updateTextArea(commandText);
-
 		printStatement();
-
 		setChanged();
 		notifyObservers(myFormatText);
 
@@ -57,10 +53,8 @@ public class EnterCommands extends Observable {
 	protected Button clearHistory() {
 		Button clearBtn=new Button("Clear");
 		clearBtn.setOnAction(e->{
-			//prev.getTextArea().clear();
-			history.clear();
-			System.out.println(this);
-			history = null;
+			prev.getTextArea().clear();
+			
 			
 		});
 		return clearBtn;
@@ -73,7 +67,8 @@ public class EnterCommands extends Observable {
 		}
 		System.out.println("--");
 	}
-	protected List<String> getHistory(){
-		return history;
+	protected String getHistory(){
+		return prev.getTextArea().getText();
+
 	}
 }
