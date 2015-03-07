@@ -2,6 +2,7 @@ package view;
 
 import application.Model;
 import application.Turtle;
+import application.TurtleList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
@@ -66,14 +67,32 @@ public class View {
 		return lang;
 	}
 	
-	public void addAllListeners(Model model){
+	public void addModelListeners(Model model){
 		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0,
-					Boolean arg1, Boolean arg2) {
+					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				
+			
 			}});
+		
+		model.errorMessageProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0,
+					String oldValue, String newValue) {
+				displayError(newValue);
+				model.errorMessageProperty().setValue("");
+			}});	
+		
+		TurtleList tList = model.getTurtleList();
+		tList.IDProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				addTurtleListeners(model.getTurtleList().getTurtle((double) newValue));
+				model.getTurtleList().IDProperty().set(0);
+			}});
+		tList.addTurtle(0);
 		
 		lang.getStringProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -85,8 +104,9 @@ public class View {
 				model.updateCommandPatterns();
 			}  
 	      });
-		
-		Turtle t = model.getActiveTurtle();
+	}
+	
+	public void addTurtleListeners(Turtle t){
 		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
