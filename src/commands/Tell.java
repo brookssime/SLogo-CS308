@@ -17,13 +17,9 @@ public class Tell extends CommandNode {
 
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
-        List<Object> turtleIDList= new ArrayList<>();
-        getRootNodes(args.get(0)).stream().forEach(node -> turtleIDList.add(node.evaluate()));
-        checkParameters(turtleIDList, generateClassArray(Double.class, turtleIDList.size()));
-        List<Double> doubleList = new ArrayList<>();
-        turtleIDList.stream().forEach(o -> doubleList.add((Double) o));
+        List<Double> doubleList = blockToDoubleList((BlockNode) args.get(0));
         getModel().getTurtleList().setActiveTurtles(doubleList);
-        return putObjectInList(turtleIDList.get(turtleIDList.size() - 1));        
+        return putObjectInList(doubleList.get(doubleList.size() - 1));        
     }
 
 }

@@ -1,11 +1,13 @@
 package commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import application.Model;
 import application.Turtle;
 import tree.BlockNode;
 import tree.CommandNode;
+import tree.EvaluatorNode;
 
 public class Ask extends CommandNode {
 
@@ -15,8 +17,14 @@ public class Ask extends CommandNode {
 
     @Override
     protected List<Object> function(Turtle myTurtle, List<Object> args) {
-        // TODO Auto-generated method stub
-        return null;
+        List<Double> doubleList = blockToDoubleList((BlockNode) args.get(0));
+        List<Turtle> turtleList = getModel().getTurtleList().getTurtles(doubleList);
+        EvaluatorNode myEvaluatorNode = new EvaluatorNode(getModel(), getRootNodes(args.get(1)));
+        List<Object> result = new ArrayList<>();
+        for (Turtle t : turtleList) {
+            result = myEvaluatorNode.evaluate(t, null);
+        }
+        return result;
     }
 
 }

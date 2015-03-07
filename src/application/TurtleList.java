@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import exceptions.NonexistantTurtleException;
+
 public class TurtleList {
 	
 	private List<Turtle> myActiveList = new ArrayList<Turtle>();
@@ -27,9 +29,10 @@ public class TurtleList {
 	
 	private void addTurtleToList(double id, List<Turtle> turtleList) {
 	    Turtle t = TurtleMap.get(id);
-	    if (t != null) {
-	        turtleList.add(t);
+	    if (t == null) {
+	        throw new NonexistantTurtleException(id);
 	    }
+	    turtleList.add(t);
 	}
 	
 	public void addTurtle(double id){

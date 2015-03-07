@@ -134,5 +134,14 @@ public abstract class CommandNode extends TreeNode {
     private void throwParametersException() {
         throw new IncorrectParametersException(this.getClass().getName());
     }
+    
+    protected List<Double> blockToDoubleList(BlockNode myBlockNode) {
+        List<Object> turtleIDList= new ArrayList<>();
+        getRootNodes(myBlockNode).stream().forEach(node -> turtleIDList.add(node.evaluate()));
+        checkParameters(turtleIDList, generateClassArray(Double.class, turtleIDList.size()));
+        List<Double> doubleList = new ArrayList<>();
+        turtleIDList.stream().forEach(o -> doubleList.add((Double) o));
+        return doubleList;
+    }
 
 }
