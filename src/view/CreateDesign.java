@@ -35,11 +35,8 @@ public class CreateDesign {
 		try {
 			myFileWriter = new FileWriter(myDesign.getAbsoluteFile());
 			BufferedWriter myBufferedWriter = new BufferedWriter(myFileWriter);
-			System.out.println(myEnter);
-			for (String h: myEnter.getHistory()){
-				myBufferedWriter.write(h);
-				myBufferedWriter.write("\n");
-			}
+			myBufferedWriter.write(myEnter.getHistory());
+
 			myBufferedWriter.close();
 		} catch (IOException e) {
 			ErrorDisplay error = new ErrorDisplay();

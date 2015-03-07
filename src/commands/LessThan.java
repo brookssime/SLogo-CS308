@@ -9,7 +9,7 @@ import application.Turtle;
 public class LessThan extends CommandNode{
 
 	public LessThan(Model myModel) {
-		super(null, Double.class, Double.class);
+		super(myModel, Double.class, Double.class);
 	}
 
 	@Override

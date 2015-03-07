@@ -12,6 +12,7 @@ import tree.EvaluatorNode;
 import view.View;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Model implements Observer{
@@ -24,8 +25,7 @@ public class Model implements Observer{
     private double maxY;
     private String myLanguage;
     private BooleanProperty clearScreen;
-    private StringProperty language;
-    private View view=new View(this);
+    private StringProperty errorMsg;
     
     public Model(double maxX, double maxY) {
     	myLanguage="English";
@@ -37,12 +37,16 @@ public class Model implements Observer{
         this.maxX = maxX;
         this.maxY = maxY;
         clearScreen = new SimpleBooleanProperty();
-        
+        errorMsg = new SimpleStringProperty();
     }
     
     public void updateCommandPatterns() {
     	myParser.updateCommandPatterns();
     }
+
+	public TurtleList getTurtleList() {
+		return myTurtleList;
+	}
     
     public void setLanguage(String language) {
     	myLanguage=language;
@@ -84,6 +88,10 @@ public class Model implements Observer{
     public BooleanProperty clearScreenProperty(){
     	return clearScreen;
     }
+    
+    public StringProperty errorMessageProperty(){
+    	return errorMsg;
+    }
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
@@ -94,12 +102,8 @@ public class Model implements Observer{
 			outputCmd.evaluate();
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
-			view.displayError(e.getMessage());
+			errorMsg.set(e.getMessage());
 		}
-	}
-
-	public TurtleList getTurtleList() {
-		return myTurtleList;
 	}
 
 }

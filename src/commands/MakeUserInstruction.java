@@ -3,6 +3,7 @@ package commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.IncorrectParametersException;
 import tree.BlockNode;
 import tree.CommandNode;
 import tree.EvaluatorNode;
@@ -42,14 +43,10 @@ public class MakeUserInstruction extends CommandNode {
 
     private List<String> getVariableList(List<TreeNode> nodeList) {
         List<String> stringList = new ArrayList<>();
-        for (TreeNode node : nodeList) {
-            List<Object> tempList = new ArrayList<>();
-            tempList.addAll(node.evaluate());
-            for (Object object : tempList) {
-                //Check for existing variables here before adding to stringList
-                stringList.add((String) object);
-            }
-        }
+        List<Object> objectList = new ArrayList<>();
+        nodeList.stream().forEach(node -> objectList.addAll(node.evaluate()));
+        checkParameters(objectList, generateClassArray(String.class, objectList.size()));
+        objectList.stream().forEach(o -> stringList.add((String) o));
         return stringList;
     }
 

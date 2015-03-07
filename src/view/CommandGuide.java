@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import sun.tools.jar.Main;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

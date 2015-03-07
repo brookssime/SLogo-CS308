@@ -9,7 +9,7 @@ import application.Turtle;
 public class NaturalLog extends CommandNode {
 
     public NaturalLog(Model myModel) {
-        super(null, Double.class);
+        super(myModel, Double.class);
         // TODO Auto-generated constructor stub
     }
 

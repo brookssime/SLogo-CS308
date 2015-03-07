@@ -20,9 +20,7 @@ public class DoTimes extends CommandNode {
     public List<Object> function(Turtle myTurtle, List<Object> args) {
         List<Object> firstBlock = new ArrayList<>();
         getRootNodes(args.get(0)).stream().forEach(node -> firstBlock.add(node.evaluate()));
-        if (!checkParameters(firstBlock, String.class, double.class)) {
-            throw new IncorrectParametersException(this.getClass().getName());
-        }
+        checkParameters(firstBlock, String.class, double.class);
         return runForLoop(args, ((Double) firstBlock.get(0)).intValue(), (String) firstBlock.get(1));
     }
 

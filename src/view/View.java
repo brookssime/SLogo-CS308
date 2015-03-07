@@ -2,6 +2,7 @@ package view;
 
 import application.Model;
 import application.Turtle;
+import application.TurtleList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Group;
@@ -27,6 +28,7 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
+	private TurtleState tState = new TurtleState();
 
 	private Model m;
 	
@@ -42,6 +44,9 @@ public class View {
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
 		Button work=workspaceAdder.addButton();
+		Button state = tState.state();
+		VBox Sprint2Buttons = new VBox();
+		Sprint2Buttons.getChildren().addAll(work,state);
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
@@ -50,7 +55,7 @@ public class View {
 		d.setLayoutY(100);
 
 		Button c=comm.makeMyButton();
-		root.getChildren().addAll(work,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
+		root.getChildren().addAll(Sprint2Buttons,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -62,7 +67,7 @@ public class View {
 		return lang;
 	}
 	
-	public void addAllListeners(Model model){
+	public void addModelListeners(Model model){
 		model.clearScreenProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> arg0,
@@ -71,6 +76,23 @@ public class View {
 				display.getRoot().getChildren().clear();
 				display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]);
 			}});
+		
+		model.errorMessageProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0,
+					String oldValue, String newValue) {
+				displayError(newValue);
+			}});	
+		
+		TurtleList tList = model.getTurtleList();
+		tList.IDProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				addTurtleListeners(tList.getTurtle((double) newValue));
+				tList.IDProperty().set(0);
+			}});
+		addTurtleListeners(tList.getTurtle(0));
 		
 		lang.getStringProperty().addListener(new ChangeListener<String>() {
 			@Override
@@ -82,51 +104,53 @@ public class View {
 				model.updateCommandPatterns();
 			}  
 	      });
-		
-//		Turtle t = model.getActiveTurtle();
-//		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
-//			@Override
-//			public void changed(ObservableValue<? extends Number> observable,
-//					Number oldValue, Number newValue) {
-//				// TODO Auto-generated method stub
-//				display.updateTurtleHeading(newValue);
-//			}  
-//	      });
-//
-//		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
-//			@Override
-//			public void changed(ObservableValue<? extends double[]> observable,
-//					double[] oldValue, double[] newValue) {
-//				// TODO Auto-generated method stub
-//				System.out.println("hit");
-//				display.updateTurtleLocation(newValue[0],newValue[1]);
-//			}  
-//	      });
-//		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
-//			@Override
-//			public void changed(ObservableValue<? extends Boolean> observable,
-//					Boolean oldValue, Boolean newValue) {
-//				// TODO Auto-generated method stub
-//				display.setVisibility(newValue);
-//			}
-//	      });
-//		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
-//			@Override
-//			public void changed(ObservableValue<? extends Boolean> observable,
-//					Boolean oldValue, Boolean newValue) {
-//				// TODO Auto-generated method stub
-//				System.out.println("showing changed");
-//				display.updateTurtleShowing(newValue);
-//			}
-//	      });
-//		t.getNodeProperty().addListener(new ChangeListener<Node>() {
-//			@Override
-//			public void changed(ObservableValue<? extends Node> observable,
-//					Node oldValue, Node newValue) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//	      });
+
+	}
+	
+	public void addTurtleListeners(Turtle t){
+		t.getHeadingProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub
+				display.updateTurtleHeading(newValue);
+			}  
+	      });
+
+		t.getLocationProperty().addListener(new ChangeListener<double[]>() {
+			@Override
+			public void changed(ObservableValue<? extends double[]> observable,
+					double[] oldValue, double[] newValue) {
+				// TODO Auto-generated method stub
+				System.out.println("hit");
+				display.updateTurtleLocation(newValue[0],newValue[1]);
+			}  
+	      });
+		t.getPenDownProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				display.setVisibility(newValue);
+			}
+	      });
+		t.getShowingProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable,
+					Boolean oldValue, Boolean newValue) {
+				// TODO Auto-generated method stub
+				System.out.println("showing changed");
+				display.updateTurtleShowing(newValue);
+			}
+	      });
+		t.getNodeProperty().addListener(new ChangeListener<Node>() {
+			@Override
+			public void changed(ObservableValue<? extends Node> observable,
+					Node oldValue, Node newValue) {
+				// TODO Auto-generated method stub
+				
+			}
+	      });
 	}
 	
 	protected Model getModel() {

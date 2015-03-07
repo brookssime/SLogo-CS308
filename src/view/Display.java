@@ -83,12 +83,7 @@ public class Display {
 	protected void setVisibility(boolean pen) {
 		penDown=pen;
 	}
-	protected double getTurtX() {
-		return turtleImage.getLayoutX();
-	}
-	protected double getTurtY() {
-		return turtleImage.getLayoutY();
-	}
+	
 	protected void setBackgroundFill(Color c) {
 		initial.setFill(c);
 	}

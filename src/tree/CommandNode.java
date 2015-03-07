@@ -43,9 +43,7 @@ public abstract class CommandNode extends TreeNode {
             for (TreeNode child : myChildren) {
                 cmdArgs.addAll(child.evaluate(myTurtle, args));
             }
-            if (!checkParameters(cmdArgs, myParameterArray)) {
-                throw new IncorrectParametersException(this.getClass().getName());
-            }
+            checkParameters(cmdArgs, myParameterArray);
             result = function(myTurtle, cmdArgs);
         }
         return result;
@@ -110,20 +108,40 @@ public abstract class CommandNode extends TreeNode {
      * 
      * return false if the parameters in args are not the correct type
      */
-    protected boolean checkParameters(List<Object> args, Class...myParameterArray) {
+    protected void checkParameters(List<Object> args, Class...myParameterArray) {
         if (args.size() != myParameterArray.length) {
-            return false;
+            throwParametersException();
         }
         for (int i = 0; i < args.size(); i++) {
             if (!args.get(i).getClass().equals(myParameterArray[i])) {
-                return false;
+                throwParametersException();
             }
         }
-        return true;
     }
     
     protected void setParameterArray(Class...myParameterArray) {
             this.myParameterArray = myParameterArray;
+    }
+    
+    protected Class[] generateClassArray(Class c, int n) {
+        Class[] array = new Class[n];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = c;
+        }
+        return array;
+    }
+    
+    private void throwParametersException() {
+        throw new IncorrectParametersException(this.getClass().getName());
+    }
+    
+    protected List<Double> blockToDoubleList(BlockNode myBlockNode) {
+        List<Object> turtleIDList= new ArrayList<>();
+        getRootNodes(myBlockNode).stream().forEach(node -> turtleIDList.add(node.evaluate()));
+        checkParameters(turtleIDList, generateClassArray(Double.class, turtleIDList.size()));
+        List<Double> doubleList = new ArrayList<>();
+        turtleIDList.stream().forEach(o -> doubleList.add((Double) o));
+        return doubleList;
     }
 
 }
