@@ -89,10 +89,10 @@ public class View {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
-				addTurtleListeners(model.getTurtleList().getTurtle((double) newValue));
-				model.getTurtleList().IDProperty().set(0);
+				addTurtleListeners(tList.getTurtle((double) newValue));
+				tList.IDProperty().set(0);
 			}});
-		tList.addTurtle(0);
+		addTurtleListeners(tList.getTurtle(0));
 		
 		lang.getStringProperty().addListener(new ChangeListener<String>() {
 			@Override

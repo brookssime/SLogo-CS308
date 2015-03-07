@@ -16,6 +16,10 @@ public class TurtleList {
 	private Map<Double, Turtle> TurtleMap = new HashMap<Double, Turtle>();
 	private DoubleProperty newID = new SimpleDoubleProperty();
 	
+	public TurtleList(){
+		addTurtle(0);
+	}
+	
 	public List<Turtle> getActiveTurtles(){
 		return myActiveList;
 	}
