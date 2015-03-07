@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class MakeVariable extends CommandNode {
 
@@ -12,7 +13,7 @@ public class MakeVariable extends CommandNode {
     }
 
     @Override
-    public List<Object> function(List<Object> args) {
+    public List<Object> function(Turtle myTurtle, List<Object> args) {
         getModel().setVariableValue((String) args.get(0), (double) args.get(1));
         return putObjectInList((double) args.get(1));
     }

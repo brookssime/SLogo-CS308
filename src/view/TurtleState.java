@@ -2,13 +2,18 @@ package view;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class TurtleState {
 	
-	//private TurtleList tList;
+	protected Button button(){
+	Button b = new Button("Turtle State");
+	b.setOnAction(e -> StateOfTurtle());
+	return b;
+	}
 	
 	protected double TurtleX(){
 		return 1.0;

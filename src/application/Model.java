@@ -16,7 +16,7 @@ import javafx.beans.property.StringProperty;
 
 public class Model implements Observer{
 	private Parser myParser;
-    private Turtle myTurtle;
+    private TurtleList myTurtleList;
     private Map<String, CommandNode> myUserCommands;
     private Map<String, CommandNode> myCommandHistory;
     private Map<String, Double> variableMap;
@@ -30,7 +30,7 @@ public class Model implements Observer{
     public Model(double maxX, double maxY) {
     	myLanguage="English";
     	myParser = new Parser(this);
-        myTurtle = new Turtle();
+        myTurtleList = new TurtleList();
         myUserCommands = new HashMap<String, CommandNode>(); 
         myCommandHistory = new HashMap<String, CommandNode>();
         variableMap = new HashMap<String, Double>();
@@ -51,10 +51,6 @@ public class Model implements Observer{
     
     public String getLanguage() {
     	return myLanguage;
-    }
-    
-    public Turtle getActiveTurtle() {
-        return myTurtle;
     }
     
     public double getMaxX() {
@@ -95,11 +91,15 @@ public class Model implements Observer{
 		try {
 			outputCmd = myParser.parse(arg1.toString());
 			myCommandHistory.put(arg1.toString(), outputCmd);
-			outputCmd.evaluate(null);
+			outputCmd.evaluate();
 		} catch (InstantiationException | IllegalAccessException
 				| InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException | InvalidCommandException | IncorrectParametersException e) {
 			view.displayError(e.getMessage());
 		}
+	}
+
+	public TurtleList getTurtleList() {
+		return myTurtleList;
 	}
 
 }

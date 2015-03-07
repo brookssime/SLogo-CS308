@@ -26,6 +26,7 @@ public class EnterCommands extends Observable {
 	}
 	protected HBox makeBox() {
 		text =new TextArea();
+		
 		Button runBtn = new Button("Run");
 		runBtn.setOnAction(e-> runCommand());
 		HBox hbox=new HBox();

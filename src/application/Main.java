@@ -17,11 +17,20 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		Model myModel = new Model(374/2, 374/2);
 		myView = new View(myModel);
-		
-		Wrapper wrapper=new Wrapper();
-		wrapper.makeNewWindow(myModel,myView);
+
+		Wrapper.getInstance().makeNewWindow(myModel,myView);
 	}
-	
+	/**
+	 * 
+	 * 
+	 * @param args
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 * @throws SecurityException
+	 * @throws ClassNotFoundException
+	 */
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SecurityException, ClassNotFoundException {
 		launch(args);
 

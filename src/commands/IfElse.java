@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.BlockNode;
 import application.Model;
+import application.Turtle;
 
 public class IfElse extends If {
 
@@ -13,7 +14,7 @@ public class IfElse extends If {
     }
     
     @Override
-    protected List<Object> function(List<Object> args) {
+    protected List<Object> function(Turtle myTurtle, List<Object> args) {
         Object result = (double) 0;
         if ((double) args.get(0) != (double) 0) {
             result = evaluateCommand(args.get(1));

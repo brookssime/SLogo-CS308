@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class ClearScreen extends CommandNode{
 
@@ -12,9 +13,9 @@ public class ClearScreen extends CommandNode{
 	}
 
 	@Override
-	public List<Object> function(List<Object> args) {
+	public List<Object> function(Turtle myTurtle, List<Object> args) {
 		getModel().clearScreenProperty().setValue(!getModel().clearScreenProperty().getValue());
-		double dist = (double)new Home(getModel()).function(args).get(0);
+		double dist = (double)new Home(getModel()).function(null, args).get(0);
 		return putObjectInList(dist);
 	}
 

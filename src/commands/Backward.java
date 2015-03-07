@@ -4,6 +4,7 @@ import java.util.List;
 
 import tree.CommandNode;
 import application.Model;
+import application.Turtle;
 
 public class Backward extends CommandNode {
 
@@ -12,8 +13,8 @@ public class Backward extends CommandNode {
 	}
 
 	@Override
-	public List<Object> function(List<Object> args) {
-		return new Forward(getModel()).function(putObjectInList(-(double)args.get(0)));
+	public List<Object> function(Turtle myTurtle, List<Object> args) {
+		return new Forward(getModel()).function(null, putObjectInList(-(double)args.get(0)));
 	}
 
 }

@@ -18,13 +18,13 @@ public class ButtonBar {
 	private LanguageChooser lang;
 	private Display dis;
 	private TurtleState tur;
-	public ButtonBar(ColorChooser c,LanguageChooser l, TurtleState t) {
+	public ButtonBar(ColorChooser c,LanguageChooser l) {
 		colz=c;
 		lang=l;
 		img=new ImageChooser(colz.getDisplay());
 		dis=colz.getDisplay();
 		//lang=new LanguageChooser();
-		tur = t;
+		
 	}
 
 	private Button makeButton(String name) {
@@ -41,9 +41,8 @@ public class ButtonBar {
 		Button chooseColor=makeButton("Set Colors");
 		chooseColor.setOnAction(c-> colz.makeColorChooserPopUp(new Stage()));
 		Button setImage=makeButton("Set Image");
-		setImage.setOnAction(s-> tur.StateOfTurtle());
+		setImage.setOnAction(s-> img.start(new Stage()));
 		setLang.setOnAction(l-> lang.setLanguage(new Stage()));
-	
 		vbox.getChildren().addAll(setLang,chooseColor,setImage);
 		vbox.setAlignment(Pos.CENTER);
 		vbox.setTranslateX(LOCATION_OF_BUTTONBAR[0]);

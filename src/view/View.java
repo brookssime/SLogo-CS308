@@ -27,13 +27,14 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
+	private TurtleState tState;
 
 	private Model m;
 	
 	public View(Model myModel) {
 		enter.addObserver(myModel);
 		lang=new LanguageChooser(this);
-		btnz=new ButtonBar(new ColorChooser(display),lang, new TurtleState());
+		btnz=new ButtonBar(new ColorChooser(display),lang);
 		
 		m=myModel;
 	}
@@ -42,6 +43,9 @@ public class View {
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
 		Button work=workspaceAdder.addButton();
+		Button state = tState.button();
+		VBox Sprint2Buttons = new VBox();
+		Sprint2Buttons.getChildren().addAll(work, state);
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();
@@ -50,7 +54,7 @@ public class View {
 		d.setLayoutY(100);
 
 		Button c=comm.makeMyButton();
-		root.getChildren().addAll(work,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
+		root.getChildren().addAll(Sprint2Buttons,veebz,display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1]),h,t,c,d);
 		stage.setScene(scene);
 		stage.show();
 	}
