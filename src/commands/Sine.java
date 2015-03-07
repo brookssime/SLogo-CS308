@@ -9,7 +9,7 @@ import application.Turtle;
 public class Sine extends CommandNode {
 
     public Sine(Model myModel) {
-        super(myModel, Double.class);
+        super(null, Double.class);
     }
 
     @Override

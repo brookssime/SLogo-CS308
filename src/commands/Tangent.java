@@ -9,7 +9,7 @@ import application.Turtle;
 public class Tangent extends CommandNode {
 
     public Tangent(Model myModel) {
-        super(myModel, Double.class);
+        super(null, Double.class);
     }
 
     @Override

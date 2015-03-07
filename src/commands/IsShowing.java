@@ -9,7 +9,7 @@ import application.Turtle;
 public class IsShowing extends CommandNode {
 
     public IsShowing(Model myModel) {
-        super(myModel, new Class[0]);
+        super(null, new Class[0]);
     }
 
     @Override

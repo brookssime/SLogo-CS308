@@ -9,7 +9,7 @@ import application.Turtle;
 public class Difference extends CommandNode {
 
     public Difference(Model myModel) {
-        super(myModel, Double.class, Double.class);
+        super(null, Double.class, Double.class);
     }
 
     @Override

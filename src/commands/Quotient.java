@@ -9,8 +9,7 @@ import application.Turtle;
 public class Quotient extends CommandNode {
 
     public Quotient(Model myModel) {
-        super(myModel, Double.class, Double.class);
-        // TODO Auto-generated constructor stub
+        super(null, Double.class, Double.class);
     }
 
     @Override

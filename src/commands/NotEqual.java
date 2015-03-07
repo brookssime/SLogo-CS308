@@ -8,8 +8,8 @@ import application.Turtle;
 
 public class NotEqual extends CommandNode{
 
-	public NotEqual(Model model) {
-		super(model, Double.class, Double.class);
+	public NotEqual(Model myModel) {
+		super(null, Double.class, Double.class);
 	}
 
 	@Override

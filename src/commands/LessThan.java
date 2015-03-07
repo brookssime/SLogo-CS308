@@ -8,8 +8,8 @@ import application.Turtle;
 
 public class LessThan extends CommandNode{
 
-	public LessThan(Model model) {
-		super(model, Double.class, Double.class);
+	public LessThan(Model myModel) {
+		super(null, Double.class, Double.class);
 	}
 
 	@Override

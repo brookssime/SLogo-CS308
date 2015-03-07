@@ -9,7 +9,7 @@ import application.Turtle;
 public class ArcTangent extends CommandNode {
 
     public ArcTangent(Model myModel) {
-        super(myModel, Double.class);
+        super(null, Double.class);
     }
 
     @Override

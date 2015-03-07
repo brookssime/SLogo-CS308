@@ -9,7 +9,7 @@ import application.Turtle;
 public class HideTurtle extends CommandNode {
 
     public HideTurtle(Model myModel) {
-        super(myModel, new Class[0]);
+        super(null, new Class[0]);
     }
     
     @Override

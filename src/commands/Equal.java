@@ -8,8 +8,8 @@ import application.Turtle;
 
 public class Equal extends CommandNode{
 
-	public Equal(Model model) {
-		super(model, Double.class, Double.class);
+	public Equal(Model myModel) {
+		super(null, Double.class, Double.class);
 	}
 
 	@Override
