@@ -12,13 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 public class View {
 	public static final Integer[] SIZE_OF_WINDOW={800,800};
 	public static final Integer[] SIZE_OF_TURTLE_DISPLAY={375,375};
 	private Display display=new Display();
-	private LanguageChooser lang;//=new LanguageChooser(this);
-	private ButtonBar btnz;//=new ButtonBar(new ColorChooser(display),lang);
+	private LanguageChooser lang;
+	private ButtonBar btnz;
 	private PreviousCommands prev=new PreviousCommands();
 	private EnterCommands enter=new EnterCommands(prev);
 	private CommandGuide comm=new CommandGuide();
@@ -26,7 +27,9 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
-	private TurtleState tState = new TurtleState();
+
+	private TurtleState tState = new TurtleState(new TurtleList());
+
 	private Model m;
 	public View(Model myModel) {
 		enter.addObserver(myModel);
@@ -92,6 +95,9 @@ public class View {
 			public void changed(ObservableValue<? extends Boolean> arg0,
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
+				
+				display.getRoot().getChildren().clear();
+				display.makeDisplay(SIZE_OF_TURTLE_DISPLAY[0],SIZE_OF_TURTLE_DISPLAY[1],model.getTurtleList().getTurtle(0));
 			}});
 //		model.stampProperty().addListener(new ChangeListener<Boolean>() {
 //			@Override
@@ -111,9 +117,8 @@ public class View {
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
 				addTurtleListeners(tList.getTurtle((double) newValue));
-				System.out.println("number of turtles: "+ tList.getTurtleCount());
 				if (!(display.getMap().containsKey(tList.getTurtle((double) newValue)))) {
-					ImageView image=display.addTurtle(375/2-15, 375/2-15, tList.getTurtle((double) newValue));
+					ImageView image=display.addTurtle(SIZE_OF_TURTLE_DISPLAY[0]/2-15, SIZE_OF_TURTLE_DISPLAY[1]/2-15, tList.getTurtle((double) newValue));
 					display.updateMap(tList.getTurtle((double) newValue), image);
 					display.addToRoot(image);
 				}
@@ -126,7 +131,6 @@ public class View {
 					String oldValue, String newValue) {
 				// TODO Auto-generated method stub
 				model.setLanguage(newValue);
-				System.out.println(newValue);
 				model.updateCommandPatterns();
 			}
 		});
@@ -161,7 +165,6 @@ public class View {
 			public void changed(ObservableValue<? extends Boolean> observable,
 					Boolean oldValue, Boolean newValue) {
 				// TODO Auto-generated method stub
-				System.out.println("showing changed");
 				display.updateTurtleShowing(newValue,t);
 			}
 		});

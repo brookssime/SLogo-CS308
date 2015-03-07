@@ -31,7 +31,7 @@ public class DoTimes extends CommandNode {
     protected List<Object> runForLoop(List<Object> args, int end, String s, int start, int increment) {
         List<TreeNode> nodeList = getRootNodes(args.get(1));
         EvaluatorNode evalNode = new EvaluatorNode(getModel(), nodeList);
-        Object result = null;;
+        Object result = null;
         for (int i = start; i <= (int) end; i += increment) {
             getModel().setVariableValue(s, (double) i);
             List<Object> tempList =  evalNode.evaluate();

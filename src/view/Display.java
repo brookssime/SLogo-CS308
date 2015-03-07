@@ -3,7 +3,12 @@ package view;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+import javax.swing.Timer;
+
 import application.Turtle;
+import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -13,6 +18,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 public class Display {
 	public static final int SIZE_OF_TURTLE=30;
+	public static final int OFFSET=375/2;
 	public static final Integer[] LOCATION_OF_DISPLAY={200,100};
 	private Group root;
 	private Rectangle initial;
@@ -32,7 +38,6 @@ public class Display {
 		initial.setFill(Color.WHITE);
 		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2,t);//location so that the center of the turtle is on the center of the display
 		imageMap.put(t, turtle);
-		System.out.print(imageMap.containsKey(t));
 		root.getChildren().addAll(initial,turtle);
 		root.setLayoutX(LOCATION_OF_DISPLAY[0]);
 		root.setLayoutY(LOCATION_OF_DISPLAY[1]);
@@ -45,8 +50,8 @@ public class Display {
 		turtleImage1.setFitWidth(SIZE_OF_TURTLE);
 		turtleImage1.setImage(image);
 		turtleImage1.relocate(xLocation,yLocation);
-		xLoc=turtleImage1.getLayoutX()+15;
-		yLoc=turtleImage1.getLayoutY()+15;
+		xLoc=turtleImage1.getLayoutX()+SIZE_OF_TURTLE/2;
+		yLoc=turtleImage1.getLayoutY()+SIZE_OF_TURTLE/2;
 		return turtleImage1;
 	}
 	protected ImageView updateTurtleImage() {
@@ -66,8 +71,8 @@ public class Display {
 	}
 	
 	protected void updateTurtleLocation(double newX, double newY,Turtle t) {
-		root.getChildren().add(drawLines(imageMap.get(t).getLayoutX()+15,imageMap.get(t).getLayoutY()+15,newX+375/2,newY+375/2));
-		imageMap.get(t).relocate(newX+375/2-15,newY+375/2-15);
+		root.getChildren().add(drawLines(imageMap.get(t).getLayoutX()+(SIZE_OF_TURTLE/2),imageMap.get(t).getLayoutY()+(SIZE_OF_TURTLE/2),newX+OFFSET,newY+OFFSET));
+		imageMap.get(t).relocate(newX+OFFSET-(SIZE_OF_TURTLE/2),newY+OFFSET-(SIZE_OF_TURTLE/2));
 		xLoc=newX+375/2;
 		yLoc=newY+375/2;
 	}
@@ -96,6 +101,10 @@ public class Display {
 	}
 	protected void setLineFill(Color c) {
 		penColor=c;
+	}
+	
+	protected Group getRoot() {
+		return root;
 	}
 }
 
