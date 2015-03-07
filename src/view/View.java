@@ -81,7 +81,6 @@ public class View {
 			public void changed(ObservableValue<? extends String> arg0,
 					String oldValue, String newValue) {
 				displayError(newValue);
-				model.errorMessageProperty().setValue("");
 			}});	
 		
 		TurtleList tList = model.getTurtleList();
