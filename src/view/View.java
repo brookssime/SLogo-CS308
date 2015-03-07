@@ -28,7 +28,7 @@ public class View {
 	private CreateDesign cre = new CreateDesign(enter);
 	private WorkspaceAdder workspaceAdder=new WorkspaceAdder();
 	private Group root;
-	private TurtleState tState;
+	private TurtleState tState = new TurtleState();
 
 	private Model m;
 	
@@ -44,9 +44,9 @@ public class View {
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
 		Button work=workspaceAdder.addButton();
-		Button state = tState.button();
+		Button state = tState.state();
 		VBox Sprint2Buttons = new VBox();
-		Sprint2Buttons.getChildren().addAll(work, state);
+		Sprint2Buttons.getChildren().addAll(work,state);
 		VBox veebz= btnz.makeButtonBar();
 		HBox h=enter.makeBox();
 		VBox t=prev.makeBox();

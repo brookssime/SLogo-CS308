@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 
 public class TurtleState {
 	
-	protected Button button(){
-	Button b = new Button("Turtle State");
-	b.setOnAction(e -> StateOfTurtle());
-	return b;
+	protected Button state(){
+		Button b = new Button("Turtle State");
+		b.setOnAction(n -> StateOfTurtle());
+		return b;
 	}
 	
 	protected double TurtleX(){
