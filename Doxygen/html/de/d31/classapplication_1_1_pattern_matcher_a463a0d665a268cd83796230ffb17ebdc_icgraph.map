@@ -1,9 +1,0 @@
-<map id="application.PatternMatcher.match" name="application.PatternMatcher.match">
-<area shape="rect" id="node2" href="$de/d31/classapplication_1_1_pattern_matcher.html#a2db70f4edd389c1f149acdebd3da0b7f" title="application.PatternMatcher.check\lForMatch" alt="" coords="291,27,525,69"/>
-<area shape="rect" id="node3" href="$d0/d2f/classsyntax_1_1_command_handler.html#ab4eb812acd6d38e92d0fdf7f155eef14" title="syntax.CommandHandler.handle" alt="" coords="574,5,805,32"/>
-<area shape="rect" id="node4" href="$dc/d9e/classapplication_1_1_parser.html#a74e9be1b3f5d45542735791cf13baa90" title="application.Parser.parse\lIterator" alt="" coords="602,57,777,98"/>
-<area shape="rect" id="node5" href="$d9/df4/classsyntax_1_1_group_start_handler.html#a5e6a1bacb757f6223060b048db106211" title="syntax.GroupStartHandler.handle" alt="" coords="853,13,1088,40"/>
-<area shape="rect" id="node6" href="$da/def/classsyntax_1_1_list_start_handler.html#a14545d9bbe97756316205b4953b6ee96" title="syntax.ListStartHandler.handle" alt="" coords="861,64,1080,91"/>
-<area shape="rect" id="node7" href="$dc/d9e/classapplication_1_1_parser.html#a135ca81f754c89fe4bf36783b9884861" title="application.Parser.parse" alt="" coords="883,115,1058,141"/>
-<area shape="rect" id="node8" href="$dd/d17/classapplication_1_1_model.html#a9457364de27b16e384b02f2d679cb327" title="application.Model.update" alt="" coords="1137,115,1319,141"/>
-</map>
