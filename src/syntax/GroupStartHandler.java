@@ -12,7 +12,7 @@ import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
-public class GroupStartHandler extends GroupHandler {
+public class GroupStartHandler extends BlockHandler {
 
     public GroupStartHandler(Model myModel, Parser myParser,
             List<Entry<String, Pattern>> myCommandPatterns) {
@@ -25,6 +25,7 @@ public class GroupStartHandler extends GroupHandler {
         setGroupDepthCount(getGroupDepthCount() + 1);
         TreeNode temp = myParser.parseIterator(iter);
         if (temp instanceof EvaluatorNode) {
+            setGroupDepthCount(0);
             throw new UnbalancedBracketsException();
         }
         return nodeList.add(temp);

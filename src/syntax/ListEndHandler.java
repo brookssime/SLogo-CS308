@@ -11,7 +11,7 @@ import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
-public class ListEndHandler extends ListHandler {
+public class ListEndHandler extends BlockHandler {
 
     public ListEndHandler(Model myModel, Parser myParser,
             List<Entry<String, Pattern>> myCommandPatterns) {

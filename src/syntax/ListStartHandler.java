@@ -14,7 +14,7 @@ import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
-public class ListStartHandler extends ListHandler {
+public class ListStartHandler extends BlockHandler {
 
     public ListStartHandler(Model myModel, Parser myParser,
             List<Entry<String, Pattern>> myCommandPatterns) {
@@ -27,6 +27,7 @@ public class ListStartHandler extends ListHandler {
         setListDepthCount(getListDepthCount() + 1);
         TreeNode temp = myParser.parseIterator(iter);
         if (temp instanceof EvaluatorNode) {
+            setListDepthCount(0);
             throw new UnbalancedBracketsException();
         }
         //Lists are double-wrapped with BlockNodes so the parent node receives a BlockNode upon evaluating its child

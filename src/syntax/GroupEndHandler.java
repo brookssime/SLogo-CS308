@@ -11,7 +11,7 @@ import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
-public class GroupEndHandler extends GroupHandler {
+public class GroupEndHandler extends BlockHandler {
 
     public GroupEndHandler(Model myModel, Parser myParser,
             List<Entry<String, Pattern>> myCommandPatterns) {

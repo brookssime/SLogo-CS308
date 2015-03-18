@@ -10,10 +10,11 @@ import tree.TreeNode;
 import application.Model;
 import application.Parser;
 
-public abstract class GroupHandler extends SyntaxHandler {
+public abstract class BlockHandler extends SyntaxHandler {
     private static int groupDepthCount = 0;
+    private static int listDepthCount = 0;
 
-    public GroupHandler(Model myModel, Parser myParser,
+    public BlockHandler(Model myModel, Parser myParser,
             List<Entry<String, Pattern>> myCommandPatterns) {
         super(myModel, myParser, myCommandPatterns);
     }
@@ -23,7 +24,15 @@ public abstract class GroupHandler extends SyntaxHandler {
     }
 
     protected static void setGroupDepthCount(int groupDepthCount) {
-        GroupHandler.groupDepthCount = groupDepthCount;
+        BlockHandler.groupDepthCount = groupDepthCount;
+    }
+    
+    protected static int getListDepthCount() {
+        return listDepthCount;
+    }
+
+    protected static void setListDepthCount(int listDepthCount) {
+       BlockHandler.listDepthCount = listDepthCount;
     }
 
     @Override
