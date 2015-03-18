@@ -9,7 +9,7 @@ import application.Turtle;
 public class Stamp extends CommandNode{
 
 	public Stamp(Model myModel) {
-		super(myModel, Double.class, Double.class);
+		super(myModel);
 	}
 
 	@Override
