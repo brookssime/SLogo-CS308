@@ -1,0 +1,8 @@
+<map id="application.Model.getLanguage" name="application.Model.getLanguage">
+<area shape="rect" id="node2" href="$dc/d9e/classapplication_1_1_parser.html#ac894147a6137c697c60ff94d98635bd1" title="application.Parser.Parser" alt="" coords="277,5,456,32"/>
+<area shape="rect" id="node3" href="$dc/d9e/classapplication_1_1_parser.html#a62688af8185b6fc69d3253cce9b75b5a" title="application.Parser.update\lCommandPatterns" alt="" coords="275,57,458,98"/>
+<area shape="rect" id="node4" href="$dd/d17/classapplication_1_1_model.html#aad99353c2f5f15a7b60a353b4d0fcae0" title="application.Model.update\lCommandPatterns" alt="" coords="507,57,690,98"/>
+<area shape="rect" id="node5" href="$d3/dbe/classview_1_1_view.html#a6c2525fe1f26dc400c48823ce4f0d057" title="view.View.addModelListeners" alt="" coords="739,64,943,91"/>
+<area shape="rect" id="node6" href="$d4/d9d/classapplication_1_1_wrapper.html#a4be5486a54f6d10d816c3ff49e82ecb9" title="application.Wrapper.make\lNewWindow" alt="" coords="992,57,1179,98"/>
+<area shape="rect" id="node7" href="$d9/d96/classapplication_1_1_main.html#a4e5ad4e3de8bbd8654120180a94e870d" title="application.Main.start" alt="" coords="1227,64,1386,91"/>
+</map>
