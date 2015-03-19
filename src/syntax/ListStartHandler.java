@@ -25,7 +25,7 @@ public class ListStartHandler extends BlockHandler {
     public boolean handle(String s, Iterator<String> iter,
             List<TreeNode> nodeList) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         setListDepthCount(getListDepthCount() + 1);
-        TreeNode temp = myParser.parseIterator(iter);
+        TreeNode temp = getParser().parseIterator(iter);
         if (temp instanceof EvaluatorNode) {
             setListDepthCount(0);
             throw new UnbalancedBracketsException();

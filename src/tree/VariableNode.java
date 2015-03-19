@@ -21,17 +21,15 @@ public class VariableNode extends TreeNode {
     public List<Object> evaluate(Turtle myTurtle, List<Object> args) {
         if (myIndex != null) {
             List<Object> list = new ArrayList<>();
-            System.out.println("Size: " + args.size());
-            System.out.println("Index: " + myIndex);
             list.add(args.get(myIndex));
             return list;
         }
         List<Object> list = new ArrayList<>();
-        Double d = myModel.getVariableValue(myString);
-        if (d == null) {
+        Double variableValue = myModel.getVariableValue(myString);
+        if (variableValue == null) {
             list.add(myString);
         } else {
-            list.add(d.doubleValue());
+            list.add(variableValue.doubleValue());
         }
         return list;
     }

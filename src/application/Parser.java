@@ -21,16 +21,18 @@ public class Parser {
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
     private Model myModel;
     private TreeBuilder myTreeBuilder;
+    private static final String LANGUAGE_PATH = "resources/languages/";
+    private static final String SYNTAX_PATH = "resources/languages/Syntax";
 
     public Parser(Model myModel) {
         this.myModel = myModel;
-        myCommandPatterns = PatternMatcher.makePatterns("resources/languages/" + myModel.getLanguage());
-        mySyntaxPatterns = PatternMatcher.makePatterns("resources/languages/Syntax");
+        updateCommandPatterns();
+        mySyntaxPatterns = PatternMatcher.makePatterns(SYNTAX_PATH);
         myTreeBuilder = new TreeBuilder();        
     }
     
     public void updateCommandPatterns() {
-    	myCommandPatterns = PatternMatcher.makePatterns("resources/languages/" + myModel.getLanguage());
+    	myCommandPatterns = PatternMatcher.makePatterns(LANGUAGE_PATH + myModel.getLanguage());
     }
     
     public CommandNode parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {

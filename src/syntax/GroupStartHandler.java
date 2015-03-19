@@ -23,7 +23,7 @@ public class GroupStartHandler extends BlockHandler {
     public boolean handle(String s, Iterator<String> iter,
             List<TreeNode> nodeList) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         setGroupDepthCount(getGroupDepthCount() + 1);
-        TreeNode temp = myParser.parseIterator(iter);
+        TreeNode temp = getParser().parseIterator(iter);
         if (temp instanceof EvaluatorNode) {
             setGroupDepthCount(0);
             throw new UnbalancedBracketsException();

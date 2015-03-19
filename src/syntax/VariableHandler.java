@@ -28,7 +28,7 @@ public class VariableHandler extends SyntaxHandler {
         if (nodeList.size() > 0 && nodeList.get(nodeList.size() - 1) instanceof MakeVariable) {
             return nodeList.add(new ConstantNode(s));
         }
-        return nodeList.add(new VariableNode(myModel, s));
+        return nodeList.add(new VariableNode(getModel(), s));
     }
 
 }

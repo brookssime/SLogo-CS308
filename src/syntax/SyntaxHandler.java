@@ -11,9 +11,21 @@ import application.Model;
 import application.Parser;
 
 public abstract class SyntaxHandler {
-    protected Model myModel;
-    protected Parser myParser;
-    protected List<Map.Entry<String, Pattern>> myCommandPatterns;
+    private Model myModel;
+    private Parser myParser;
+    private List<Map.Entry<String, Pattern>> myCommandPatterns;
+    
+    public Model getModel() {
+        return myModel;
+    }
+
+    public Parser getParser() {
+        return myParser;
+    }
+
+    public List<Map.Entry<String, Pattern>> getCommandPatterns() {
+        return myCommandPatterns;
+    }
 
     public SyntaxHandler(Model myModel, Parser myParser,
             List<Map.Entry<String, Pattern>> myCommandPatterns) {

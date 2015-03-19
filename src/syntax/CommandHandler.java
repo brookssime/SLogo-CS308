@@ -16,7 +16,7 @@ import application.Parser;
 import application.PatternMatcher;
 
 public class CommandHandler extends SyntaxHandler {
-    private static final String commandPath = "commands.";
+    private static final String COMMAND_PATH = "commands.";
 
     public CommandHandler(Model myModel, Parser myParser,
             List<Map.Entry<String, Pattern>> myCommandPatterns) {
@@ -31,10 +31,10 @@ public class CommandHandler extends SyntaxHandler {
             ClassNotFoundException {
         try {
             nodeList.add((CommandNode) Class.forName(
-                    commandPath + PatternMatcher.checkForMatch(s, myCommandPatterns)).getDeclaredConstructors()[0]
-                    .newInstance(myModel));
+                    COMMAND_PATH + PatternMatcher.checkForMatch(s, getCommandPatterns())).getDeclaredConstructors()[0]
+                    .newInstance(getModel()));
         } catch (ClassNotFoundException e) {
-            CommandNode cmd = (CommandNode) myModel.getUserCommand(s);
+            CommandNode cmd = (CommandNode) getModel().getUserCommand(s);
             if (nodeList.size() > 0 && nodeList.get(nodeList.size() - 1) instanceof MakeUserInstruction) {
                 nodeList.add(new ConstantNode(s));
             } else if (cmd != null) {
