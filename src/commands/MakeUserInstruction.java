@@ -22,24 +22,22 @@ public class MakeUserInstruction extends CommandNode {
     public List<Object> function(Turtle myTurtle, List<Object> args) {
         String commandName = (String) args.get(0);
         List<String> stringList = getVariableList(getRootNodes(args.get(1)));
-        
         List<TreeNode> rootNodeList = getRootNodes(args.get(2));
-        
-        for (TreeNode n : rootNodeList) {
-            for (int i = 0; i < stringList.size(); i ++) {  
-                List<VariableNode> varNodeList = n.getVariableNodes();
-                while(varNodeList.remove(null)){
-                for (int j = 0; j < varNodeList.size(); j++) {
-                    VariableNode v = varNodeList.get(j);
-                    if (((String) v.evaluate().get(0)).compareTo(stringList.get(i)) == 0) {
-                        v.setIndex(i);
-                    }
-                }
-            }
-            }
-        }
+        rootNodeList.stream().forEach(n -> setVariableNodeIndices(stringList, n));
         getModel().addUserCommand(commandName, new EvaluatorNode(getModel(), rootNodeList));
         return putObjectInList(1);
+    }
+
+    private void setVariableNodeIndices(List<String> stringList, TreeNode node) {
+        for (int i = 0; i < stringList.size(); i++) {
+            List<VariableNode> varNodeList = node.getVariableNodes();
+            for (int j = 0; j < varNodeList.size(); j++) {
+                VariableNode varNode = varNodeList.get(j);
+                if (((String) varNode.evaluate().get(0)).compareTo(stringList.get(i)) == 0) {
+                    varNode.setIndex(i);
+                }
+            }
+        }
     }
 
     private List<String> getVariableList(List<TreeNode> nodeList) {

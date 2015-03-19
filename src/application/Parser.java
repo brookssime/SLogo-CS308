@@ -42,15 +42,15 @@ public class Parser {
             InvocationTargetException, ClassNotFoundException {
         List<TreeNode> nodeList = new ArrayList<>();
         while (iter.hasNext()) {
-            String s = iter.next();
-            String p = PatternMatcher.checkForMatch(s, mySyntaxPatterns);
-            if (p == null) {
+            String token = iter.next();
+            String syntaxType = PatternMatcher.checkForMatch(token, mySyntaxPatterns);
+            if (syntaxType == null) {
                 continue;
             }
             SyntaxHandler mySyntaxHandler = (SyntaxHandler) Class.forName(
-                    String.format("syntax.%sHandler", p))
+                    String.format("syntax.%sHandler", syntaxType))
                     .getDeclaredConstructors()[0].newInstance(myModel, this, myCommandPatterns);
-            if (!mySyntaxHandler.handle(s, iter, nodeList)) {
+            if (!mySyntaxHandler.handle(token, iter, nodeList)) {
                 return new BlockNode(myTreeBuilder.build(nodeList));
             }
         }
