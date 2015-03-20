@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// Thomas Puglisi
+
 package application;
 
 import java.lang.reflect.InvocationTargetException;
@@ -33,10 +36,27 @@ public class Parser {
     	myCommandPatterns = PatternMatcher.makePatterns(LANGUAGE_PATH + myModel.getLanguage());
     }
     
+    /**
+     * Parses an input string and returns a CommandNode for easy evaluation and
+     * command history storage
+     * 
+     * @param input
+     *            input string from the user
+     * @return an EvaluatorNode cast as a CommandNode, which can be easily
+     *         evaluated
+     */
     public CommandNode parse(String input) throws InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         return (CommandNode) parseIterator(Arrays.asList(input.split(" ")).iterator());
     }
     
+    /**
+     * Generates a list of TreeNodes and puts them into a tree using TreeBuilder
+     * 
+     * @param iter
+     *            Iterator of string tokens taken from a user input
+     * @return either a BlockNode if called from a Group- or ListStartHandler,
+     *         or an EvaluatorNode if called from the parse method
+     */
     public TreeNode parseIterator(Iterator<String> iter)
             throws InstantiationException, IllegalAccessException,
             InvocationTargetException, ClassNotFoundException {
