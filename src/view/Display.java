@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// COSETTE GOLDSTEIN
 
 package view;
 import java.util.HashMap;
@@ -22,14 +24,11 @@ public class Display {
 	public static final Integer[] LOCATION_OF_DISPLAY={200,100};
 	private Group root;
 	private Rectangle initial;
-	//private Line l;
-	private Color penColor;//=Color.BLACK;//needs to change to listener
+	private Color penColor;
 	private ImageView turtleImage=new ImageView();
-	private Turtle myTurtle;
 	private boolean penDown;
-	private double xLoc;
-	private double yLoc;
 	private Map<Turtle, ImageView> imageMap = new HashMap<Turtle, ImageView>();
+	
 	protected Group makeDisplay(int height,int width,Turtle t) {
 		penColor=Color.BLACK;
 		root=new Group();
@@ -37,7 +36,7 @@ public class Display {
 		initial.setStroke(Color.BLACK);
 		initial.setFill(Color.WHITE);
 		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2,t);//location so that the center of the turtle is on the center of the display
-		imageMap.put(t, turtle);
+		imageMap.put(t, turtle); //put the first turtle in the map with itself as the key and the corresponding image as the value
 		root.getChildren().addAll(initial,turtle);
 		root.setLayoutX(LOCATION_OF_DISPLAY[0]);
 		root.setLayoutY(LOCATION_OF_DISPLAY[1]);
@@ -50,8 +49,6 @@ public class Display {
 		turtleImage1.setFitWidth(SIZE_OF_TURTLE);
 		turtleImage1.setImage(image);
 		turtleImage1.relocate(xLocation,yLocation);
-		xLoc=turtleImage1.getLayoutX()+SIZE_OF_TURTLE/2;
-		yLoc=turtleImage1.getLayoutY()+SIZE_OF_TURTLE/2;
 		return turtleImage1;
 	}
 	protected ImageView updateTurtleImage() {
@@ -73,8 +70,6 @@ public class Display {
 	protected void updateTurtleLocation(double newX, double newY,Turtle t) {
 		root.getChildren().add(drawLines(imageMap.get(t).getLayoutX()+(SIZE_OF_TURTLE/2),imageMap.get(t).getLayoutY()+(SIZE_OF_TURTLE/2),newX+OFFSET,newY+OFFSET));
 		imageMap.get(t).relocate(newX+OFFSET-(SIZE_OF_TURTLE/2),newY+OFFSET-(SIZE_OF_TURTLE/2));
-		xLoc=newX+375/2;
-		yLoc=newY+375/2;
 	}
 	protected void updateTurtleHeading(Number newValue,Turtle t) {
 		imageMap.get(t).setRotate((double)newValue);

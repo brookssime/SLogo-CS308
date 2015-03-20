@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// COSETTE GOLDSTEIN
+
 package application;
 
 import java.util.ArrayList;
@@ -12,16 +15,12 @@ public class Wrapper {
 
 	private static Wrapper instance;
 	private List<Pair<Model,View>> listOfWindows=new ArrayList<Pair<Model,View>>();
-//	private Wrapper()
-//	{
-//		
-//	}
 
 	public static synchronized Wrapper getInstance()
 	{
-		if (instance == null)
+		if (instance == null) {
 			instance = new Wrapper();
-
+		}
 		return instance;
 	}
 	

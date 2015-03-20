@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// COSETTE GOLDSTEIN
+
 package view;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -18,7 +21,7 @@ public class LanguageChooser {
 
 	
 	private ComboBox<String> languageComboBox = new ComboBox<String>();
-	private String language="English";
+	private String language="English"; //sets initial language to English; so typing commands in English without setting it will indicate English
 	private View view;
 	private StringProperty languageProp=new SimpleStringProperty(language);
 	
@@ -45,8 +48,6 @@ public class LanguageChooser {
         languageComboBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override 
             public void changed(ObservableValue ov, String t, String t1) {                
-                //String/ObjectProperty bind what is in here to what is in model
-            	//StringProperty string=
             	language=t1;
             	view.getModel().setLanguage(t1);// = t1; 
             	languageProp.setValue(t1);//=ov;

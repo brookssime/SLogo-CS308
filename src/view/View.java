@@ -41,6 +41,7 @@ public class View {
 		stage.setTitle("SLOGO");
 		root=new Group();
 		Scene scene = new Scene(root, SIZE_OF_WINDOW[0],SIZE_OF_WINDOW[1]);
+		
 		Button work=workspaceAdder.addButton();
 		Button state = tState.state();
 		VBox Sprint2Buttons = new VBox();
