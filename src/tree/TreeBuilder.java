@@ -8,7 +8,7 @@ import application.PatternMatcher;
 
 public class TreeBuilder {
 
-    public List<TreeNode> build(List<TreeNode> list) {
+    public static List<TreeNode> build(List<TreeNode> list) {
         List<TreeNode> nodeList = new ArrayList<>();
         Iterator<TreeNode> iter = list.iterator();
         while (iter.hasNext()) {
@@ -21,7 +21,7 @@ public class TreeBuilder {
         return nodeList;
     }
 
-    private void addChildren(CommandNode node, Iterator<TreeNode> iter) {
+    private static void addChildren(CommandNode node, Iterator<TreeNode> iter) {
         for (int i = 0; i < node.getArgNum() && iter.hasNext(); i++) {
             TreeNode child = iter.next();
             node.addChild(child);

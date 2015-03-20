@@ -20,15 +20,13 @@ public class Parser {
     private List<Map.Entry<String, Pattern>> myCommandPatterns;
     private List<Map.Entry<String, Pattern>> mySyntaxPatterns;
     private Model myModel;
-    private TreeBuilder myTreeBuilder;
     private static final String LANGUAGE_PATH = "resources/languages/";
     private static final String SYNTAX_PATH = "resources/languages/Syntax";
 
     public Parser(Model myModel) {
         this.myModel = myModel;
         updateCommandPatterns();
-        mySyntaxPatterns = PatternMatcher.makePatterns(SYNTAX_PATH);
-        myTreeBuilder = new TreeBuilder();        
+        mySyntaxPatterns = PatternMatcher.makePatterns(SYNTAX_PATH);        
     }
     
     public void updateCommandPatterns() {
@@ -53,10 +51,10 @@ public class Parser {
                     String.format("syntax.%sHandler", syntaxType))
                     .getDeclaredConstructors()[0].newInstance(myModel, this, myCommandPatterns);
             if (!mySyntaxHandler.handle(token, iter, nodeList)) {
-                return new BlockNode(myTreeBuilder.build(nodeList));
+                return new BlockNode(TreeBuilder.build(nodeList));
             }
         }
-        return new EvaluatorNode(myModel, myTreeBuilder.build(nodeList));
+        return new EvaluatorNode(myModel, TreeBuilder.build(nodeList));
     }
     
 }
