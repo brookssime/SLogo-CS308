@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// Sean Scott
+
 package tree;
 
 import java.util.ArrayList;
