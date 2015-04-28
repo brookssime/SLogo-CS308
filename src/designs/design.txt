@@ -1,0 +1,7 @@
+pd
+fd 50
+tell [ 1 ]
+lt 90 fd 50
+ask [ 0 1 ] [ fd 50 ]
+tell [ 0 1 ]
+lt 90

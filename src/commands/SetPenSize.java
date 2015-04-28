@@ -9,7 +9,7 @@ import application.Turtle;
 public class SetPenSize extends CommandNode{
 
 	public SetPenSize(Model myModel) {
-		super(myModel, Double.class, Double.class);
+		super(myModel, Double.class);
 	}
 
 	@Override
