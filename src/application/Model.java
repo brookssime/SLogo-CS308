@@ -133,7 +133,7 @@ public class Model implements Observer {
         catch (InstantiationException | IllegalAccessException
                 | InvocationTargetException | ClassNotFoundException | UnbalancedBracketsException
                 | InvalidCommandException | IncorrectParametersException
-                | NonexistantTurtleException e) {
+                | NonexistantTurtleException | InvalidWindowBehaviorException e) {
             errorMsg.set(e.getMessage());
         }
     }
