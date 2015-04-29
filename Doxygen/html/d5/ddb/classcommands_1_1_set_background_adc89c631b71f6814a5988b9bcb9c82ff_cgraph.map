@@ -1,5 +1,0 @@
-<map id="commands.SetBackground.function" name="commands.SetBackground.function">
-<area shape="rect" id="node2" href="$dd/d17/classapplication_1_1_model.html#aa8b0b73eaf7a90d7cf114b7f72fa12ec" title="application.Model.background\lProperty" alt="" coords="307,5,519,46"/>
-<area shape="rect" id="node3" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="305,71,521,97"/>
-<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="304,122,523,163"/>
-</map>

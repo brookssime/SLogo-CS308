@@ -1,5 +1,0 @@
-<map id="commands.ClearStamp.function" name="commands.ClearStamp.function">
-<area shape="rect" id="node2" href="$dd/d17/classapplication_1_1_model.html#aae61fd8906b6795789ec63cb7b969c8b" title="application.Model.clearStamp\lProperty" alt="" coords="287,5,497,46"/>
-<area shape="rect" id="node3" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="284,71,500,97"/>
-<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="283,122,501,163"/>
-</map>

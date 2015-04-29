@@ -1,9 +1,0 @@
-<map id="tree.CommandNode.addChild" name="tree.CommandNode.addChild">
-<area shape="rect" id="node2" href="$d5/d4b/classtree_1_1_tree_builder.html#a4032cc1efc7fb77f4414d1bd58713d4b" title="tree.TreeBuilder.addChildren" alt="" coords="267,56,469,83"/>
-<area shape="rect" id="node3" href="$d5/d4b/classtree_1_1_tree_builder.html#a1e29a66ff647bc0ef8933f412cc16359" title="tree.TreeBuilder.build" alt="" coords="517,56,672,83"/>
-<area shape="rect" id="node4" href="$dc/d9e/classapplication_1_1_parser.html#a74e9be1b3f5d45542735791cf13baa90" title="application.Parser.parse\lIterator" alt="" coords="721,49,895,90"/>
-<area shape="rect" id="node5" href="$d9/df4/classsyntax_1_1_group_start_handler.html#a5e6a1bacb757f6223060b048db106211" title="syntax.GroupStartHandler.handle" alt="" coords="944,5,1179,32"/>
-<area shape="rect" id="node6" href="$da/def/classsyntax_1_1_list_start_handler.html#a14545d9bbe97756316205b4953b6ee96" title="syntax.ListStartHandler.handle" alt="" coords="952,56,1171,83"/>
-<area shape="rect" id="node7" href="$dc/d9e/classapplication_1_1_parser.html#a135ca81f754c89fe4bf36783b9884861" title="application.Parser.parse" alt="" coords="974,107,1149,133"/>
-<area shape="rect" id="node8" href="$dd/d17/classapplication_1_1_model.html#a9457364de27b16e384b02f2d679cb327" title="application.Model.update" alt="" coords="1227,107,1410,133"/>
-</map>
