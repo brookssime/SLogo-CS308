@@ -1,0 +1,7 @@
+<map id="application.Turtle.getFullRotation" name="application.Turtle.getFullRotation">
+<area shape="rect" id="node2" href="$d4/d8c/classcommands_1_1_left.html#aded2b40e24238aa693e9a3a441898f2c" title="commands.Left.function" alt="" coords="258,5,435,32"/>
+<area shape="rect" id="node3" href="$d0/d7a/classcommands_1_1_right.html#ab1cd698aaef03865d27a44fa32216517" title="commands.Right.function" alt="" coords="254,56,439,83"/>
+<area shape="rect" id="node4" href="$d6/dbe/classcommands_1_1_set_heading.html#a3faa911f835f80e99271ff1e292d92d8" title="commands.SetHeading.function" alt="" coords="233,107,461,133"/>
+<area shape="rect" id="node5" href="$d0/db5/classcommands_1_1_set_towards.html#a7b88861ab88e225b07507676e126846b" title="commands.SetTowards.getOffset" alt="" coords="230,157,463,184"/>
+<area shape="rect" id="node6" href="$d0/db5/classcommands_1_1_set_towards.html#ad21e4c21b2a2e1a568bba683a5e06d8b" title="commands.SetTowards.function" alt="" coords="513,157,738,184"/>
+</map>

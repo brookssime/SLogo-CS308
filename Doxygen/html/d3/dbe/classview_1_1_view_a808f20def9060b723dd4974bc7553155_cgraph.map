@@ -1,0 +1,12 @@
+<map id="view.View.addTurtleListeners" name="view.View.addTurtleListeners">
+<area shape="rect" id="node2" href="$d1/d31/classapplication_1_1_turtle.html#a9aeb42d200dd4bac290fb0f896af8fc4" title="application.Turtle.getHeading\lProperty" alt="" coords="254,5,461,46"/>
+<area shape="rect" id="node3" href="$d1/d31/classapplication_1_1_turtle.html#a2aa6d64cf4909c1d5db7d48118491805" title="application.Turtle.getLocation\lProperty" alt="" coords="253,70,461,111"/>
+<area shape="rect" id="node4" href="$d1/d31/classapplication_1_1_turtle.html#aba1e48364a283753a4d099fe64fc663f" title="application.Turtle.getPen\lDownProperty" alt="" coords="268,135,447,177"/>
+<area shape="rect" id="node5" href="$d1/d31/classapplication_1_1_turtle.html#a4b35563bbf3dd74893e43cef84865a35" title="application.Turtle.getShowing\lProperty" alt="" coords="254,201,461,242"/>
+<area shape="rect" id="node6" href="$d1/d1a/classview_1_1_display.html#a2557e79982a0547b1ce94db60a2021d7" title="view.Display.setVisibility" alt="" coords="272,267,443,293"/>
+<area shape="rect" id="node7" href="$d1/d31/classapplication_1_1_turtle.html#ac6534349b22cc2e1b750608f75897e5f" title="application.Turtle.shape\lProperty" alt="" coords="271,318,443,359"/>
+<area shape="rect" id="node8" href="$d1/d1a/classview_1_1_display.html#aaed3fea01db035ba2f25d6aee7367f8b" title="view.Display.updateTurtle\lHeading" alt="" coords="268,383,447,425"/>
+<area shape="rect" id="node9" href="$d1/d1a/classview_1_1_display.html#acf01babbf39275410d66f26521aec7ce" title="view.Display.updateTurtle\lLocation" alt="" coords="268,449,447,490"/>
+<area shape="rect" id="node11" href="$d1/d1a/classview_1_1_display.html#af0abcb9d9b5ec2892bf7617c4aaed48a" title="view.Display.updateTurtle\lShowing" alt="" coords="268,514,447,555"/>
+<area shape="rect" id="node10" href="$d1/d1a/classview_1_1_display.html#ae37f2b2ceda0b899a554cbdacc791a35" title="view.Display.drawLines" alt="" coords="509,456,672,483"/>
+</map>

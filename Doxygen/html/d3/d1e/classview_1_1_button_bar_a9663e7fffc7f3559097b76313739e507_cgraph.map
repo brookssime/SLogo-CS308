@@ -1,0 +1,11 @@
+<map id="view.ButtonBar.makeButtonBar" name="view.ButtonBar.makeButtonBar">
+<area shape="rect" id="node2" href="$d3/d1e/classview_1_1_button_bar.html#a0fceb97a1c422006be3e1c0645bc2a1e" title="view.ButtonBar.makeButton" alt="" coords="281,5,479,32"/>
+<area shape="rect" id="node3" href="$d6/d05/classview_1_1_color_chooser.html#aeff346e71fef58d80a7e9e2ee22e8232" title="view.ColorChooser.makeColor\lChooserPopUp" alt="" coords="275,57,485,98"/>
+<area shape="rect" id="node5" href="$df/d10/classview_1_1_language_chooser.html#a638bfb57c9d44edbc77c09dbbea172f2" title="view.LanguageChooser.set\lLanguage" alt="" coords="285,122,475,163"/>
+<area shape="rect" id="node8" href="$dd/d5e/classview_1_1_image_chooser.html#acce8e5e36cde606043547a64c1f44223" title="view.ImageChooser.start" alt="" coords="291,197,469,224"/>
+<area shape="rect" id="node4" href="$d6/d05/classview_1_1_color_chooser.html#a66232fdbcddc16c0550b7094a0807028" title="view.ColorChooser.format\lColorSelector" alt="" coords="552,47,736,89"/>
+<area shape="rect" id="node6" href="$d3/dbe/classview_1_1_view.html#a318198fbcd4b1cac52bff73680ca8730" title="view.View.getModel" alt="" coords="573,113,715,140"/>
+<area shape="rect" id="node7" href="$dd/d17/classapplication_1_1_model.html#a31a6a7f1c136e4fccef5f51525c9ade0" title="application.Model.setLanguage" alt="" coords="534,164,754,191"/>
+<area shape="rect" id="node9" href="$dd/d5e/classview_1_1_image_chooser.html#a6d668cc328dfded5d66f3311c8a5637d" title="view.ImageChooser.openFile" alt="" coords="544,215,744,241"/>
+<area shape="rect" id="node10" href="$d1/d1a/classview_1_1_display.html#a09cd42ab0296796c2c321ba6cb02a8b8" title="view.Display.updateTurtle\lImage" alt="" coords="803,207,981,249"/>
+</map>
