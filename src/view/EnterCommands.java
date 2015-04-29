@@ -1,7 +1,9 @@
+// This entire file is part of my masterpiece. // Brooks Sime
+
 package view;
 
 
-import java.lang.reflect.InvocationTargetException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -27,21 +29,11 @@ public class EnterCommands extends Observable {
 	private String commandText="";
 	private PreviousCommands prev;
 	private String myFormatText;
-	private ImportDesign upload = new ImportDesign();
+	private ImportDesign upload = new ImportDesign(this);
 	
 	public EnterCommands(PreviousCommands p) {
 		prev=p;
 		
-	}
-	protected HBox makeBox() {
-		Button runBtn = new Button("Run");
-		runBtn.setOnAction(e-> runCommand());
-		HBox hbox=new HBox();
-		hbox.getChildren().addAll(text,runBtn);
-		hbox.setTranslateX(LOCATION_OF_ENTERCOMMANDS_BOX[0]);
-		hbox.setTranslateY(LOCATION_OF_ENTERCOMMANDS_BOX[1]);
-		hbox.setAlignment(Pos.CENTER);
-		return hbox;
 	}
 	
 	protected TextArea init(){
@@ -59,16 +51,6 @@ public class EnterCommands extends Observable {
 		
 
 	}
-	protected Button clearHistory() {
-		Button clearBtn=new Button("Clear");
-		clearBtn.setOnAction(e->{
-			prev.getTextArea().clear();
-	
-			
-		});
-		return clearBtn;
-	}
-	
 	
 	protected String getHistory(){
 		return prev.getTextArea().getText();
@@ -78,7 +60,9 @@ public class EnterCommands extends Observable {
 	protected void uploadCommand(String s){
 		String command = s;
 		System.out.println(command);
-		
-		
+	}
+	
+	protected void addCommand(String command){
+		text.appendText(command);
 	}
 }
