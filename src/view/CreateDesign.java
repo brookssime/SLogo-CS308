@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece. // Brooks Sime
+
 package view;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,13 +17,6 @@ public class CreateDesign {
 	public CreateDesign(EnterCommands e){
 		myEnter = e;
 	}
-	protected Button SaveDesign (){
-		Button designs = new Button("Save to My Designs");
-		designs.setOnAction(e -> saveFile());
-		return designs;
-	}
-
-
 	
 	
 	public void saveFile (){

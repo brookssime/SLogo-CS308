@@ -1,7 +1,10 @@
+// This entire file is part of my masterpiece. // Brooks Sime
+
 package view;
 
 import java.util.ArrayList;
 
+import application.Model;
 import application.Turtle;
 import application.TurtleList;
 import javafx.scene.Group;
@@ -14,9 +17,9 @@ import javafx.stage.Stage;
 
 public class TurtleState {
 	
-	TurtleList tList = new TurtleList();
-	public TurtleState (TurtleList t){
-		tList = t;
+	Model myModel;
+	public TurtleState (Model m){
+		myModel = m;
 	}
 	private Stage t = new Stage();
 	
@@ -30,24 +33,21 @@ public class TurtleState {
 	private ArrayList<Boolean> isPen = new ArrayList<Boolean>();
 	
 	
-	protected Button state(){
-		Button b = new Button("Turtle State");
-		b.setOnAction(n -> {
-			attrib();
-			StateOfTurtle();
-			
-		});
-		return b;
-	}
+	
 	protected Button refreshButton(){
 		Button b = new Button ("Refresh");
 		b.setOnAction(d -> refresh());
 		return b;
 	}
 	
+	protected void initiateState(){
+		attrib();
+		StateOfTurtle();
+	}
 	
 	protected void attrib(){
-		for (Turtle l: tList.getActiveTurtles()){
+		System.out.println(myModel);
+		for (Turtle l: myModel.getTurtleList().getActiveTurtles()){
 			double turtX = l.getX();
 			double turtY = l.getY();
 			double rot = l.getHeading();
@@ -60,10 +60,10 @@ public class TurtleState {
 		
 	}
 	protected void refresh(){
-		x.clear();
-		y.clear();
-		r.clear();
-		isPen.clear();
+		x = new ArrayList<Double>();
+		y = new ArrayList<Double>();
+		r = new ArrayList<Double>();
+		isPen = new ArrayList<Boolean>();
 		t.close();
 		
 	}
@@ -88,9 +88,11 @@ public class TurtleState {
 		VBox v = new VBox();
 		v.getChildren().addAll(output(), refreshButton());
 		root.getChildren().addAll(v);
+		root.scaleXProperty();
 		Scene scene = new Scene(root);
 		t.setScene(scene);
 		t.show();
+		
 	
 	}
 }
