@@ -1,4 +1,7 @@
+// This entire file is part of my masterpiece. // Brooks Sime
+
 package view;
+
 
 import java.net.MalformedURLException;
 import java.nio.file.Path;
@@ -15,16 +18,10 @@ import javafx.stage.Stage;
 
 public class CommandGuide {
 	
-	public static final Integer[] LOCATION_OF_COMMANDGUIDE={15,575};
+	
 	public static final String PATH_TO_JAVADOC="doc/commands/package-summary.html";
 	
-	protected Button makeMyButton() {
-		Button btn=new Button("Command\n Guide");
-		btn.setLayoutX(LOCATION_OF_COMMANDGUIDE[0]);
-		btn.setLayoutY(LOCATION_OF_COMMANDGUIDE[1]);
-		btn.setOnAction(b->openCommandGuide());
-		return btn;
-	}
+	
 	/**
 	 * @returns stage that shows
 	 * 

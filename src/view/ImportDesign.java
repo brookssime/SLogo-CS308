@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece. // Brooks Sime
+
 package view;
 
 import java.io.BufferedReader;
@@ -20,16 +22,13 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ImportDesign {
 	
+	private EnterCommands myEnterCommands;
 	
-	
-
-	protected Button openDesign(){
-		Button open = new Button("Import Design");
-		open.setOnAction(e -> chooseDesign());
-		return open;
+	protected ImportDesign(EnterCommands e){
+		myEnterCommands = e;
 	}
 	
-	private void chooseDesign(){
+	protected void chooseDesign(){
 		FileChooser chooser = new FileChooser();
 		chooser.setTitle("Open Design File");
 		chooser.setInitialDirectory(new File(System.getProperty("user.dir")
@@ -40,7 +39,7 @@ public class ImportDesign {
 		
 		try {
 			String command = readFile(selectedFile);
-			new EnterCommands(new PreviousCommands()).uploadCommand(command);
+			myEnterCommands.addCommand(command);	
 		} catch (IOException e) {
 			ErrorDisplay error = new ErrorDisplay();
 			error.QuitError();
