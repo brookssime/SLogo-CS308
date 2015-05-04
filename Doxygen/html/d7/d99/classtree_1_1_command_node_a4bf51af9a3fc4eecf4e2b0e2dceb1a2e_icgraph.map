@@ -1,8 +1,0 @@
-<map id="tree.CommandNode.evaluateTurtles" name="tree.CommandNode.evaluateTurtles">
-<area shape="rect" id="node2" href="$d7/d99/classtree_1_1_command_node.html#a5bebc2f70e6e3486c403b9cdb0ce04cb" title="tree.CommandNode.evaluate" alt="" coords="267,81,479,108"/>
-<area shape="rect" id="node3" href="$dd/dec/classcommands_1_1_if.html#af4992935265deb1e4759cd6579da4680" title="commands.If.evaluateCommand" alt="" coords="529,31,759,57"/>
-<area shape="rect" id="node6" href="$de/d74/classcommands_1_1_ask.html#a9d61a23c4bf1adad72ae5f73bc820b92" title="commands.Ask.function" alt="" coords="556,81,732,108"/>
-<area shape="rect" id="node7" href="$dd/d17/classapplication_1_1_model.html#a9457364de27b16e384b02f2d679cb327" title="application.Model.update" alt="" coords="553,132,735,159"/>
-<area shape="rect" id="node4" href="$d8/dc1/classcommands_1_1_if_else.html#a8a6526a96655b8c3f5b5d933c1aacc64" title="commands.IfElse.function" alt="" coords="808,5,995,32"/>
-<area shape="rect" id="node5" href="$dd/dec/classcommands_1_1_if.html#a2a8e2fd04325679983dae1be727b5772" title="commands.If.function" alt="" coords="822,56,981,83"/>
-</map>
