@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// COSETTE GOLDSTEIN
+
 package view;
 
 import java.awt.Desktop;
@@ -20,16 +23,17 @@ public class ImageChooser {
 
 	private Desktop desktop = Desktop.getDesktop();
 	private Display display;
+	private Image myImage;
 	public ImageChooser(Display d) {
 		display=d;
 	}
 	
-	public void start(final Stage stage) {
+	public void start(final Stage stage,boolean isAllTurtles) {
 		final FileChooser fileChooser = new FileChooser();
 		
 		File file = fileChooser.showOpenDialog(stage);
 		if (file != null) {
-			openFile(file);
+			openFile(file,isAllTurtles);
 		}
 
 
@@ -40,18 +44,28 @@ public class ImageChooser {
 		rootGroup.setPadding(new Insets(12, 12, 12, 12));
 	}
 
-	private void openFile(File file) {
+	private void openFile(File file,boolean isAllTurtles) {
 		ImageView img=display.updateTurtleImage(); 
 				try {
 					Image image = SwingFXUtils.toFXImage(ImageIO.read(file), null);
 	                img.setFitHeight(display.SIZE_OF_TURTLE);
 	                img.setFitWidth(display.SIZE_OF_TURTLE);
+	                display.setNewImage(image);
+	                if (isAllTurtles){
+	                    display.setImageForAllTurtles(image);
+	                }
+	                myImage=image;
 	                img.setImage(image);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
 		
+	}
+	
+	protected Image getImage() {
+	    return myImage;
 	}
 }
 

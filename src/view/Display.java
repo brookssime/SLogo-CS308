@@ -8,7 +8,6 @@ import java.util.Map;
 
 
 import javax.swing.Timer;
-
 import application.Turtle;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
@@ -18,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 public class Display {
 	public static final int SIZE_OF_TURTLE=30;
 	public static final int OFFSET=375/2;
@@ -26,6 +26,7 @@ public class Display {
 	private Rectangle initial;
 	private Color penColor;
 	private ImageView turtleImage=new ImageView();
+	private Image myImage;//=new Image();
 	private boolean penDown;
 	private Map<Turtle, ImageView> imageMap = new HashMap<Turtle, ImageView>();
 	
@@ -35,6 +36,7 @@ public class Display {
 		initial=new Rectangle(height,width);
 		initial.setStroke(Color.BLACK);
 		initial.setFill(Color.WHITE);
+		myImage = new Image(getClass().getResourceAsStream("arrow.png"));
 		ImageView turtle=addTurtle(height/2-SIZE_OF_TURTLE/2,width/2-SIZE_OF_TURTLE/2,t);//location so that the center of the turtle is on the center of the display
 		imageMap.put(t, turtle); //put the first turtle in the map with itself as the key and the corresponding image as the value
 		root.getChildren().addAll(initial,turtle);
@@ -44,15 +46,31 @@ public class Display {
 	}
 	protected ImageView addTurtle(int xLocation, int yLocation,Turtle t) {
 		ImageView turtleImage1=new ImageView();
-		Image image = new Image(getClass().getResourceAsStream("arrow.png"));
+		//Image image = new Image(getClass().getResourceAsStream("arrow.png"));
 		turtleImage1.setFitHeight(SIZE_OF_TURTLE);
 		turtleImage1.setFitWidth(SIZE_OF_TURTLE);
-		turtleImage1.setImage(image);
+		turtleImage1.setImage(myImage);
 		turtleImage1.relocate(xLocation,yLocation);
+		ImageChooser imageChooser=new ImageChooser(this);
+		turtleImage1.setOnMouseClicked(e->{imageChooser.start(new Stage(),false);turtleImage1.setImage(imageChooser.getImage());});
 		return turtleImage1;
 	}
 	protected ImageView updateTurtleImage() {
 		return turtleImage;
+	}
+	
+	protected void setNewImage(Image image){
+	    myImage= image;
+	}
+	
+	protected void setImageForAllTurtles(Image image){
+	    for (Turtle t:imageMap.keySet()){
+	        ImageView newTurtleImage=new ImageView();
+	        newTurtleImage.setImage(image);
+	        imageMap.get(t).setImage(image);
+	        //imageMap.replace(t, imageMap.get(t), );
+	        //imageMap.replace
+	    }
 	}
 	
 	protected void updateMap(Turtle t, ImageView w) {

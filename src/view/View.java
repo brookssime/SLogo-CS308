@@ -1,4 +1,4 @@
-// This entire file is part of my masterpiece. // Brooks Sime
+
 
 package view;
 import application.Model;
@@ -77,7 +77,7 @@ public class View {
 		Button state = myButtonBar.makeButton("TurtleState", n ->tState.initiateState(), 1, 1);
 		Button setLang= myButtonBar.makeButton("Set Lang", l-> lang.setLanguage(new Stage()), 2, 2);
 		Button chooseColor=myButtonBar.makeButton("Set Colors", a -> col.makeColorChooserPopUp(new Stage()), 2, 2);
-		Button setImage=myButtonBar.makeButton("Set Image", s-> img.start(new Stage()), 2, 2);
+		Button setImage=myButtonBar.makeButton("Set Image", s-> img.start(new Stage(),true), 2, 2);
 		Button c= myButtonBar.makeButton("Command\n Guide", z -> comm.openCommandGuide(), 1,1);
 		Button save = myButtonBar.makeButton("Save Design", r -> cre.saveFile(), 1, 1);
 		Button open = myButtonBar.makeButton("Import Design",q -> des.chooseDesign(), 1, 1);
