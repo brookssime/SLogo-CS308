@@ -1,6 +1,0 @@
-<map id="view.ImportDesign.chooseDesign" name="view.ImportDesign.chooseDesign">
-<area shape="rect" id="node2" href="$d3/dfc/classview_1_1_enter_commands.html#a1d0bf48565d2681b213f2c735c896ee0" title="view.EnterCommands.addCommand" alt="" coords="243,5,498,32"/>
-<area shape="rect" id="node3" href="$d7/d64/classview_1_1_error_display.html#a6c3f2eacf1ed428f546b8df535aea14d" title="view.ErrorDisplay.QuitError" alt="" coords="277,56,465,83"/>
-<area shape="rect" id="node5" href="$de/d83/classview_1_1_import_design.html#af8cc1739fba8473b1983acb24fd9d47c" title="view.ImportDesign.readFile" alt="" coords="275,107,466,133"/>
-<area shape="rect" id="node4" href="$d7/d64/classview_1_1_error_display.html#a0c73067dcb42d542520886861c13953f" title="view.ErrorDisplay.message" alt="" coords="547,56,738,83"/>
-</map>
