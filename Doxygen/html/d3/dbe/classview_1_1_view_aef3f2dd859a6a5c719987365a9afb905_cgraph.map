@@ -1,0 +1,36 @@
+<map id="view.View.start" name="view.View.start">
+<area shape="rect" id="node2" href="$d3/d1e/classview_1_1_button_bar.html#a6b4fddf728ff459282b8040e7513b9a7" title="view.ButtonBar.addtoHButtonBar" alt="" coords="181,5,413,32"/>
+<area shape="rect" id="node3" href="$d3/d1e/classview_1_1_button_bar.html#a1abca5cea82b748c22cbb0c596bfadf1" title="view.ButtonBar.addtoVButtonBar" alt="" coords="182,56,413,83"/>
+<area shape="rect" id="node4" href="$de/d83/classview_1_1_import_design.html#a28c331a446c4c74cfc94149e5ceb0977" title="view.ImportDesign.choose\lDesign" alt="" coords="203,107,391,149"/>
+<area shape="rect" id="node9" href="$d2/d22/classview_1_1_previous_commands.html#ac81954fc7397e066d454cfd63fc9e2e0" title="view.PreviousCommands.get\lTextArea" alt="" coords="784,195,989,237"/>
+<area shape="rect" id="node10" href="$d1/deb/classapplication_1_1_turtle_list.html#a0de066aa32e9e19fe3d8313693a95247" title="application.TurtleList.get\lTurtle" alt="" coords="209,275,385,317"/>
+<area shape="rect" id="node11" href="$dd/d17/classapplication_1_1_model.html#aa7ed87b9bf32630ff3c5b771feb6a67a" title="application.Model.getTurtleList" alt="" coords="779,341,994,368"/>
+<area shape="rect" id="node12" href="$d3/dfc/classview_1_1_enter_commands.html#a27689d1e232eda1d9e0fe966becb8167" title="view.EnterCommands.init" alt="" coords="206,459,389,485"/>
+<area shape="rect" id="node13" href="$d4/d54/classview_1_1_turtle_state.html#a79db2ab9487e3436d6672f1de33b5605" title="view.TurtleState.initiate\lState" alt="" coords="213,393,381,434"/>
+<area shape="rect" id="node20" href="$d3/d1e/classview_1_1_button_bar.html#a122a1893502233bc97ab889074bdf2b1" title="view.ButtonBar.makeButton" alt="" coords="198,509,397,536"/>
+<area shape="rect" id="node21" href="$d6/d05/classview_1_1_color_chooser.html#aeff346e71fef58d80a7e9e2ee22e8232" title="view.ColorChooser.makeColor\lChooserPopUp" alt="" coords="192,561,403,602"/>
+<area shape="rect" id="node23" href="$d1/d1a/classview_1_1_display.html#a5a90faf6bdd48db75a4a68793c171b7c" title="view.Display.makeDisplay" alt="" coords="206,627,389,653"/>
+<area shape="rect" id="node25" href="$d3/d1e/classview_1_1_button_bar.html#a6be23823d0e49ff97a9c0b22c7c4a732" title="view.ButtonBar.makeHButtonBar" alt="" coords="182,677,413,704"/>
+<area shape="rect" id="node26" href="$d3/d1e/classview_1_1_button_bar.html#a58956aa5c4b96656bb2a894202627872" title="view.ButtonBar.makeVButtonBar" alt="" coords="182,728,413,755"/>
+<area shape="rect" id="node27" href="$da/d44/classview_1_1_command_guide.html#aeb6f34c3947f2494cff0a14b15793008" title="view.CommandGuide.openCommand\lGuide" alt="" coords="168,779,427,821"/>
+<area shape="rect" id="node28" href="$d8/da5/classview_1_1_create_design.html#a4552eff83910a3510b98f123945ce0da" title="view.CreateDesign.saveFile" alt="" coords="201,173,394,200"/>
+<area shape="rect" id="node30" href="$df/d10/classview_1_1_language_chooser.html#a638bfb57c9d44edbc77c09dbbea172f2" title="view.LanguageChooser.set\lLanguage" alt="" coords="202,845,393,886"/>
+<area shape="rect" id="node33" href="$dd/d5e/classview_1_1_image_chooser.html#acce8e5e36cde606043547a64c1f44223" title="view.ImageChooser.start" alt="" coords="208,911,387,937"/>
+<area shape="rect" id="node5" href="$d3/dfc/classview_1_1_enter_commands.html#a1d0bf48565d2681b213f2c735c896ee0" title="view.EnterCommands.addCommand" alt="" coords="475,21,730,48"/>
+<area shape="rect" id="node6" href="$d7/d64/classview_1_1_error_display.html#a6c3f2eacf1ed428f546b8df535aea14d" title="view.ErrorDisplay.QuitError" alt="" coords="509,123,697,149"/>
+<area shape="rect" id="node8" href="$de/d83/classview_1_1_import_design.html#af8cc1739fba8473b1983acb24fd9d47c" title="view.ImportDesign.readFile" alt="" coords="507,72,698,99"/>
+<area shape="rect" id="node7" href="$d7/d64/classview_1_1_error_display.html#a0c73067dcb42d542520886861c13953f" title="view.ErrorDisplay.message" alt="" coords="791,123,982,149"/>
+<area shape="rect" id="node14" href="$d4/d54/classview_1_1_turtle_state.html#a3e4441bdb52aa2698734b68d1c2f851a" title="view.TurtleState.attrib" alt="" coords="523,400,682,427"/>
+<area shape="rect" id="node16" href="$d4/d54/classview_1_1_turtle_state.html#abdea116a1a22735abf21aae594bf68ef" title="view.TurtleState.StateOf\lTurtle" alt="" coords="515,451,690,493"/>
+<area shape="rect" id="node15" href="$d1/deb/classapplication_1_1_turtle_list.html#a87d2c5ddc9378480e8b4bfa5e95b5629" title="application.TurtleList.get\lActiveTurtles" alt="" coords="799,393,975,434"/>
+<area shape="rect" id="node17" href="$d4/d54/classview_1_1_turtle_state.html#a3bb9e702c972e9bf0d45895be22d3f2c" title="view.TurtleState.output" alt="" coords="803,459,970,485"/>
+<area shape="rect" id="node18" href="$d4/d54/classview_1_1_turtle_state.html#a0a10884d38ddbe122790ec162a1bb8b2" title="view.TurtleState.refresh\lButton" alt="" coords="801,510,972,551"/>
+<area shape="rect" id="node19" href="$d4/d54/classview_1_1_turtle_state.html#a82984a055d38c6f5a2a4fae97741ce2c" title="view.TurtleState.refresh" alt="" coords="1043,517,1213,544"/>
+<area shape="rect" id="node22" href="$d6/d05/classview_1_1_color_chooser.html#a66232fdbcddc16c0550b7094a0807028" title="view.ColorChooser.format\lColorSelector" alt="" coords="511,561,695,602"/>
+<area shape="rect" id="node24" href="$d1/d1a/classview_1_1_display.html#a6809a7a7ebf1366aa0417c5f12d29b26" title="view.Display.addTurtle" alt="" coords="523,627,682,653"/>
+<area shape="rect" id="node29" href="$d3/dfc/classview_1_1_enter_commands.html#accac5331932cfb53b59d1ba5b2027184" title="view.EnterCommands.getHistory" alt="" coords="487,173,718,200"/>
+<area shape="rect" id="node31" href="$d3/dbe/classview_1_1_view.html#a318198fbcd4b1cac52bff73680ca8730" title="view.View.getModel" alt="" coords="531,805,674,832"/>
+<area shape="rect" id="node32" href="$dd/d17/classapplication_1_1_model.html#a31a6a7f1c136e4fccef5f51525c9ade0" title="application.Model.setLanguage" alt="" coords="493,856,713,883"/>
+<area shape="rect" id="node34" href="$dd/d5e/classview_1_1_image_chooser.html#a6d668cc328dfded5d66f3311c8a5637d" title="view.ImageChooser.openFile" alt="" coords="503,911,703,937"/>
+<area shape="rect" id="node35" href="$d1/d1a/classview_1_1_display.html#a09cd42ab0296796c2c321ba6cb02a8b8" title="view.Display.updateTurtle\lImage" alt="" coords="797,903,976,945"/>
+</map>

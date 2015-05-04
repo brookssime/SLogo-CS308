@@ -1,0 +1,37 @@
+<map id="view.View.addModelListeners" name="view.View.addModelListeners">
+<area shape="rect" id="node2" href="$d1/d1a/classview_1_1_display.html#a38e173e9f2975b993df2b99e96a2b1ca" title="view.Display.addToRoot" alt="" coords="289,255,455,281"/>
+<area shape="rect" id="node3" href="$d1/d1a/classview_1_1_display.html#a6809a7a7ebf1366aa0417c5f12d29b26" title="view.Display.addTurtle" alt="" coords="558,843,717,869"/>
+<area shape="rect" id="node4" href="$d3/dbe/classview_1_1_view.html#a808f20def9060b723dd4974bc7553155" title="view.View.addTurtleListeners" alt="" coords="272,305,472,332"/>
+<area shape="rect" id="node15" href="$dd/d17/classapplication_1_1_model.html#aa8b0b73eaf7a90d7cf114b7f72fa12ec" title="application.Model.background\lProperty" alt="" coords="266,407,478,449"/>
+<area shape="rect" id="node16" href="$dd/d17/classapplication_1_1_model.html#a720c4d7864cbc6057f611cd2a33c3d8c" title="application.Model.clearScreen\lProperty" alt="" coords="265,473,479,514"/>
+<area shape="rect" id="node17" href="$dd/d17/classapplication_1_1_model.html#aae61fd8906b6795789ec63cb7b969c8b" title="application.Model.clearStamp\lProperty" alt="" coords="267,538,477,579"/>
+<area shape="rect" id="node18" href="$d3/dbe/classview_1_1_view.html#a6b05d2b97544251a998d74941d37038e" title="view.View.displayError" alt="" coords="293,356,451,383"/>
+<area shape="rect" id="node20" href="$dd/d17/classapplication_1_1_model.html#a09699b01958f2fae8d980421c5af1811" title="application.Model.errorMessage\lProperty" alt="" coords="259,655,485,697"/>
+<area shape="rect" id="node21" href="$d1/d1a/classview_1_1_display.html#a03e05d48dd3ba5d7feb81bdd027383c2" title="view.Display.getMap" alt="" coords="298,721,446,748"/>
+<area shape="rect" id="node22" href="$d1/d1a/classview_1_1_display.html#ac1ae4c5935665f8fc4eb828506c3a6f4" title="view.Display.getRoot" alt="" coords="297,772,447,799"/>
+<area shape="rect" id="node23" href="$df/d10/classview_1_1_language_chooser.html#a82ea8efbdca9cbb66c70af5530fd52ac" title="view.LanguageChooser.get\lStringProperty" alt="" coords="276,823,468,865"/>
+<area shape="rect" id="node24" href="$d1/deb/classapplication_1_1_turtle_list.html#a0de066aa32e9e19fe3d8313693a95247" title="application.TurtleList.get\lTurtle" alt="" coords="284,889,460,930"/>
+<area shape="rect" id="node25" href="$dd/d17/classapplication_1_1_model.html#aa7ed87b9bf32630ff3c5b771feb6a67a" title="application.Model.getTurtleList" alt="" coords="265,955,479,981"/>
+<area shape="rect" id="node26" href="$d1/deb/classapplication_1_1_turtle_list.html#a69cce048d8a5c69017cb3cf4accfb3d1" title="application.TurtleList.IDProperty" alt="" coords="261,1005,483,1032"/>
+<area shape="rect" id="node27" href="$d1/d1a/classview_1_1_display.html#a5a90faf6bdd48db75a4a68793c171b7c" title="view.Display.makeDisplay" alt="" coords="281,1056,463,1083"/>
+<area shape="rect" id="node28" href="$dd/d17/classapplication_1_1_model.html#ac9d2f4ee1bfafa90b824428344eef650" title="application.Model.pallet\lProperty" alt="" coords="286,1107,458,1149"/>
+<area shape="rect" id="node29" href="$dd/d17/classapplication_1_1_model.html#a36689862ee176033fe7f2cd205cc8cfb" title="application.Model.penColor\lProperty" alt="" coords="275,1173,469,1214"/>
+<area shape="rect" id="node30" href="$dd/d17/classapplication_1_1_model.html#a63d02440007e1584ac2877ceaed55d1f" title="application.Model.penSize\lProperty" alt="" coords="278,1238,466,1279"/>
+<area shape="rect" id="node31" href="$dd/d17/classapplication_1_1_model.html#a31a6a7f1c136e4fccef5f51525c9ade0" title="application.Model.setLanguage" alt="" coords="262,1304,482,1331"/>
+<area shape="rect" id="node32" href="$dd/d17/classapplication_1_1_model.html#aad99353c2f5f15a7b60a353b4d0fcae0" title="application.Model.update\lCommandPatterns" alt="" coords="281,1355,463,1397"/>
+<area shape="rect" id="node36" href="$d1/d1a/classview_1_1_display.html#a5d97c9a2e3425a7f1e5ded361ad993f8" title="view.Display.updateMap" alt="" coords="286,1421,458,1448"/>
+<area shape="rect" id="node5" href="$d1/d31/classapplication_1_1_turtle.html#a9aeb42d200dd4bac290fb0f896af8fc4" title="application.Turtle.getHeading\lProperty" alt="" coords="534,201,741,242"/>
+<area shape="rect" id="node6" href="$d1/d1a/classview_1_1_display.html#aaed3fea01db035ba2f25d6aee7367f8b" title="view.Display.updateTurtle\lHeading" alt="" coords="548,266,727,307"/>
+<area shape="rect" id="node7" href="$d1/d31/classapplication_1_1_turtle.html#a2aa6d64cf4909c1d5db7d48118491805" title="application.Turtle.getLocation\lProperty" alt="" coords="533,331,741,373"/>
+<area shape="rect" id="node8" href="$d1/d1a/classview_1_1_display.html#acf01babbf39275410d66f26521aec7ce" title="view.Display.updateTurtle\lLocation" alt="" coords="548,397,727,438"/>
+<area shape="rect" id="node10" href="$d1/d31/classapplication_1_1_turtle.html#aba1e48364a283753a4d099fe64fc663f" title="application.Turtle.getPen\lDownProperty" alt="" coords="548,462,727,503"/>
+<area shape="rect" id="node11" href="$d1/d1a/classview_1_1_display.html#a2557e79982a0547b1ce94db60a2021d7" title="view.Display.setVisibility" alt="" coords="552,528,723,555"/>
+<area shape="rect" id="node12" href="$d1/d31/classapplication_1_1_turtle.html#a4b35563bbf3dd74893e43cef84865a35" title="application.Turtle.getShowing\lProperty" alt="" coords="534,5,741,46"/>
+<area shape="rect" id="node13" href="$d1/d1a/classview_1_1_display.html#af0abcb9d9b5ec2892bf7617c4aaed48a" title="view.Display.updateTurtle\lShowing" alt="" coords="548,70,727,111"/>
+<area shape="rect" id="node14" href="$d1/d31/classapplication_1_1_turtle.html#ac6534349b22cc2e1b750608f75897e5f" title="application.Turtle.shape\lProperty" alt="" coords="551,135,723,177"/>
+<area shape="rect" id="node9" href="$d1/d1a/classview_1_1_display.html#ae37f2b2ceda0b899a554cbdacc791a35" title="view.Display.drawLines" alt="" coords="824,404,987,431"/>
+<area shape="rect" id="node19" href="$d7/d64/classview_1_1_error_display.html#a5fafc1b8bef7b7cc1609f5d6d6d2cf47" title="view.ErrorDisplay.display" alt="" coords="550,579,725,605"/>
+<area shape="rect" id="node33" href="$dc/d9e/classapplication_1_1_parser.html#a62688af8185b6fc69d3253cce9b75b5a" title="application.Parser.update\lCommandPatterns" alt="" coords="546,1355,729,1397"/>
+<area shape="rect" id="node34" href="$dd/d17/classapplication_1_1_model.html#aee52a4cb7337da546f826833d133c871" title="application.Model.getLanguage" alt="" coords="795,1392,1016,1419"/>
+<area shape="rect" id="node35" href="$de/d31/classapplication_1_1_pattern_matcher.html#aa9ad491c96a7737068b2907dffd3f837" title="application.PatternMatcher.make\lPatterns" alt="" coords="789,1326,1021,1367"/>
+</map>

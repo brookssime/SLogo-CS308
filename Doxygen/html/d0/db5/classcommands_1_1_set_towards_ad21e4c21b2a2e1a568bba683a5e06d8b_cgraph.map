@@ -1,0 +1,6 @@
+<map id="commands.SetTowards.function" name="commands.SetTowards.function">
+<area shape="rect" id="node2" href="$d0/db5/classcommands_1_1_set_towards.html#a7b88861ab88e225b07507676e126846b" title="commands.SetTowards.getOffset" alt="" coords="281,45,514,72"/>
+<area shape="rect" id="node5" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="288,97,507,138"/>
+<area shape="rect" id="node3" href="$d1/d31/classapplication_1_1_turtle.html#a61d5e1fe37a8eb2cd0ab85fe11906321" title="application.Turtle.getHalf\lRotation" alt="" coords="563,5,741,46"/>
+<area shape="rect" id="node4" href="$d1/d31/classapplication_1_1_turtle.html#a861246d5dab4fa8162c433ab8fcd7193" title="application.Turtle.getFull\lRotation" alt="" coords="565,70,739,111"/>
+</map>
