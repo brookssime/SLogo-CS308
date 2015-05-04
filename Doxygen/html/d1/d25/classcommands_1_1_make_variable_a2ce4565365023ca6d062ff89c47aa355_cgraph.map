@@ -1,0 +1,5 @@
+<map id="commands.MakeVariable.function" name="commands.MakeVariable.function">
+<area shape="rect" id="node2" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="295,5,511,32"/>
+<area shape="rect" id="node3" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="293,57,512,98"/>
+<area shape="rect" id="node4" href="$dd/d17/classapplication_1_1_model.html#a148bca8470c723e82cb3150af8b62eae" title="application.Model.setVariable\lValue" alt="" coords="299,122,507,163"/>
+</map>

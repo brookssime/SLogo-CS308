@@ -1,0 +1,19 @@
+<map id="view.LanguageChooser" name="view.LanguageChooser">
+<area shape="rect" id="node4" href="$d3/dbe/classview_1_1_view.html" title="view.View" alt="" coords="1715,421,1797,448"/>
+<area shape="rect" id="node23" href="$d3/d1e/classview_1_1_button_bar.html" title="view.ButtonBar" alt="" coords="1408,817,1525,844"/>
+<area shape="rect" id="node37" href="$dd/d17/classapplication_1_1_model.html" title="application.Model" alt="" coords="755,531,888,557"/>
+<area shape="rect" id="node5" href="$de/d83/classview_1_1_import_design.html" title="view.ImportDesign" alt="" coords="752,105,891,132"/>
+<area shape="rect" id="node8" href="$d3/dfc/classview_1_1_enter_commands.html" title="view.EnterCommands" alt="" coords="1105,172,1265,199"/>
+<area shape="rect" id="node6" href="$da/d44/classview_1_1_command_guide.html" title="view.CommandGuide" alt="" coords="1389,319,1545,345"/>
+<area shape="rect" id="node7" href="$d8/da5/classview_1_1_create_design.html" title="view.CreateDesign" alt="" coords="1397,207,1536,233"/>
+<area shape="rect" id="node10" href="$d2/d22/classview_1_1_previous_commands.html" title="view.PreviousCommands" alt="" coords="1377,265,1557,292"/>
+<area shape="rect" id="node12" href="$d5/d91/classview_1_1_workspace_adder.html" title="view.WorkspaceAdder" alt="" coords="1387,369,1546,396"/>
+<area shape="rect" id="node13" href="$d4/d54/classview_1_1_turtle_state.html" title="view.TurtleState" alt="" coords="1125,688,1246,715"/>
+<area shape="rect" id="node15" href="$d1/deb/classapplication_1_1_turtle_list.html" title="application.TurtleList" alt="" coords="365,628,515,655"/>
+<area shape="rect" id="node25" href="$d1/d31/classapplication_1_1_turtle.html" title="application.Turtle" alt="" coords="375,760,505,787"/>
+<area shape="rect" id="node24" href="$d1/d1a/classview_1_1_display.html" title="view.Display" alt="" coords="772,1021,871,1048"/>
+<area shape="rect" id="node34" href="$dd/d5e/classview_1_1_image_chooser.html" title="view.ImageChooser" alt="" coords="1113,939,1258,965"/>
+<area shape="rect" id="node36" href="$d6/d05/classview_1_1_color_chooser.html" title="view.ColorChooser" alt="" coords="1116,888,1255,915"/>
+<area shape="rect" id="node41" href="$dc/d9e/classapplication_1_1_parser.html" title="application.Parser" alt="" coords="1118,481,1253,508"/>
+<area shape="rect" id="node43" href="$d5/d4b/classtree_1_1_tree_builder.html" title="tree.TreeBuilder" alt="" coords="760,453,883,480"/>
+</map>

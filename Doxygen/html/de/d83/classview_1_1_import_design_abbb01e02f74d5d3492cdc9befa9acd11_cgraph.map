@@ -1,0 +1,7 @@
+<map id="view.ImportDesign.openDesign" name="view.ImportDesign.openDesign">
+<area shape="rect" id="node2" href="$de/d83/classview_1_1_import_design.html#a28c331a446c4c74cfc94149e5ceb0977" title="view.ImportDesign.choose\lDesign" alt="" coords="273,49,461,90"/>
+<area shape="rect" id="node3" href="$d7/d64/classview_1_1_error_display.html#a6c3f2eacf1ed428f546b8df535aea14d" title="view.ErrorDisplay.QuitError" alt="" coords="519,5,707,32"/>
+<area shape="rect" id="node5" href="$de/d83/classview_1_1_import_design.html#af8cc1739fba8473b1983acb24fd9d47c" title="view.ImportDesign.readFile" alt="" coords="518,56,709,83"/>
+<area shape="rect" id="node6" href="$d3/dfc/classview_1_1_enter_commands.html#a17b5999a795f8675493768d88b06481c" title="view.EnterCommands.upload\lCommand" alt="" coords="510,107,717,149"/>
+<area shape="rect" id="node4" href="$d7/d64/classview_1_1_error_display.html#a0c73067dcb42d542520886861c13953f" title="view.ErrorDisplay.message" alt="" coords="766,5,957,32"/>
+</map>
