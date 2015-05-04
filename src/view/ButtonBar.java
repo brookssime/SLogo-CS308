@@ -41,7 +41,7 @@ public class ButtonBar {
 		Button chooseColor=makeButton("Set Colors");
 		chooseColor.setOnAction(c-> colz.makeColorChooserPopUp(new Stage()));
 		Button setImage=makeButton("Set Image");
-		setImage.setOnAction(s-> img.start(new Stage()));
+		setImage.setOnAction(s-> img.start());
 		setLang.setOnAction(l-> lang.setLanguage(new Stage()));
 		vbox.getChildren().addAll(setLang,chooseColor,setImage);
 		vbox.setAlignment(Pos.CENTER);

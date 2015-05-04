@@ -24,10 +24,10 @@ public class ImageChooser {
 		display=d;
 	}
 	
-	public void start(final Stage stage) {
+	public void start() {
 		final FileChooser fileChooser = new FileChooser();
 		
-		File file = fileChooser.showOpenDialog(stage);
+		File file = fileChooser.showOpenDialog(null);
 		if (file != null) {
 			openFile(file);
 		}
