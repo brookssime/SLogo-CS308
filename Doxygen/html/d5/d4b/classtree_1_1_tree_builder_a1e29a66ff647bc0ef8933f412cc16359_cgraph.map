@@ -1,5 +1,0 @@
-<map id="tree.TreeBuilder.build" name="tree.TreeBuilder.build">
-<area shape="rect" id="node2" href="$d5/d4b/classtree_1_1_tree_builder.html#a4032cc1efc7fb77f4414d1bd58713d4b" title="tree.TreeBuilder.addChildren" alt="" coords="209,31,410,57"/>
-<area shape="rect" id="node3" href="$d7/d99/classtree_1_1_command_node.html#ae5d7b13f887006572eb9bbaa3f0e9d4e" title="tree.CommandNode.addChild" alt="" coords="469,5,681,32"/>
-<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a7a383438fa8edd362dddfc785615edd2" title="tree.CommandNode.getArgNum" alt="" coords="459,56,690,83"/>
-</map>
