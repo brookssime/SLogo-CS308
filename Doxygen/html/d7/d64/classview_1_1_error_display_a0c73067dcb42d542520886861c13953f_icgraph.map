@@ -1,0 +1,10 @@
+<map id="view.ErrorDisplay.message" name="view.ErrorDisplay.message">
+<area shape="rect" id="node2" href="$d7/d64/classview_1_1_error_display.html#a6c3f2eacf1ed428f546b8df535aea14d" title="view.ErrorDisplay.QuitError" alt="" coords="246,35,434,61"/>
+<area shape="rect" id="node3" href="$d8/da5/classview_1_1_create_design.html#a4552eff83910a3510b98f123945ce0da" title="view.CreateDesign.saveFile" alt="" coords="483,5,677,32"/>
+<area shape="rect" id="node8" href="$de/d83/classview_1_1_import_design.html#a28c331a446c4c74cfc94149e5ceb0977" title="view.ImportDesign.choose\lDesign" alt="" coords="486,57,674,98"/>
+<area shape="rect" id="node4" href="$d8/da5/classview_1_1_create_design.html#a8871165116e29a90754e135d7d46a245" title="view.CreateDesign.SaveDesign" alt="" coords="725,8,944,35"/>
+<area shape="rect" id="node5" href="$d3/dbe/classview_1_1_view.html#aef3f2dd859a6a5c719987365a9afb905" title="view.View.start" alt="" coords="992,35,1107,61"/>
+<area shape="rect" id="node6" href="$d4/d9d/classapplication_1_1_wrapper.html#a4be5486a54f6d10d816c3ff49e82ecb9" title="application.Wrapper.make\lNewWindow" alt="" coords="1155,27,1341,69"/>
+<area shape="rect" id="node7" href="$d9/d96/classapplication_1_1_main.html#a4e5ad4e3de8bbd8654120180a94e870d" title="application.Main.start" alt="" coords="1390,35,1549,61"/>
+<area shape="rect" id="node9" href="$de/d83/classview_1_1_import_design.html#abbb01e02f74d5d3492cdc9befa9acd11" title="view.ImportDesign.openDesign" alt="" coords="725,60,944,87"/>
+</map>
