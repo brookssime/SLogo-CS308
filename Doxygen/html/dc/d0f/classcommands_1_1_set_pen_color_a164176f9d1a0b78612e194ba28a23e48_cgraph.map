@@ -1,0 +1,5 @@
+<map id="commands.SetPenColor.function" name="commands.SetPenColor.function">
+<area shape="rect" id="node2" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="287,5,503,32"/>
+<area shape="rect" id="node3" href="$dd/d17/classapplication_1_1_model.html#a36689862ee176033fe7f2cd205cc8cfb" title="application.Model.penColor\lProperty" alt="" coords="297,57,492,98"/>
+<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="285,122,504,163"/>
+</map>
