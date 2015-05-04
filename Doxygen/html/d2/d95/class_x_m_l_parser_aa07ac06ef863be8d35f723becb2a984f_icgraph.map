@@ -1,9 +1,0 @@
-<map id="XMLParser.getSimSpec" name="XMLParser.getSimSpec">
-<area shape="rect" id="node2" href="$d2/d95/class_x_m_l_parser.html#a0c2191510d473b5df832969b345ddb7c" title="XMLParser.getBoolSpec" alt="" coords="239,43,411,69"/>
-<area shape="rect" id="node5" href="$d2/d95/class_x_m_l_parser.html#afae4e89d9bc740ba79798268632fa2d3" title="XMLParser.getInteractStates" alt="" coords="224,93,427,120"/>
-<area shape="rect" id="node6" href="$d2/d95/class_x_m_l_parser.html#a9ce3d4a8cb751a52ea349269f1e7d713" title="XMLParser.getIntSpec" alt="" coords="245,144,405,171"/>
-<area shape="rect" id="node3" href="$d2/d95/class_x_m_l_parser.html#a11061ead64d7b0da6e0a034dcc42b455" title="XMLParser.getCornerNeighbors" alt="" coords="481,5,701,32"/>
-<area shape="rect" id="node4" href="$d2/d95/class_x_m_l_parser.html#a7661b8f6a7517ce93d5c9b726f273e95" title="XMLParser.getWrapAround" alt="" coords="496,56,685,83"/>
-<area shape="rect" id="node7" href="$d2/d95/class_x_m_l_parser.html#af0ec34241378ddfda04d5e53662f5d2d" title="XMLParser.getNeighborhoodSize" alt="" coords="476,119,705,145"/>
-<area shape="rect" id="node8" href="$d2/d95/class_x_m_l_parser.html#a630ba14d1542cbfbb1759efb3580bf5a" title="XMLParser.getNumCellProperties" alt="" coords="475,169,706,196"/>
-</map>

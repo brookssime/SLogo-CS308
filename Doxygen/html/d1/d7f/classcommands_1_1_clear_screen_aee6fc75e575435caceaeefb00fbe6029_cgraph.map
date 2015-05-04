@@ -1,5 +1,0 @@
-<map id="commands.ClearScreen.function" name="commands.ClearScreen.function">
-<area shape="rect" id="node2" href="$dd/d17/classapplication_1_1_model.html#a720c4d7864cbc6057f611cd2a33c3d8c" title="application.Model.clearScreen\lProperty" alt="" coords="288,5,501,46"/>
-<area shape="rect" id="node3" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="287,71,503,97"/>
-<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="285,122,504,163"/>
-</map>

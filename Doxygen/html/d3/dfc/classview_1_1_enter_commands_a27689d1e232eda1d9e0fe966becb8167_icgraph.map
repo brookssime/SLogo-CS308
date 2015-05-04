@@ -1,6 +1,0 @@
-<map id="view.EnterCommands.init" name="view.EnterCommands.init">
-<area shape="rect" id="node2" href="$d3/dfc/classview_1_1_enter_commands.html#a4ae967866de547c659252867cdc41ce5" title="view.EnterCommands.runCommand" alt="" coords="238,5,490,32"/>
-<area shape="rect" id="node3" href="$d3/dbe/classview_1_1_view.html#aef3f2dd859a6a5c719987365a9afb905" title="view.View.start" alt="" coords="307,56,421,83"/>
-<area shape="rect" id="node4" href="$d4/d9d/classapplication_1_1_wrapper.html#a4be5486a54f6d10d816c3ff49e82ecb9" title="application.Wrapper.make\lNewWindow" alt="" coords="539,49,725,90"/>
-<area shape="rect" id="node5" href="$d9/d96/classapplication_1_1_main.html#a4e5ad4e3de8bbd8654120180a94e870d" title="application.Main.start" alt="" coords="774,56,933,83"/>
-</map>

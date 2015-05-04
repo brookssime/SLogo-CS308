@@ -1,5 +1,0 @@
-<map id="commands.SetPallet.function" name="commands.SetPallet.function">
-<area shape="rect" id="node2" href="$d7/d99/classtree_1_1_command_node.html#ae60b1b2f861235627eb90a0d1fa25814" title="tree.CommandNode.getModel" alt="" coords="265,5,481,32"/>
-<area shape="rect" id="node3" href="$dd/d17/classapplication_1_1_model.html#ac9d2f4ee1bfafa90b824428344eef650" title="application.Model.pallet\lProperty" alt="" coords="287,57,459,98"/>
-<area shape="rect" id="node4" href="$d7/d99/classtree_1_1_command_node.html#a9f3dd4c2d2489cbbbc7e09e252a8c9a3" title="tree.CommandNode.putObject\lInList" alt="" coords="264,122,483,163"/>
-</map>

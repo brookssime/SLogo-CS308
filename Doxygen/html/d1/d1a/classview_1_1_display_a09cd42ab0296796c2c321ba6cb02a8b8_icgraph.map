@@ -1,7 +1,0 @@
-<map id="view.Display.updateTurtleImage" name="view.Display.updateTurtleImage">
-<area shape="rect" id="node2" href="$dd/d5e/classview_1_1_image_chooser.html#a6d668cc328dfded5d66f3311c8a5637d" title="view.ImageChooser.openFile" alt="" coords="232,12,432,39"/>
-<area shape="rect" id="node3" href="$dd/d5e/classview_1_1_image_chooser.html#acce8e5e36cde606043547a64c1f44223" title="view.ImageChooser.start" alt="" coords="480,12,659,39"/>
-<area shape="rect" id="node4" href="$d3/dbe/classview_1_1_view.html#aef3f2dd859a6a5c719987365a9afb905" title="view.View.start" alt="" coords="707,12,821,39"/>
-<area shape="rect" id="node5" href="$d4/d9d/classapplication_1_1_wrapper.html#a4be5486a54f6d10d816c3ff49e82ecb9" title="application.Wrapper.make\lNewWindow" alt="" coords="869,5,1056,46"/>
-<area shape="rect" id="node6" href="$d9/d96/classapplication_1_1_main.html#a4e5ad4e3de8bbd8654120180a94e870d" title="application.Main.start" alt="" coords="1105,12,1263,39"/>
-</map>
