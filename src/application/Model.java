@@ -33,6 +33,7 @@ public class Model implements Observer{
     private DoubleProperty penSize = new SimpleDoubleProperty();
     private DoubleProperty penColor = new SimpleDoubleProperty();
     private ObjectProperty<double[]> pallet = new SimpleObjectProperty<>();
+    private BooleanProperty wrap = new SimpleBooleanProperty();
     private BooleanProperty clearScreen = new SimpleBooleanProperty();
     private BooleanProperty clearStamp = new SimpleBooleanProperty();
     
@@ -110,6 +111,10 @@ public class Model implements Observer{
     
     public ObjectProperty<double[]> palletProperty(){
     	return pallet;
+    }
+    
+    public BooleanProperty wrapProperty(){
+    	return wrap;
     }
     
     public BooleanProperty clearScreenProperty(){
